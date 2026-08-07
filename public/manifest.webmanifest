@@ -1,0 +1,12 @@
+{
+  "name": "Elite Events — Luxury Event Management",
+  "short_name": "Elite Events",
+  "description": "Luxury weddings, celebrations and corporate events in Hyderabad, Vijayawada and Eluru.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "64x64", "type": "image/png" }
+  ]
+}
