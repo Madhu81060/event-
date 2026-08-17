@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Award, HeartHandshake, ShieldCheck, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import heroHindu from "@/assets/hero-hindu.jpg";
-import heroBirthday from "@/assets/hero-birthday.jpg";
+import { clientEvent1, clientEvent4 } from "./data";
 
 const stats = [
   { value: 1000, suffix: "+", label: "Events Completed" },
@@ -114,16 +113,16 @@ export function About() {
           <Reveal className="order-1 lg:order-2" delay={120}>
             <div className="relative">
               <img
-                src={heroHindu}
-                alt="Grand floral mandap designed by Elite Events"
+                src={clientEvent1}
+                alt="Grand floral mandap stage designed by Elite Events"
                 width={1920}
                 height={1088}
                 loading="lazy"
                 className="shadow-luxe aspect-4/5 w-full rounded-[2rem] object-cover"
               />
               <img
-                src={heroBirthday}
-                alt="Luxury birthday decoration with balloon arch"
+                src={clientEvent4}
+                alt="Luxury wedding reception stage with royal sofa"
                 width={1920}
                 height={1088}
                 loading="lazy"

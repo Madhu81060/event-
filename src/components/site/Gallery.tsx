@@ -1,96 +1,129 @@
-import { useState } from "react";
-import { X, PlayCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { X, PlayCircle, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { cn } from "@/lib/utils";
-import heroHindu from "@/assets/hero-hindu.jpg";
-import heroChristian from "@/assets/hero-christian.jpg";
-import heroMuslim from "@/assets/hero-muslim.jpg";
-import heroHaldi from "@/assets/hero-haldi.jpg";
-import heroBirthday from "@/assets/hero-birthday.jpg";
-import heroCorporate from "@/assets/hero-corporate.jpg";
-import eventReception from "@/assets/event-reception.jpg";
-import eventSangeet from "@/assets/event-sangeet.jpg";
-import eventConference from "@/assets/event-conference.jpg";
-import eventDrone from "@/assets/event-drone.jpg";
-import eventEngagement from "@/assets/event-engagement.jpg";
-import eventBabyShower from "@/assets/event-babyshower.jpg";
-import officeHyderabad from "@/assets/office-hyderabad.jpg";
+import { supabase } from "@/lib/supabase";
+import {
+  clientEvent1,
+  clientEvent2,
+  clientEvent3,
+  clientEvent4,
+  clientEvent5,
+  clientEvent6,
+  clientEvent7,
+  clientEvent8,
+  clientEvent9,
+  clientEvent10,
+} from "./data";
 
-type Item = { src: string; alt: string; cat: string; span?: string; video?: boolean };
+type Item = {
+  src: string;
+  alt: string;
+  cat: string;
+  span?: string | undefined;
+  video?: boolean | undefined;
+};
 
-const items: Item[] = [
+const initialItems: Item[] = [
   {
-    src: heroHindu,
-    alt: "Floral mandap with chandeliers at a luxury Hindu wedding",
+    src: clientEvent9,
+    alt: "Grand traditional golden carved mandap decor with Shankhu Chakra Namam",
     cat: "Wedding",
-    span: "sm:row-span-2",
-  },
-  { src: heroChristian, alt: "Church wedding with white floral aisle", cat: "Christian" },
-  { src: heroMuslim, alt: "Gold and emerald nikah stage setup", cat: "Muslim" },
-  {
-    src: heroHaldi,
-    alt: "Marigold haldi ceremony decoration",
-    cat: "Haldi",
-    span: "sm:col-span-2",
-  },
-  { src: heroBirthday, alt: "Pink and gold birthday balloon arch", cat: "Birthday" },
-  {
-    src: heroCorporate,
-    alt: "College fest stage with LED wall and lighting",
-    cat: "College",
-    video: true,
+    span: "sm:col-span-2 sm:row-span-2",
   },
   {
-    src: eventReception,
-    alt: "Golden reception stage with orchid florals and chandeliers",
+    src: clientEvent6,
+    alt: "Name-themed floral backdrop setup for Sathwik & Akshaya ceremony with swan motifs",
+    cat: "Engagement",
+  },
+  {
+    src: clientEvent10,
+    alt: "Royal wedding hall setup with golden banquet seating and illuminated mandap stage",
     cat: "Reception",
-    span: "sm:row-span-2",
-  },
-  { src: eventSangeet, alt: "Sangeet night dance floor with confetti and LED screens", cat: "Sangeet" },
-  { src: eventEngagement, alt: "Pastel pink engagement ring ceremony setup", cat: "Engagement" },
-  {
-    src: eventConference,
-    alt: "Corporate summit stage with large LED wall and blue lighting",
-    cat: "Corporate",
     span: "sm:col-span-2",
   },
-  { src: eventBabyShower, alt: "Pastel baby shower balloon and dessert table setup", cat: "Birthday" },
   {
-    src: officeHyderabad,
-    alt: "Elite Events design studio reception in Hyderabad",
-    cat: "Our Office",
+    src: clientEvent7,
+    alt: "Botanical green flower wall with circular floral arch & swan decor",
+    cat: "Wedding",
   },
   {
-    src: eventDrone,
-    alt: "Aerial drone view of an illuminated outdoor wedding venue at dusk",
-    cat: "Drone Videos",
-    video: true,
+    src: clientEvent8,
+    alt: "Pink & blue illuminated circular flower arch reception backdrop",
+    cat: "Reception",
+  },
+  {
+    src: clientEvent1,
+    alt: "Grand floral stage & mandap decoration with gerbera garlands and luxury couch",
+    cat: "Wedding",
+    span: "sm:col-span-2 sm:row-span-2",
+  },
+  {
+    src: clientEvent4,
+    alt: "Purple drapery wedding reception stage with royal silver sofa",
+    cat: "Reception",
+  },
+  {
+    src: clientEvent3,
+    alt: "Circular flower arch backdrop setup with ambient lighting",
+    cat: "Engagement",
+  },
+  {
+    src: clientEvent2,
+    alt: "Vibrant green botanical flower wall backdrop",
+    cat: "Wedding",
     span: "sm:col-span-2",
+  },
+  {
+    src: clientEvent5,
+    alt: "Royal pink backdrop floral archway with ornate urn vases",
+    cat: "Reception",
   },
 ];
 
 const categories = [
   "All",
   "Wedding",
-  "Birthday",
-  "Haldi",
-  "Christian",
-  "Muslim",
   "Reception",
-  "Sangeet",
   "Engagement",
+  "Haldi",
+  "Sangeet",
+  "Birthday",
   "Corporate",
-  "College",
-  "Drone Videos",
-  "Our Office",
 ];
 
 export function Gallery() {
   const [cat, setCat] = useState("All");
   const [lightbox, setLightbox] = useState<Item | null>(null);
+  const [galleryItems, setGalleryItems] = useState<Item[]>(initialItems);
 
-  const shown = items.filter((i) => cat === "All" || i.cat === cat);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    async function loadSupabaseItems() {
+      try {
+        const { data, error } = await supabase
+          .from("events_gallery")
+          .select("*")
+          .order("display_order", { ascending: true });
+        if (data && data.length > 0 && !error) {
+          const fetched: Item[] = data.map((d: any) => ({
+            src: String(d.image_url),
+            alt: String(d.alt_text || d.title),
+            cat: String(d.category || "Wedding"),
+            span: d.is_featured ? "sm:col-span-2" : undefined,
+          }));
+          setGalleryItems([...fetched, ...initialItems]);
+        }
+      } catch (err) {
+        // Silently fallback to initialItems
+      }
+    }
+    loadSupabaseItems();
+  }, []);
+
+  const shown = galleryItems.filter((i) => cat === "All" || i.cat === cat);
 
   return (
     <section id="gallery" className="relative py-24 sm:py-32">

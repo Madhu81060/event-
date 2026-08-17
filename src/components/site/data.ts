@@ -1,9 +1,15 @@
-import heroHindu from "@/assets/hero-hindu.jpg";
-import heroChristian from "@/assets/hero-christian.jpg";
-import heroMuslim from "@/assets/hero-muslim.jpg";
-import heroHaldi from "@/assets/hero-haldi.jpg";
-import heroBirthday from "@/assets/hero-birthday.jpg";
-import heroCorporate from "@/assets/hero-corporate.jpg";
+export const SUPABASE_CDN_BASE = "https://eskworfjlnwshqtvwpes.supabase.co/storage/v1/object/public/event-gallery/events";
+
+export const clientEvent1 = `${SUPABASE_CDN_BASE}/client-event-1.jpg`;
+export const clientEvent2 = `${SUPABASE_CDN_BASE}/client-event-2.jpg`;
+export const clientEvent3 = `${SUPABASE_CDN_BASE}/client-event-3.jpg`;
+export const clientEvent4 = `${SUPABASE_CDN_BASE}/client-event-4.jpg`;
+export const clientEvent5 = `${SUPABASE_CDN_BASE}/client-event-5.jpg`;
+export const clientEvent6 = `${SUPABASE_CDN_BASE}/client-event-6.jpg`;
+export const clientEvent7 = `${SUPABASE_CDN_BASE}/client-event-7.jpg`;
+export const clientEvent8 = `${SUPABASE_CDN_BASE}/client-event-8.jpg`;
+export const clientEvent9 = `${SUPABASE_CDN_BASE}/client-event-9.jpg`;
+export const clientEvent10 = `${SUPABASE_CDN_BASE}/client-event-10.jpg`;
 
 export const WHATSAPP_NUMBER = "916302213452";
 export const WHATSAPP_MESSAGE =
@@ -14,52 +20,52 @@ export const EMAIL = "hello@eliteevents.in";
 
 export const slides = [
   {
-    image: heroHindu,
+    image: clientEvent9,
     eyebrow: "Sacred Traditions, Royal Scale",
-    title: "Luxury Hindu Weddings",
+    title: "Grand Traditional Mandap Setups",
     subtitle:
-      "Grand mandaps, fresh floral canopies and chandelier-lit stages crafted for once-in-a-lifetime vows.",
-    alt: "Luxury Hindu wedding mandap with pink and white floral canopy and crystal chandeliers",
+      "Intricately carved golden pillars, fresh gerbera garlands, and holy motif decor for sacred wedding vows.",
+    alt: "Grand traditional golden carved mandap decor with Shankhu Chakra Namam",
   },
   {
-    image: heroChristian,
-    eyebrow: "Timeless & Refined",
-    title: "Royal Christian Weddings",
+    image: clientEvent10,
+    eyebrow: "Palace-Scale Hospitality",
+    title: "Luxury Wedding Hall Production",
     subtitle:
-      "Candle-lined aisles, white rose cathedrals and cinematic church ceremonies with flawless coordination.",
-    alt: "Elegant Christian church wedding with white floral aisle and candlelight",
+      "Royal banquet seating curation, carpeted grand aisles, and concert lighting across venue halls.",
+    alt: "Royal wedding hall setup with golden banquet seating and illuminated mandap stage",
   },
   {
-    image: heroMuslim,
-    eyebrow: "Elegance in Every Detail",
-    title: "Elegant Muslim Weddings",
+    image: clientEvent6,
+    eyebrow: "Personalised Elegance",
+    title: "Custom Name & Theme Backdrops",
     subtitle:
-      "Ornate gold arches, emerald drapery and nikah stages designed with quiet, regal sophistication.",
-    alt: "Elegant Muslim nikah stage with gold arches and emerald drapery",
+      "Bespoke couple naming backdrops, white swan sculptures, and marigold flower arches.",
+    alt: "Name-themed floral backdrop setup for Sathwik & Akshaya ceremony with swan motifs",
   },
   {
-    image: heroHaldi,
-    eyebrow: "Colour, Joy & Ritual",
-    title: "Premium Haldi & Mehendi",
+    image: clientEvent1,
+    eyebrow: "Royal Decor & Production",
+    title: "Grand Floral Stage & Mandaps",
     subtitle:
-      "Marigold cascades, brass artistry and sun-drenched setups that make every ritual photograph beautifully.",
-    alt: "Colourful haldi ceremony decoration with marigold garlands and brass pots",
+      "Bespoke stage decorations, lush floral canopies, and regal seating crafted for lifetime memories.",
+    alt: "Grand floral wedding stage decoration with red gerbera garlands and luxury sofa",
   },
   {
-    image: heroBirthday,
-    eyebrow: "Celebrate Extraordinary",
-    title: "Luxury Birthday Celebrations",
+    image: clientEvent4,
+    eyebrow: "Elegant & Sophisticated",
+    title: "Luxury Reception Stages",
     subtitle:
-      "Designer balloon architecture, dessert ateliers and glowing neon moments for milestone birthdays.",
-    alt: "Luxury birthday party decoration with pink and gold balloon arch and cake table",
+      "Custom backdrop draping, crystal chandeliers, and wedding ring stage motifs for grand receptions.",
+    alt: "Purple drapery wedding stage setup with luxury silver couch",
   },
   {
-    image: heroCorporate,
-    eyebrow: "Stage. Sound. Spectacle.",
-    title: "College Fests, Corporate & Cultural Events",
+    image: clientEvent8,
+    eyebrow: "Contemporary Illumination",
+    title: "Circular Floral Arch & Lighting",
     subtitle:
-      "LED walls, concert-grade lighting and artist management for events that fill a hall with energy.",
-    alt: "College cultural fest stage with LED wall, purple lighting and large crowd",
+      "Stunning circular floral arches with vibrant mood lighting and sheer backdrop drapes.",
+    alt: "Pink & blue illuminated circular flower arch reception backdrop",
   },
 ];
 
