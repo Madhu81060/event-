@@ -2,77 +2,75 @@ import { ArrowRight, Award, BadgeCheck, Download, Handshake } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import heroHaldi from "@/assets/hero-haldi.jpg";
-import heroChristian from "@/assets/hero-christian.jpg";
-import heroCorporate from "@/assets/hero-corporate.jpg";
+import { clientEvent13, clientEvent43, clientEvent42 } from "./data";
 
 const posts = [
   {
-    image: heroHaldi,
-    tag: "Planning",
-    title: "Haldi & Mehendi decor trends taking over 2026",
+    image: clientEvent13,
+    tag: "Haldi & Traditions",
+    title: "Traditional Banana Leaf & Urli Haldi Trends",
     excerpt:
-      "Marigold ceilings, mirror-work seating and daylight photography setups that photograph beautifully.",
+      "Lotus bath tubs, fresh marigold garlands, and natural banana leaf backdrops for vibrant rituals.",
   },
   {
-    image: heroChristian,
-    tag: "Weddings",
-    title: "A 12-month checklist for a Christian church wedding",
+    image: clientEvent43,
+    tag: "Weddings & Mandaps",
+    title: "Sacred Golden Carved Temple Mandapams",
     excerpt:
-      "From booking the parish to the reception seating chart — the timeline our planners actually use.",
+      "Lord Venkateswara Namam art, floral canopies, and antique carved pillars for auspicious wedding muhurthams.",
   },
   {
-    image: heroCorporate,
-    tag: "Corporate",
-    title: "How to produce a college fest that feels like a concert",
+    image: clientEvent42,
+    tag: "Reception & Sangeet",
+    title: "Circular Rose Arches & Ambient Candle Stages",
     excerpt:
-      "Stage design, LED walls, sound rigs and artist management on a student-committee budget.",
+      "Grand circular rose structures, velvet couches, and warm golden lighting for romantic couple stages.",
   },
 ];
 
 const badges = [
-  { icon: Award, label: "Best Wedding Planner 2024 — Telangana Event Awards" },
-  { icon: BadgeCheck, label: "ISO-certified event safety practices" },
-  { icon: Handshake, label: "Preferred partner: 40+ premium venues" },
+  { icon: Award, label: "Best Luxury Event Planner — Telangana & AP Awards" },
+  { icon: BadgeCheck, label: "100% In-house production and transparent pricing" },
+  { icon: Handshake, label: "Trusted partner at 50+ 5-star banquet halls" },
 ];
 
 export function Blog() {
   return (
-    <section id="blog" className="relative py-24 sm:py-32">
+    <section id="blog" className="relative py-24 sm:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Journal"
-          title="Latest From Our Planners"
-          description="Practical guidance from the team that produces a thousand celebrations."
+          eyebrow="Event Tips & Guides"
+          title="Inspiration From Our Real Weddings"
+          description="Design guides and decor insights directly from our senior event directors."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {posts.map((p, i) => (
-            <Reveal key={p.title} delay={i * 100}>
-              <article className="glass-card card-3d group flex h-full flex-col overflow-hidden rounded-3xl">
-                <div className="overflow-hidden">
+            <Reveal key={p.title} delay={i * 80}>
+              <article className="card-3d group flex h-full flex-col overflow-hidden rounded-3xl bg-white border border-amber-200/80 shadow-xs hover:border-amber-400 hover:shadow-xl transition-all">
+                <div className="overflow-hidden aspect-16/10">
                   <img
                     src={p.image}
                     alt={p.title}
-                    width={1920}
-                    height={1088}
+                    width={1024}
+                    height={640}
                     loading="lazy"
-                    className="aspect-16/10 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-108"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <span className="text-gradient-gold text-xs font-semibold tracking-[0.25em] uppercase">
+                  <span className="text-xs font-extrabold tracking-[0.2em] uppercase text-amber-700">
                     {p.tag}
                   </span>
-                  <h3 className="font-display mt-2 text-xl leading-snug font-bold">{p.title}</h3>
-                  <p className="text-muted-foreground mt-2 flex-1 text-sm leading-relaxed">
+                  <h3 className="font-display mt-2 text-xl font-extrabold text-stone-900 leading-snug">{p.title}</h3>
+                  <p className="mt-2 flex-1 text-sm text-stone-600 font-medium leading-relaxed">
                     {p.excerpt}
                   </p>
                   <a
-                    href="#contact"
-                    className="text-primary mt-4 inline-flex items-center gap-1 text-sm font-semibold"
+                    href="#book"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-amber-700 hover:text-amber-900"
                   >
-                    Read more <ArrowRight className="size-4" aria-hidden />
+                    Discuss this setup <ArrowRight className="size-4" aria-hidden />
                   </a>
                 </div>
               </article>
@@ -80,20 +78,20 @@ export function Blog() {
           ))}
         </div>
 
-        <Reveal delay={120} className="mt-14">
-          <div className="glass-card flex flex-col items-center gap-6 rounded-3xl p-8 text-center lg:flex-row lg:text-left">
-            <ul className="grid flex-1 gap-3 sm:grid-cols-3">
+        <Reveal delay={100} className="mt-14">
+          <div className="flex flex-col items-center gap-6 rounded-3xl bg-amber-50/70 border border-amber-200 p-8 text-center lg:flex-row lg:text-left shadow-xs">
+            <ul className="grid flex-1 gap-3.5 sm:grid-cols-3">
               {badges.map((b) => (
                 <li key={b.label} className="flex items-center gap-3 text-sm">
-                  <b.icon className="text-accent size-6 shrink-0" aria-hidden />
-                  <span className="text-muted-foreground">{b.label}</span>
+                  <b.icon className="size-6 text-amber-700 shrink-0" aria-hidden />
+                  <span className="font-bold text-stone-700">{b.label}</span>
                 </li>
               ))}
             </ul>
-            <Button asChild variant="gold" size="xl">
+            <Button asChild size="xl" className="btn-gold-glow rounded-full px-6 shadow-md cursor-pointer">
               <a href="#book">
-                <Download className="size-5" aria-hidden />
-                Download Brochure
+                <Download className="size-5 mr-1.5" />
+                Download Event Brochure
               </a>
             </Button>
           </div>

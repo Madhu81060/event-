@@ -13,14 +13,14 @@ export function SectionHeading({
 }) {
   return (
     <Reveal className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
-      <p className="text-gradient-gold text-xs font-semibold tracking-[0.35em] uppercase">
+      <span className="inline-block rounded-full bg-amber-100 border border-amber-300/80 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-900 shadow-xs">
         {eyebrow}
-      </p>
-      <h2 className="font-display mt-3 text-3xl font-bold tracking-tight sm:text-5xl">
-        <span className="text-gradient-luxe">{title}</span>
+      </span>
+      <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
+        {title}
       </h2>
       {description && (
-        <p className="text-muted-foreground mt-4 text-base sm:text-lg">{description}</p>
+        <p className="mt-3 text-base sm:text-lg text-stone-600 font-medium leading-relaxed">{description}</p>
       )}
     </Reveal>
   );

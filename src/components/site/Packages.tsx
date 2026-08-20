@@ -1,4 +1,4 @@
-import { Check, Crown } from "lucide-react";
+import { Check, Crown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
@@ -7,55 +7,62 @@ import { cn } from "@/lib/utils";
 
 export function Packages() {
   return (
-    <section id="packages" className="relative overflow-hidden py-24 sm:py-32">
-      <div
-        aria-hidden
-        className="bg-gradient-luxe animate-gradient-pan pointer-events-none absolute top-1/3 -right-40 size-[30rem] rounded-full opacity-10 blur-3xl"
-      />
+    <section id="packages" className="relative overflow-hidden py-24 sm:py-32 bg-gradient-to-b from-amber-50/40 via-white to-amber-50/20">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Investment"
-          title="Packages For Every Scale"
-          description="Transparent starting prices. Every package is customisable — mix, match and scale to your guest count."
+          eyebrow="Pricing & Packages"
+          title="Transparent Packages For Every Budget"
+          description="Starting prices with full clarity. Every package is completely customizable according to your venue size and theme."
         />
 
-        <ul className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {packages.map((p, i) => (
-            <Reveal as="li" key={p.name} delay={(i % 3) * 100}>
+            <Reveal as="li" key={p.name} delay={(i % 3) * 80}>
               <article
                 className={cn(
-                  "glass-card card-3d relative flex h-full flex-col rounded-3xl p-7",
-                  p.featured && "ring-2 ring-accent",
+                  "card-3d relative flex h-full flex-col rounded-3xl p-7 bg-white border transition-all duration-300 shadow-sm hover:shadow-xl",
+                  p.featured
+                    ? "border-amber-400 ring-2 ring-amber-400 shadow-amber-100/50"
+                    : "border-amber-200/80 hover:border-amber-300",
                 )}
               >
                 {p.featured && (
-                  <span className="bg-gradient-gold text-accent-foreground absolute -top-3 left-7 flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold">
-                    <Crown className="size-3.5" aria-hidden /> Most Popular
+                  <span className="absolute -top-3.5 left-7 flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-1 text-xs font-bold shadow-md">
+                    <Crown className="size-3.5" /> Most Popular
                   </span>
                 )}
-                <h3 className="font-display text-2xl font-bold">{p.name}</h3>
-                <p className="text-muted-foreground mt-1 text-sm">{p.tagline}</p>
-                <p className="text-gradient-luxe font-display mt-6 text-4xl font-bold">{p.price}</p>
-                <p className="text-muted-foreground text-xs">starting from</p>
+                <h3 className="font-display text-2xl font-extrabold text-stone-900">{p.name}</h3>
+                <p className="text-stone-500 mt-1 text-sm font-medium">{p.tagline}</p>
+                <div className="mt-6 flex items-baseline gap-2">
+                  <span className="font-display text-4xl font-extrabold text-amber-600">{p.price}</span>
+                  <span className="text-stone-400 text-xs font-medium uppercase tracking-wider">starts at</span>
+                </div>
 
-                <ul className="mt-6 flex-1 space-y-3">
+                <ul className="mt-6 flex-1 space-y-3.5">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm">
-                      <span className="bg-gradient-luxe mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full">
-                        <Check className="text-primary-foreground size-3" aria-hidden />
+                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-800">
+                        <Check className="size-3.5 font-bold" />
                       </span>
-                      <span className="text-foreground/85">{f}</span>
+                      <span className="text-stone-700 font-medium">{f}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Button
                   asChild
-                  variant={p.featured ? "luxe" : "glass"}
                   size="lg"
-                  className="mt-8 w-full"
+                  className={cn(
+                    "mt-8 w-full rounded-full font-bold shadow-md cursor-pointer",
+                    p.featured
+                      ? "btn-gold-glow"
+                      : "bg-amber-100 text-amber-900 border border-amber-300 hover:bg-amber-200",
+                  )}
                 >
-                  <a href="#book">Book {p.name}</a>
+                  <a href="#book">
+                    <Sparkles className="size-4 mr-1.5" />
+                    Book {p.name}
+                  </a>
                 </Button>
               </article>
             </Reveal>

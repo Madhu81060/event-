@@ -17,12 +17,12 @@ export function Services() {
   );
 
   return (
-    <section id="services" className="relative py-24 sm:py-32">
+    <section id="services" className="relative py-24 sm:py-32 bg-amber-50/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="What We Create"
-          title="40+ Signature Services"
-          description="From sacred rituals to concert-scale production — one team, every detail, across Hyderabad, Vijayawada and Eluru."
+          eyebrow="What We Do"
+          title="40+ Signature Event Services"
+          description="Everything under one roof — floral mandap artistry, lighting, DJ, catering, and end-to-end production."
         />
 
         <Reveal className="mt-10 flex flex-col items-center gap-4">
@@ -32,15 +32,15 @@ export function Services() {
             </label>
             <div className="relative">
               <Icons.Search
-                className="text-muted-foreground pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2"
+                className="text-amber-700 pointer-events-none absolute top-1/2 left-4 size-4.5 -translate-y-1/2"
                 aria-hidden
               />
               <Input
                 id="service-search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search events, decor, entertainment…"
-                className="glass-card h-12 rounded-full pl-11"
+                placeholder="Search mandap, haldi, birthday, photography…"
+                className="h-12 rounded-full pl-11 bg-white border border-amber-200 shadow-xs focus-visible:ring-amber-500 text-stone-800 font-medium"
               />
             </div>
           </div>
@@ -52,10 +52,10 @@ export function Services() {
                 onClick={() => setGroup(g)}
                 aria-pressed={group === g}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                  "rounded-full px-4.5 py-2 text-sm font-semibold transition-all duration-300 cursor-pointer shadow-xs",
                   group === g
-                    ? "bg-gradient-luxe text-primary-foreground shadow-luxe"
-                    : "glass-card text-foreground/75 hover:text-primary",
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md scale-103"
+                    : "bg-white text-stone-700 border border-amber-200/80 hover:text-amber-800 hover:bg-amber-100/50",
                 )}
               >
                 {g}
@@ -69,13 +69,13 @@ export function Services() {
             const Icon = (Icons[s.icon as keyof typeof Icons] ??
               Icons.Sparkles) as Icons.LucideIcon;
             return (
-              <Reveal as="li" key={s.name} delay={(i % 10) * 45}>
-                <article className="glass-card card-3d group h-full rounded-2xl p-5 [transform-style:preserve-3d]">
-                  <span className="bg-gradient-luxe mb-4 flex size-12 items-center justify-center rounded-xl shadow-gold transition-transform duration-500 group-hover:scale-110">
-                    <Icon className="text-primary-foreground size-6" aria-hidden />
+              <Reveal as="li" key={s.name} delay={(i % 10) * 35}>
+                <article className="card-3d group h-full rounded-2xl bg-white border border-amber-200/70 p-5 shadow-xs transition-all duration-300 hover:border-amber-400 hover:shadow-lg">
+                  <span className="mb-4 flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="size-6" aria-hidden />
                   </span>
-                  <h3 className="text-base leading-snug font-semibold">{s.name}</h3>
-                  <p className="text-muted-foreground mt-1 text-xs">{s.group}</p>
+                  <h3 className="text-base font-bold text-stone-900 leading-snug">{s.name}</h3>
+                  <p className="mt-1 text-xs font-semibold text-amber-700">{s.group}</p>
                 </article>
               </Reveal>
             );
@@ -83,8 +83,8 @@ export function Services() {
         </ul>
 
         {filtered.length === 0 && (
-          <p className="text-muted-foreground mt-12 text-center">
-            No services matched “{query}”. Tell us what you need and we'll design it.
+          <p className="mt-12 text-center text-stone-500 font-medium">
+            No services matched “{query}”. Tell us your event idea and we'll craft it custom!
           </p>
         )}
       </div>

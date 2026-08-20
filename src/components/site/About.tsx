@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { Award, HeartHandshake, ShieldCheck, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import { clientEvent1, clientEvent4 } from "./data";
+import { clientEvent43, clientEvent42 } from "./data";
 
 const stats = [
-  { value: 1000, suffix: "+", label: "Events Completed" },
-  { value: 500, suffix: "+", label: "Happy Families" },
-  { value: 50, suffix: "+", label: "Professional Team" },
-  { value: 10, suffix: "+", label: "Years Experience" },
+  { value: 1200, suffix: "+", label: "Grand Events Crafted" },
+  { value: 950, suffix: "+", label: "Happy Families" },
+  { value: 50, suffix: "+", label: "Design & Crew Experts" },
+  { value: 10, suffix: "+", label: "Years Industry Trust" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -23,7 +23,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
         if (!entry?.isIntersecting) return;
         observer.disconnect();
         const start = performance.now();
-        const duration = 1800;
+        const duration = 1600;
         const tick = (now: number) => {
           const p = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - p, 3);
@@ -32,14 +32,14 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
         };
         requestAnimationFrame(tick);
       },
-      { threshold: 0.4 },
+      { threshold: 0.3 },
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, [value]);
 
   return (
-    <span ref={ref} className="text-gradient-luxe font-display text-4xl font-bold sm:text-5xl">
+    <span ref={ref} className="font-display text-4xl font-extrabold text-amber-600 sm:text-5xl">
       {display}
       {suffix}
     </span>
@@ -49,108 +49,93 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 const pillars = [
   {
     icon: HeartHandshake,
-    title: "Our Mission",
-    text: "To turn every family's most important day into a flawlessly produced, deeply personal celebration — without the stress.",
+    title: "Family First Craft",
+    text: "We take care of every minute ritual detail so you and your family can enjoy without any stress.",
   },
   {
     icon: Award,
-    title: "Our Vision",
-    text: "To be South India's most trusted luxury event house, known for design integrity and immaculate execution.",
+    title: "Grand Royalty",
+    text: "South India's signature temple mandaps and royal celebrity-style stages at honest pricing.",
   },
   {
     icon: ShieldCheck,
-    title: "Why Choose Us",
-    text: "In-house decor, media and production teams. Transparent pricing. One coordinator accountable end to end.",
+    title: "100% In-House Team",
+    text: "Our own floral warehouse, fabrication unit, sound-light setup, and senior event directors.",
   },
   {
     icon: Users,
-    title: "Professional Team",
-    text: "50+ designers, florists, technicians, photographers and hospitality staff across three city offices.",
+    title: "3 City Presence",
+    text: "Dedicated offices and full warehouses in Hyderabad, Vijayawada, and Eluru.",
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-24 sm:py-32">
-      <div
-        aria-hidden
-        className="bg-gradient-luxe animate-gradient-pan pointer-events-none absolute -top-40 -left-32 size-[28rem] rounded-full opacity-10 blur-3xl"
-      />
+    <section id="about" className="relative overflow-hidden py-24 sm:py-32 bg-white">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid items-center gap-14 lg:grid-cols-2">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
-            <p className="text-gradient-gold text-xs font-semibold tracking-[0.35em] uppercase">
-              Our Story
-            </p>
-            <h2 className="font-display mt-3 text-3xl font-bold tracking-tight sm:text-5xl">
-              <span className="text-gradient-luxe">A decade of unforgettable celebrations</span>
+            <span className="inline-block rounded-full bg-amber-100 border border-amber-300/80 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-900 shadow-xs">
+              Who We Are
+            </span>
+            <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
+              10+ Years of Crafting Royal Celebrations
             </h2>
-            <p className="text-muted-foreground mt-5 leading-relaxed">
-              Elite Events began in 2015 with a single mandap in Hyderabad and one belief — that a
-              celebration should feel effortless to the family living it. Ten years and a thousand
-              events later, we design and produce weddings, milestone celebrations, corporate
-              summits and college festivals across Hyderabad, Vijayawada and Eluru.
-            </p>
-            <p className="text-muted-foreground mt-4 leading-relaxed">
-              Every project is led by a dedicated design director, supported by our own floral
-              studio, production crew and media team — so what you approve on the moodboard is
-              exactly what you walk into on the day.
+            <p className="mt-4 text-base sm:text-lg text-stone-600 font-medium leading-relaxed">
+              Elite Events is a premier full-service luxury event management company operating across Hyderabad, Vijayawada, and Eluru. We specialize in royal traditional mandaps, luxury modern receptions, vibrant haldi ceremonies, and thematic milestone birthdays.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {pillars.map((p, i) => (
-                <Reveal key={p.title} delay={i * 80}>
-                  <article className="glass-card card-3d h-full rounded-2xl p-5">
-                    <p.icon className="text-accent size-6" aria-hidden />
-                    <h3 className="mt-3 font-semibold">{p.title}</h3>
-                    <p className="text-muted-foreground mt-1 text-sm leading-relaxed">{p.text}</p>
+                <Reveal key={p.title} delay={i * 60}>
+                  <article className="card-3d h-full rounded-2xl bg-amber-50/50 border border-amber-200/80 p-5 shadow-xs transition-all hover:border-amber-400 hover:shadow-md">
+                    <p.icon className="size-6 text-amber-700" aria-hidden />
+                    <h3 className="mt-3 font-bold text-stone-900 text-base">{p.title}</h3>
+                    <p className="mt-1 text-xs font-semibold text-stone-600 leading-relaxed">{p.text}</p>
                   </article>
                 </Reveal>
               ))}
             </div>
           </Reveal>
 
-          <Reveal className="order-1 lg:order-2" delay={120}>
+          <Reveal className="order-1 lg:order-2" delay={100}>
             <div className="relative">
               <img
-                src={clientEvent1}
-                alt="Grand floral mandap stage designed by Elite Events"
-                width={1920}
-                height={1088}
+                src={clientEvent43}
+                alt="Golden carved temple mandap designed by Elite Events"
+                width={1024}
+                height={768}
                 loading="lazy"
-                className="shadow-luxe aspect-4/5 w-full rounded-[2rem] object-cover"
+                className="aspect-4/5 w-full rounded-3xl object-cover object-center border-2 border-amber-300/60 shadow-xl"
               />
               <img
-                src={clientEvent4}
-                alt="Luxury wedding reception stage with royal sofa"
-                width={1920}
-                height={1088}
+                src={clientEvent42}
+                alt="Circular rose arch reception stage"
+                width={500}
+                height={500}
                 loading="lazy"
-                className="shadow-luxe absolute -bottom-10 -left-6 hidden aspect-square w-44 rounded-[1.5rem] border-4 border-background object-cover sm:block lg:w-56"
+                className="absolute -bottom-8 -left-6 hidden aspect-square w-48 rounded-2xl border-4 border-white object-cover sm:block shadow-2xl"
               />
-              <div className="glass-card absolute -top-6 -right-4 rounded-2xl px-5 py-4 text-center">
-                <span className="text-gradient-gold font-display block text-3xl font-bold">
-                  10+
-                </span>
-                <span className="text-muted-foreground text-xs tracking-wide uppercase">
-                  Years of craft
-                </span>
+              <div className="absolute -top-5 -right-4 rounded-2xl bg-amber-500 text-white px-5 py-3 text-center shadow-lg border border-white">
+                <span className="font-display block text-3xl font-black">10+</span>
+                <span className="text-[11px] font-bold tracking-wider uppercase">Years Of Craft</span>
               </div>
             </div>
           </Reveal>
         </div>
 
-        <div className="mt-28">
+        {/* Numbers Section */}
+        <div className="mt-24">
           <SectionHeading
-            eyebrow="By The Numbers"
-            title="Trusted by families and brands"
+            eyebrow="Our Track Record"
+            title="Trusted By 950+ Families Across AP & Telangana"
           />
-          <ul className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <ul className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
             {stats.map((s, i) => (
-              <Reveal as="li" key={s.label} delay={i * 90}>
-                <div className="glass-card card-3d rounded-2xl px-4 py-8 text-center">
+              <Reveal as="li" key={s.label} delay={i * 70}>
+                <div className="card-3d rounded-2xl bg-amber-50/40 border border-amber-200/80 px-4 py-8 text-center shadow-xs hover:border-amber-400 hover:shadow-md">
                   <Counter value={s.value} suffix={s.suffix} />
-                  <p className="text-muted-foreground mt-2 text-sm font-medium">{s.label}</p>
+                  <p className="mt-2 text-sm font-bold text-stone-700">{s.label}</p>
                 </div>
               </Reveal>
             ))}

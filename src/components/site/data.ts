@@ -1,15 +1,116 @@
-export const SUPABASE_CDN_BASE = "https://eskworfjlnwshqtvwpes.supabase.co/storage/v1/object/public/event-gallery/events";
+// 50 High-Resolution Real Event Photographs
+import clientEvent1 from "@/assets/events/client-event-1.jpg";
+import clientEvent2 from "@/assets/events/client-event-2.jpg";
+import clientEvent3 from "@/assets/events/client-event-3.jpg";
+import clientEvent4 from "@/assets/events/client-event-4.jpg";
+import clientEvent5 from "@/assets/events/client-event-5.jpg";
+import clientEvent6 from "@/assets/events/client-event-6.jpg";
+import clientEvent7 from "@/assets/events/client-event-7.jpg";
+import clientEvent8 from "@/assets/events/client-event-8.jpg";
+import clientEvent9 from "@/assets/events/client-event-9.jpg";
+import clientEvent10 from "@/assets/events/client-event-10.jpg";
+import clientEvent11 from "@/assets/events/client-event-11.jpg";
+import clientEvent12 from "@/assets/events/client-event-12.jpg";
+import clientEvent13 from "@/assets/events/client-event-13.jpg";
+import clientEvent14 from "@/assets/events/client-event-14.jpg";
+import clientEvent15 from "@/assets/events/client-event-15.jpg";
+import clientEvent16 from "@/assets/events/client-event-16.jpg";
+import clientEvent17 from "@/assets/events/client-event-17.jpg";
+import clientEvent18 from "@/assets/events/client-event-18.jpg";
+import clientEvent19 from "@/assets/events/client-event-19.jpg";
+import clientEvent20 from "@/assets/events/client-event-20.jpg";
+import clientEvent21 from "@/assets/events/client-event-21.jpg";
+import clientEvent22 from "@/assets/events/client-event-22.jpg";
+import clientEvent23 from "@/assets/events/client-event-23.jpg";
+import clientEvent24 from "@/assets/events/client-event-24.jpg";
+import clientEvent25 from "@/assets/events/client-event-25.jpg";
+import clientEvent26 from "@/assets/events/client-event-26.jpg";
+import clientEvent27 from "@/assets/events/client-event-27.jpg";
+import clientEvent28 from "@/assets/events/client-event-28.jpg";
+import clientEvent29 from "@/assets/events/client-event-29.jpg";
+import clientEvent30 from "@/assets/events/client-event-30.jpg";
+import clientEvent31 from "@/assets/events/client-event-31.jpg";
+import clientEvent32 from "@/assets/events/client-event-32.jpg";
+import clientEvent33 from "@/assets/events/client-event-33.jpg";
+import clientEvent34 from "@/assets/events/client-event-34.jpg";
+import clientEvent35 from "@/assets/events/client-event-35.jpg";
+import clientEvent36 from "@/assets/events/client-event-36.jpg";
+import clientEvent37 from "@/assets/events/client-event-37.jpg";
+import clientEvent38 from "@/assets/events/client-event-38.jpg";
+import clientEvent39 from "@/assets/events/client-event-39.jpg";
+import clientEvent40 from "@/assets/events/client-event-40.jpg";
+import clientEvent41 from "@/assets/events/client-event-41.jpg";
+import clientEvent42 from "@/assets/events/client-event-42.jpg";
+import clientEvent43 from "@/assets/events/client-event-43.jpg";
+import clientEvent44 from "@/assets/events/client-event-44.jpg";
+import clientEvent45 from "@/assets/events/client-event-45.jpg";
+import clientEvent46 from "@/assets/events/client-event-46.jpg";
+import clientEvent47 from "@/assets/events/client-event-47.jpg";
+import clientEvent48 from "@/assets/events/client-event-48.jpg";
+import clientEvent49 from "@/assets/events/client-event-49.jpg";
+import clientEvent50 from "@/assets/events/client-event-50.jpg";
 
-export const clientEvent1 = `${SUPABASE_CDN_BASE}/client-event-1.jpg`;
-export const clientEvent2 = `${SUPABASE_CDN_BASE}/client-event-2.jpg`;
-export const clientEvent3 = `${SUPABASE_CDN_BASE}/client-event-3.jpg`;
-export const clientEvent4 = `${SUPABASE_CDN_BASE}/client-event-4.jpg`;
-export const clientEvent5 = `${SUPABASE_CDN_BASE}/client-event-5.jpg`;
-export const clientEvent6 = `${SUPABASE_CDN_BASE}/client-event-6.jpg`;
-export const clientEvent7 = `${SUPABASE_CDN_BASE}/client-event-7.jpg`;
-export const clientEvent8 = `${SUPABASE_CDN_BASE}/client-event-8.jpg`;
-export const clientEvent9 = `${SUPABASE_CDN_BASE}/client-event-9.jpg`;
-export const clientEvent10 = `${SUPABASE_CDN_BASE}/client-event-10.jpg`;
+import hero1 from "@/assets/events/hero-1-domed-mandap.jpg";
+import hero2 from "@/assets/events/hero-2-temple-gopuram.jpg";
+import hero3 from "@/assets/events/hero-3-floral-rangoli.jpg";
+import hero4 from "@/assets/events/hero-4-lawn-arch.jpg";
+
+export {
+  clientEvent1,
+  clientEvent2,
+  clientEvent3,
+  clientEvent4,
+  clientEvent5,
+  clientEvent6,
+  clientEvent7,
+  clientEvent8,
+  clientEvent9,
+  clientEvent10,
+  clientEvent11,
+  clientEvent12,
+  clientEvent13,
+  clientEvent14,
+  clientEvent15,
+  clientEvent16,
+  clientEvent17,
+  clientEvent18,
+  clientEvent19,
+  clientEvent20,
+  clientEvent21,
+  clientEvent22,
+  clientEvent23,
+  clientEvent24,
+  clientEvent25,
+  clientEvent26,
+  clientEvent27,
+  clientEvent28,
+  clientEvent29,
+  clientEvent30,
+  clientEvent31,
+  clientEvent32,
+  clientEvent33,
+  clientEvent34,
+  clientEvent35,
+  clientEvent36,
+  clientEvent37,
+  clientEvent38,
+  clientEvent39,
+  clientEvent40,
+  clientEvent41,
+  clientEvent42,
+  clientEvent43,
+  clientEvent44,
+  clientEvent45,
+  clientEvent46,
+  clientEvent47,
+  clientEvent48,
+  clientEvent49,
+  clientEvent50,
+  hero1,
+  hero2,
+  hero3,
+  hero4,
+};
 
 export const WHATSAPP_NUMBER = "916302213452";
 export const WHATSAPP_MESSAGE =
@@ -18,54 +119,55 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIC
 export const PHONE = "+91 63022 13452";
 export const EMAIL = "hello@eliteevents.in";
 
+// 6 Top Crystal-Sharp HD Hero Slides Curated From Real Setups
 export const slides = [
   {
-    image: clientEvent9,
-    eyebrow: "Sacred Traditions, Royal Scale",
-    title: "Grand Traditional Mandap Setups",
+    image: hero1,
+    eyebrow: "Palace-Scale Grandeur",
+    title: "Imperial Domed Temple Mandapams",
     subtitle:
-      "Intricately carved golden pillars, fresh gerbera garlands, and holy motif decor for sacred wedding vows.",
-    alt: "Grand traditional golden carved mandap decor with Shankhu Chakra Namam",
+      "Golden carved temple dwaram, golden elephants, and tiered floral dome with cascading jasmine curtains.",
+    alt: "Imperial domed floral canopy temple mandap with golden carved dwaram",
   },
   {
-    image: clientEvent10,
-    eyebrow: "Palace-Scale Hospitality",
-    title: "Luxury Wedding Hall Production",
+    image: hero2,
+    eyebrow: "Sacred Temple Architecture",
+    title: "Royal Temple Gopuram Mandapams",
     subtitle:
-      "Royal banquet seating curation, carpeted grand aisles, and concert lighting across venue halls.",
-    alt: "Royal wedding hall setup with golden banquet seating and illuminated mandap stage",
+      "Silver carved pillars, lush red and white floral tassels, and royal red velvet maharaja throne.",
+    alt: "Grand traditional temple gopuram mandap with silver pillars and red throne",
   },
   {
-    image: clientEvent6,
-    eyebrow: "Personalised Elegance",
-    title: "Custom Name & Theme Backdrops",
+    image: hero3,
+    eyebrow: "Romantic Reception Royalty",
+    title: "Fairy Light Arch & Rangoli Stages",
     subtitle:
-      "Bespoke couple naming backdrops, white swan sculptures, and marigold flower arches.",
-    alt: "Name-themed floral backdrop setup for Sathwik & Akshaya ceremony with swan motifs",
+      "Full circular floral ring, fairy light waterfall backdrop, antique Victorian gold sofa, and traditional floor rangoli.",
+    alt: "Circular floral ring arch with fairy lights, gold sofa and floor rangoli",
   },
   {
-    image: clientEvent1,
-    eyebrow: "Royal Decor & Production",
-    title: "Grand Floral Stage & Mandaps",
+    image: hero4,
+    eyebrow: "Lush Lawn Luxury",
+    title: "Golden Jaali Arch & Floral Lawn Stages",
     subtitle:
-      "Bespoke stage decorations, lush floral canopies, and regal seating crafted for lifetime memories.",
-    alt: "Grand floral wedding stage decoration with red gerbera garlands and luxury sofa",
+      "Grand floral arch, golden jaali pillars, warm waterfall lighting, and royal carved settee on fresh green turf.",
+    alt: "Grand floral stage with golden jaali pillars and waterfall fairy lights",
   },
   {
-    image: clientEvent4,
-    eyebrow: "Elegant & Sophisticated",
-    title: "Luxury Reception Stages",
+    image: clientEvent28,
+    eyebrow: "Auspicious Heritage",
+    title: "Red Rose Velvet & Kalasam Mandapams",
     subtitle:
-      "Custom backdrop draping, crystal chandeliers, and wedding ring stage motifs for grand receptions.",
-    alt: "Purple drapery wedding stage setup with luxury silver couch",
+      "Intricately carved golden pillars, rich red rose velvet backdrop, and sacred kalasam floral artistry.",
+    alt: "Grand traditional golden carved mandap decor with red rose velvet backdrop",
   },
   {
-    image: clientEvent8,
-    eyebrow: "Contemporary Illumination",
-    title: "Circular Floral Arch & Lighting",
+    image: clientEvent43,
+    eyebrow: "Devotional Elegance",
+    title: "Golden Carved Temple Mandapams",
     subtitle:
-      "Stunning circular floral arches with vibrant mood lighting and sheer backdrop drapes.",
-    alt: "Pink & blue illuminated circular flower arch reception backdrop",
+      "Sacred Lord Venkateswara Namam and Shankhu Chakra floral artwork with cascading jasmine canopy.",
+    alt: "Golden carved temple mandap with sacred Namam and jasmine canopy",
   },
 ];
 
@@ -202,43 +304,42 @@ export const compliance = [
   {
     icon: "UtensilsCrossed",
     title: "FSSAI Licensed Catering",
-    text: "All catering partners hold valid FSSAI food licences, with menu tasting, temperature-controlled transport and live counters run by trained staff.",
+    text: "All catering partners hold valid FSSAI food licences, with menu tasting and live counters run by trained staff.",
     badge: "FSSAI registered kitchens",
   },
   {
     icon: "ShieldCheck",
     title: "Food Safety & Hygiene Audits",
-    text: "Pre-event kitchen inspection, water quality checks, gloved handling and sealed food sampling retained for 48 hours after service.",
+    text: "Pre-event kitchen inspection, water quality checks, and gloved food handling.",
     badge: "Hygiene audited",
   },
   {
     icon: "FileCheck2",
     title: "Venue & Municipal Permissions",
-    text: "We file venue NOCs, GHMC/municipal event permissions and police intimation for large gatherings so your date is never at risk.",
+    text: "We file venue NOCs, GHMC/municipal event permissions and police intimation for large gatherings.",
     badge: "Permits handled",
   },
   {
     icon: "FlameKindling",
     title: "Fire Safety & Fireworks NOC",
-    text: "Fire extinguishers on site, certified pyro operators and fire department NOC for fireworks, cold pyro and sparkler entries.",
+    text: "Fire extinguishers on site, certified pyro operators and fire department NOC for fireworks.",
     badge: "Fire dept. cleared",
   },
   {
     icon: "Music4",
     title: "Sound & Late-Night Clearance",
-    text: "Decibel-compliant sound design plus late-night permission filings for DJ nights, sangeet and college fests.",
+    text: "Decibel-compliant sound design plus late-night permission filings for DJ nights and sangeet.",
     badge: "Noise-norm compliant",
   },
   {
     icon: "Sparkles",
     title: "Insurance & Liability Cover",
-    text: "Event liability cover, insured production crew and vendor agreements documented for every booking above the Gold package.",
+    text: "Event liability cover, insured production crew and vendor agreements documented.",
     badge: "Insured production",
   },
 ];
 
 export const testimonials = [
-
   {
     name: "Sravani & Karthik",
     city: "Hyderabad",
@@ -280,27 +381,27 @@ export const testimonials = [
 export const faqs = [
   {
     q: "Which cities does Elite Events serve?",
-    a: "We operate full-service offices in Hyderabad, Vijayawada and Eluru, and we regularly travel across Telangana and Andhra Pradesh for destination events.",
+    a: "We operate full-service offices in Hyderabad, Vijayawada and Eluru, and travel across Telangana and Andhra Pradesh.",
   },
   {
     q: "How far in advance should we book?",
-    a: "For weddings we recommend 3–6 months ahead, especially in peak muhurat season. Birthdays and corporate events can often be arranged in 3–4 weeks.",
+    a: "For weddings we recommend 3–6 months ahead. Birthdays and corporate events can be arranged in 2–3 weeks.",
   },
   {
     q: "Can you work within our budget?",
-    a: "Yes. Our Custom Package lets you pick services à la carte, and we share transparent vendor pricing so you always know where the money goes.",
+    a: "Yes. Our Custom Package lets you pick services à la carte with 100% transparent pricing.",
   },
   {
     q: "Do you handle multi-religion and multi-day weddings?",
-    a: "Absolutely. Hindu, Christian and Muslim ceremonies are all core specialisations, and our Diamond and Royal Premium packages are built for multi-day functions.",
+    a: "Absolutely. Hindu, Christian, and Muslim ceremonies are all core specializations.",
   },
   {
     q: "What is included in photography and videography?",
-    a: "Candid photography, traditional coverage, cinematic films, drone shoots and same-day edits are available depending on the package you choose.",
+    a: "Candid photography, traditional coverage, cinematic films, and drone shoots.",
   },
   {
     q: "How do payments work?",
-    a: "A booking advance confirms your date, followed by milestone payments before production. We accept UPI, bank transfer and card payments.",
+    a: "A booking advance confirms your date, followed by milestone payments before production.",
   },
 ];
 

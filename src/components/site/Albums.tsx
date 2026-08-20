@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { BookOpen, Download, Sparkles, Eye, CheckCircle2 } from "lucide-react";
+import { BookOpen, Sparkles, Eye, CheckCircle2, X } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "@/components/ui/button";
-import { clientEvent9, clientEvent10 } from "./data";
+import {
+  clientEvent28,
+  clientEvent25,
+} from "./data";
 
 export function Albums() {
   const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
@@ -12,78 +15,83 @@ export function Albums() {
     {
       id: "royal-wedding-vol1",
       title: "Royal South Indian Wedding Portfolio",
-      subtitle: "Volume 1 • 40 High-Res Design Spreads",
-      cover: clientEvent9,
+      subtitle: "Volume 1 • 45 High-Res Design Spreads",
+      cover: clientEvent28,
       category: "Mandap & Stage Artistry",
-      count: "40 Photos",
-      desc: "Traditional carved mandaps, gerbera floral gateways, and luxury couple stages curated across Hyderabad & Vijayawada.",
+      count: "45 Photos",
+      desc: "Traditional carved mandaps, red rose backdrops, golden kalasams, and luxury couple stages curated across Hyderabad & Vijayawada.",
     },
     {
       id: "luxury-reception-vol2",
       title: "Grand Reception & Sangeet Lookbook",
-      subtitle: "Volume 2 • 40 High-Res Design Spreads",
-      cover: clientEvent10,
+      subtitle: "Volume 2 • 35 High-Res Design Spreads",
+      cover: clientEvent25,
       category: "Hall Production & Draping",
-      count: "40 Photos",
-      desc: "Palace-scale banquet seating, custom name-themed backdrops, and concert-grade stage lighting setups.",
+      count: "35 Photos",
+      desc: "Fairy light candle ring stages, royal peacock couches, and concert-grade hall illumination setups.",
     },
   ];
 
   return (
-    <section id="albums" className="relative py-24 sm:py-32 bg-secondary/30">
+    <section id="albums" className="relative py-24 sm:py-32 bg-amber-50/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Digital Portfolios"
-          title="Explore Our Wedding Albums"
-          description="Browse our curated high-resolution wedding lookbooks & PDF design catalogs."
+          title="Curated Wedding & Reception Albums"
+          description="Browse our high-resolution wedding lookbooks and real event design catalogs."
         />
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
           {albums.map((album, i) => (
-            <Reveal key={album.id} delay={i * 120}>
-              <div className="glass-card card-3d group overflow-hidden rounded-3xl p-6 transition-all duration-500 hover:border-primary/40">
+            <Reveal key={album.id} delay={i * 90}>
+              <div className="card-3d group overflow-hidden rounded-3xl bg-white border border-amber-200/80 p-6 shadow-md transition-all duration-500 hover:border-amber-400 hover:shadow-xl">
                 <div className="relative aspect-16/9 overflow-hidden rounded-2xl">
                   <img
                     src={album.cover}
                     alt={album.title}
-                    width={1920}
-                    height={1088}
-                    className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    width={1024}
+                    height={576}
+                    className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <span className="absolute top-4 left-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
+                  <span className="absolute top-4 left-4 rounded-full bg-black/60 px-3.5 py-1 text-xs font-bold text-white backdrop-blur-md">
                     {album.category}
                   </span>
-                  <span className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-primary/90 px-3 py-1 text-xs font-bold text-primary-foreground shadow-lg">
+                  <span className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-amber-500 px-3.5 py-1 text-xs font-black text-white shadow-lg">
                     <BookOpen className="size-3.5" />
                     {album.count}
                   </span>
                 </div>
 
                 <div className="mt-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-amber-700">
                     {album.subtitle}
                   </p>
-                  <h3 className="mt-2 font-display text-2xl font-bold text-foreground">
+                  <h3 className="mt-2 font-display text-2xl font-extrabold text-stone-900">
                     {album.title}
                   </h3>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  <p className="mt-3 text-sm text-stone-600 font-medium leading-relaxed">
                     {album.desc}
                   </p>
 
                   <div className="mt-6 flex flex-wrap items-center gap-3">
                     <Button
-                      variant="goldGlow"
                       size="sm"
+                      className="btn-gold-glow rounded-full px-5 py-2 text-xs font-bold cursor-pointer"
                       onClick={() => setActiveAlbum(album.title)}
                     >
                       <Eye className="size-4 mr-1.5" />
-                      Preview Album
+                      Preview Lookbook
                     </Button>
-                    <Button variant="outlineLight" size="sm" asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="rounded-full border-amber-300 bg-amber-50 text-amber-900 font-bold hover:bg-amber-100"
+                      asChild
+                    >
                       <a href="#book">
                         <Sparkles className="size-4 mr-1.5" />
-                        Request PDF Copy
+                        Request Custom Design
                       </a>
                     </Button>
                   </div>
@@ -102,19 +110,25 @@ export function Albums() {
           onClick={() => setActiveAlbum(null)}
         >
           <div
-            className="glass-card max-w-lg rounded-3xl p-8 text-center"
+            className="max-w-lg rounded-3xl bg-white p-8 text-center relative border border-amber-300 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-gradient-luxe text-primary-foreground">
+            <button
+              onClick={() => setActiveAlbum(null)}
+              className="absolute top-4 right-4 text-stone-500 hover:text-stone-900 cursor-pointer"
+            >
+              <X className="size-5" />
+            </button>
+            <div className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md">
               <CheckCircle2 className="size-8" />
             </div>
-            <h3 className="mt-5 font-display text-2xl font-bold">{activeAlbum}</h3>
-            <p className="mt-3 text-sm text-muted-foreground">
-              PDF ఆల్బమ్స్ మరియు 78+ ఫొటోలు సుపాబేస్ క్లౌడ్ స్టోరేజ్‌కి కనెక్ట్ కాబడుతున్నాయి.
-              మీరు PDF లు పంపగానే పూర్తి ఆల్బమ్ డిజిటల్ ఫ్లిప్‌బుక్‌గా లైవ్ అవుతుంది!
+            <h3 className="mt-5 font-display text-2xl font-extrabold text-stone-900">{activeAlbum}</h3>
+            <p className="mt-3 text-sm text-stone-600 font-medium leading-relaxed">
+              All 45+ real high-resolution event photographs are loaded directly into the portfolio lookbook above.
+              Book a consultation to customize these setups for your venue!
             </p>
             <div className="mt-6 flex justify-center gap-3">
-              <Button variant="goldGlow" onClick={() => setActiveAlbum(null)}>
+              <Button className="btn-gold-glow rounded-full px-6 py-2 cursor-pointer" onClick={() => setActiveAlbum(null)}>
                 Close Preview
               </Button>
             </div>

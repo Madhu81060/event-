@@ -16,31 +16,31 @@ export function Testimonials() {
   const visible = [0, 1, 2].map((o) => testimonials[(start + o) % testimonials.length]!);
 
   return (
-    <section id="testimonials" className="relative py-24 sm:py-32">
+    <section id="testimonials" className="relative py-24 sm:py-32 bg-amber-50/20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Kind Words"
-          title="Loved by 500+ Families"
-          description="Rated 4.9 out of 5 across Google Reviews from Hyderabad, Vijayawada and Eluru."
+          eyebrow="Reviews & Feedback"
+          title="Loved by 950+ Families Across AP & Telangana"
+          description="Rated 4.9 out of 5 stars on Google Reviews from Hyderabad, Vijayawada and Eluru."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {visible.map((t, i) => (
-            <Reveal key={`${t.name}-${start}-${i}`} delay={i * 90}>
-              <article className="glass-card card-3d flex h-full flex-col rounded-3xl p-7">
-                <Quote className="text-accent size-8" aria-hidden />
-                <p className="text-foreground/85 mt-4 flex-1 leading-relaxed">“{t.text}”</p>
+            <Reveal key={`${t.name}-${start}-${i}`} delay={i * 80}>
+              <article className="card-3d flex h-full flex-col rounded-3xl bg-white border border-amber-200/80 p-7 shadow-xs hover:border-amber-400 hover:shadow-lg transition-all">
+                <Quote className="size-8 text-amber-500" aria-hidden />
+                <p className="mt-4 flex-1 text-stone-700 font-medium leading-relaxed">“{t.text}”</p>
                 <div className="mt-6 flex items-center gap-3">
-                  <span className="bg-gradient-luxe text-primary-foreground flex size-12 items-center justify-center rounded-full font-semibold">
+                  <span className="flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-600 font-bold text-white shadow-xs">
                     {t.initials}
                   </span>
                   <div>
-                    <p className="font-semibold">{t.name}</p>
-                    <p className="text-muted-foreground text-xs">{t.city}</p>
+                    <p className="font-extrabold text-stone-900">{t.name}</p>
+                    <p className="text-xs font-semibold text-amber-700">{t.city}</p>
                   </div>
                   <span className="ml-auto flex gap-0.5" aria-label="5 out of 5 stars">
                     {Array.from({ length: 5 }).map((_, s) => (
-                      <Star key={s} className="fill-accent text-accent size-4" aria-hidden />
+                      <Star key={s} className="size-4 fill-amber-500 text-amber-500" aria-hidden />
                     ))}
                   </span>
                 </div>
@@ -51,19 +51,19 @@ export function Testimonials() {
 
         <div className="mt-8 flex justify-center gap-3">
           <Button
-            variant="glass"
+            variant="outline"
             size="icon"
             aria-label="Previous testimonials"
-            className="min-h-11 min-w-11"
+            className="size-11 rounded-full border-amber-300 bg-white text-stone-800 hover:bg-amber-50 cursor-pointer"
             onClick={() => setStart((s) => (s - 1 + testimonials.length) % testimonials.length)}
           >
             <ChevronLeft className="size-5" />
           </Button>
           <Button
-            variant="glass"
+            variant="outline"
             size="icon"
             aria-label="Next testimonials"
-            className="min-h-11 min-w-11"
+            className="size-11 rounded-full border-amber-300 bg-white text-stone-800 hover:bg-amber-50 cursor-pointer"
             onClick={() => setStart((s) => (s + 1) % testimonials.length)}
           >
             <ChevronRight className="size-5" />
