@@ -110,7 +110,7 @@ export function Navbar() {
               Elite Events
             </span>
             <span className="block text-[9px] sm:text-[10px] font-extrabold tracking-[0.18em] text-amber-700 uppercase">
-              Vijayawada · Hyderabad · Eluru
+              Vijayawada · Eluru
             </span>
           </div>
         </a>
@@ -184,7 +184,7 @@ export function Navbar() {
                     Elite Events
                   </SheetTitle>
                   <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">
-                    Vijayawada · Hyderabad · Eluru
+                    Vijayawada · Eluru
                   </span>
                 </div>
               </div>

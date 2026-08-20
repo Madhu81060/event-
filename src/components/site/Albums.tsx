@@ -49,7 +49,7 @@ export function Albums() {
         <SectionHeading
           eyebrow="Digital Portfolios"
           title="Curated Wedding & Reception Albums"
-          description="Browse our high-resolution wedding lookbooks and real event design catalogs crafted across Vijayawada, Hyderabad & Eluru."
+          description="Browse our high-resolution wedding lookbooks and real event design catalogs crafted across Vijayawada & Eluru."
         />
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">

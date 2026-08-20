@@ -189,7 +189,7 @@ export function Hero() {
             <span className="flex text-amber-400">
               <Star className="size-3.5 fill-amber-400 text-amber-400 animate-pulse" />
             </span>
-            <span>4.9/5 Rating • 1200+ Grand Celebrations • Vijayawada · Hyderabad · Eluru</span>
+            <span>4.9/5 Rating • 1200+ Grand Celebrations • Vijayawada · Eluru</span>
           </div>
 
           {/* New Feature: Dynamic Merupulu Ambience Lighting Mode Switcher */}

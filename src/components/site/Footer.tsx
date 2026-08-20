@@ -45,7 +45,7 @@ export function Footer() {
               <div>
                 <span className="font-display text-xl font-extrabold text-amber-200">Elite Events</span>
                 <span className="block text-[10px] tracking-widest uppercase text-amber-400 font-bold">
-                  Hyd · Vjy · Eluru
+                  Vijayawada · Eluru
                 </span>
               </div>
             </div>
@@ -114,7 +114,7 @@ export function Footer() {
               <li className="flex items-start gap-2 mt-2">
                 <MapPin className="size-4 text-amber-400 shrink-0 mt-0.5" />
                 <span className="text-xs text-stone-300">
-                  Offices in Jubilee Hills (Hyd), MG Road (Vjy) & Powerpet (Eluru)
+                  Offices in MG Road (Vijayawada) & Powerpet (Eluru)
                 </span>
               </li>
             </ul>

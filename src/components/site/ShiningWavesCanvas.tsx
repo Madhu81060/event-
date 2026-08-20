@@ -209,18 +209,18 @@ export function ShiningWavesCanvas() {
 
   return (
     <>
-      {/* STRICTLY LEFT BORDER ONLY (Width: 70px, pinned to left-0) */}
+      {/* STRICTLY LEFT BORDER ONLY (Width: 70px, pinned to left-0, active on tablet/laptop/desktop) */}
       <canvas
         ref={leftCanvasRef}
-        className="pointer-events-none fixed left-0 top-0 bottom-0 z-30 h-full w-[70px]"
+        className="pointer-events-none fixed left-0 top-0 bottom-0 z-30 h-full w-[70px] hidden md:block"
         style={{ pointerEvents: "none" }}
         aria-hidden="true"
       />
 
-      {/* STRICTLY RIGHT BORDER ONLY (Width: 70px, pinned to right-0) */}
+      {/* STRICTLY RIGHT BORDER ONLY (Width: 70px, pinned to right-0, active on tablet/laptop/desktop) */}
       <canvas
         ref={rightCanvasRef}
-        className="pointer-events-none fixed right-0 top-0 bottom-0 z-30 h-full w-[70px]"
+        className="pointer-events-none fixed right-0 top-0 bottom-0 z-30 h-full w-[70px] hidden md:block"
         style={{ pointerEvents: "none" }}
         aria-hidden="true"
       />

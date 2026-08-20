@@ -19,9 +19,9 @@ import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { ShiningWavesCanvas } from "@/components/site/ShiningWavesCanvas";
 import { faqs } from "@/components/site/data";
 
-const title = "Elite Events | Luxury Event Management in Hyderabad, Vijayawada & Eluru";
+const title = "Elite Events | Luxury Event Management in Vijayawada & Eluru";
 const description =
-  "Elite Events designs luxury weddings, birthdays, corporate summits and college fests across Hyderabad, Vijayawada and Eluru. 1000+ events, 10+ years, one flawless team.";
+  "Elite Events designs luxury weddings, birthdays, corporate summits and college fests across Vijayawada and Eluru. 1000+ events, 10+ years, one flawless team.";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -30,13 +30,13 @@ const jsonLd = {
   description,
   telephone: "+91 63022 13452",
   email: "hello@eliteevents.in",
-  areaServed: ["Hyderabad", "Vijayawada", "Eluru"],
+  areaServed: ["Vijayawada", "Eluru"],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Jubilee Trade Centre, Road No. 36, Jubilee Hills",
-    addressLocality: "Hyderabad",
-    addressRegion: "Telangana",
-    postalCode: "500033",
+    streetAddress: "2nd Floor, MG Road, Opposite Trendset Mall, Labbipet",
+    addressLocality: "Vijayawada",
+    addressRegion: "Andhra Pradesh",
+    postalCode: "520010",
     addressCountry: "IN",
   },
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "500" },
@@ -67,7 +67,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-dvh relative">
+    <div className="min-h-dvh relative overflow-x-hidden">
       <ShiningWavesCanvas />
       <Navbar />
       <main>

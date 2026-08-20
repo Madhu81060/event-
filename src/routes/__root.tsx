@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Luxury weddings, celebrations and corporate events across Hyderabad, Vijayawada and Eluru.",
+          "Luxury weddings, celebrations and corporate events across Vijayawada and Eluru.",
       },
       { name: "author", content: "Elite Events" },
       { property: "og:site_name", content: "Elite Events" },

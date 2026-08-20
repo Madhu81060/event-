@@ -20,8 +20,8 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Reviews & Feedback"
-          title="Loved by 950+ Families Across AP & Telangana"
-          description="Rated 4.9 out of 5 stars on Google Reviews from Hyderabad, Vijayawada and Eluru."
+          title="Loved by 950+ Families Across Andhra Pradesh"
+          description="Rated 4.9 out of 5 stars on Google Reviews from Vijayawada and Eluru."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

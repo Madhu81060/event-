@@ -329,7 +329,7 @@ export function Gallery() {
         <SectionHeading
           eyebrow="100% Real Celebrations"
           title="Mandaps & Luxury Stages Portfolio"
-          description="Grand temple mandapams, reception setups, and festive decor crafted across Hyderabad, Vijayawada & Eluru."
+          description="Grand temple mandapams, reception setups, and festive decor crafted across Vijayawada & Eluru."
         />
 
         {/* Category Filter Tabs */}
@@ -442,7 +442,7 @@ export function Gallery() {
                   </p>
                   <div className="flex items-center justify-between pt-1 border-t border-white/15">
                     <span className="text-[10px] text-amber-300 font-bold uppercase tracking-wider">
-                      Vijayawada · Hyd · Eluru
+                      Vijayawada · Eluru
                     </span>
                     <a
                       href={getEventWhatsAppLink(item.alt)}

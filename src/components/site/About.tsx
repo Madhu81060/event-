@@ -64,8 +64,8 @@ const pillars = [
   },
   {
     icon: Users,
-    title: "3 City Presence",
-    text: "Dedicated offices and full warehouses in Hyderabad, Vijayawada, and Eluru.",
+    title: "2 City Hubs",
+    text: "Dedicated design studios and full warehouses in Vijayawada and Eluru.",
   },
 ];
 
@@ -82,7 +82,7 @@ export function About() {
               10+ Years of Crafting Royal Celebrations
             </h2>
             <p className="mt-3 text-sm sm:text-base text-stone-600 font-medium leading-relaxed">
-              Elite Events is South India's premier luxury event production house across Hyderabad, Vijayawada, and Eluru — specializing in royal temple mandaps, modern celebrity stages, and vibrant festive ceremonies.
+              Elite Events is South India's premier luxury event production house across Vijayawada and Eluru — specializing in royal temple mandaps, modern celebrity stages, and vibrant festive ceremonies.
             </p>
 
             <div className="mt-6 grid gap-3.5 sm:grid-cols-2">

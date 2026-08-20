@@ -4,7 +4,6 @@ import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "@/components/ui/button";
 import { EMAIL, PHONE, WHATSAPP_LINK, offices } from "./data";
-import officeHyderabad from "@/assets/office-hyderabad.jpg";
 import { cn } from "@/lib/utils";
 
 export function Contact() {
@@ -18,12 +17,12 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Visit Our Studios"
-          title="Vijayawada • Hyderabad • Eluru"
+          title="Vijayawada • Eluru"
           description="Walk into any of our design studios for an in-person decor walkthrough and consultation over coffee."
         />
 
-        {/* 3 City Presence Cards with Vijayawada Highlighted */}
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {/* 2 City Presence Cards */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
           {offices.map((o, i) => {
             const isSelected = o.city === activeCity;
             return (

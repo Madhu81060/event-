@@ -11,7 +11,7 @@ export function Services() {
         <SectionHeading
           eyebrow="Complete Production House"
           title="Signature Event Services"
-          description="Everything for your royal celebration under one roof — flawlessly executed across Vijayawada, Hyderabad & Eluru."
+          description="Everything for your royal celebration under one roof — flawlessly executed across Vijayawada & Eluru."
         />
 
         {/* Clean, Curated 8 Signature Luxury Services Grid */}
@@ -75,7 +75,7 @@ export function Services() {
                 Looking for a Custom Event Concept?
               </h3>
               <p className="mt-1 text-xs sm:text-sm text-amber-100 font-medium">
-                Talk directly with our senior event design team in Vijayawada, Hyderabad, or Eluru.
+                Talk directly with our senior event design team in Vijayawada or Eluru.
               </p>
             </div>
             <a

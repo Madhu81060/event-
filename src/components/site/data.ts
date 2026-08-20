@@ -428,7 +428,7 @@ export const compliance = [
 export const testimonials = [
   {
     name: "Sravani & Karthik",
-    city: "Hyderabad",
+    city: "Vijayawada",
     text: "Our mandap looked like something out of a film. Elite Events handled 900 guests without a single hiccup — every ritual ran exactly on time.",
     initials: "SK",
   },
@@ -446,7 +446,7 @@ export const testimonials = [
   },
   {
     name: "Dr. Ramesh Naidu",
-    city: "Hyderabad",
+    city: "Vijayawada",
     text: "We booked them for our annual corporate summit. LED wall, sound, hospitality — flawless execution and great value.",
     initials: "RN",
   },
@@ -467,7 +467,7 @@ export const testimonials = [
 export const faqs = [
   {
     q: "Which cities does Elite Events serve?",
-    a: "We operate full-service offices in Hyderabad, Vijayawada and Eluru, and travel across Telangana and Andhra Pradesh.",
+    a: "We operate full-service offices in Vijayawada and Eluru, and travel across Andhra Pradesh for destination events.",
   },
   {
     q: "How far in advance should we book?",
@@ -494,19 +494,13 @@ export const faqs = [
 export const offices = [
   {
     city: "Vijayawada",
-    role: "Regional Hub & Design Studio",
+    role: "Main Design Studio & Regional Hub",
     address: "2nd Floor, MG Road, Opposite Trendset Mall, Labbipet, Vijayawada 520010",
     phone: "+91 63022 13452",
   },
   {
-    city: "Hyderabad",
-    role: "Flagship Studio",
-    address: "3rd Floor, Jubilee Trade Centre, Road No. 36, Jubilee Hills, Hyderabad 500033",
-    phone: "+91 63022 13452",
-  },
-  {
     city: "Eluru",
-    role: "Branch Office & Production Unit",
+    role: "Production Studio & Warehouse",
     address: "Powerpet Main Road, Near Clock Tower, Eluru 534002",
     phone: "+91 63022 13452",
   },
