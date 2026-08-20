@@ -55,11 +55,11 @@ export function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    e.preventDefault();
-    setActiveHash(href);
     setOpen(false);
+    setActiveHash(href);
 
     if (href === "#home") {
+      e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       try {
         window.history.pushState(null, "", "#home");
@@ -70,15 +70,8 @@ export function Navbar() {
     const targetId = href.replace("#", "");
     const target = document.getElementById(targetId);
     if (target) {
-      const headerOffset = 76;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: "smooth",
-      });
-
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
       try {
         window.history.pushState(null, "", href);
       } catch {}

@@ -79,16 +79,19 @@ export function Hero() {
     return () => window.clearInterval(id);
   }, [showMoodMenu]);
 
-  // Auto-scroll active thumbnail into view
+  // Auto-scroll active thumbnail inside the thumbnail strip only (does not hijack page window scroll)
   useEffect(() => {
     const container = thumbsRef.current;
     if (!container) return;
     const activeThumb = container.children[index] as HTMLElement | undefined;
     if (activeThumb) {
-      activeThumb.scrollIntoView({
+      const scrollLeft =
+        activeThumb.offsetLeft -
+        container.offsetWidth / 2 +
+        activeThumb.offsetWidth / 2;
+      container.scrollTo({
+        left: Math.max(0, scrollLeft),
         behavior: "smooth",
-        inline: "center",
-        block: "nearest",
       });
     }
   }, [index]);
