@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X, ZoomIn, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
   getEventWhatsAppLink,
