@@ -56,6 +56,12 @@ import hero3 from "@/assets/events/hero-3-floral-rangoli.jpg";
 import hero4 from "@/assets/events/hero-4-lawn-arch.jpg";
 import hero5 from "@/assets/events/hero-5-reception-stage.jpg";
 
+import heroNewGanesha from "@/assets/events/hero-new-ganesha-mandap.jpg";
+import heroNewLoveGanesha from "@/assets/events/hero-new-love-ganesha-stage.jpg";
+import heroNewVenkateswara from "@/assets/events/hero-new-venkateswara-mandap.jpg";
+import heroNewDomeEdison from "@/assets/events/hero-new-dome-edison-stage.jpg";
+import heroNewBananaCanopy from "@/assets/events/hero-new-banana-canopy-mandap.jpg";
+
 export {
   clientEvent1,
   clientEvent2,
@@ -112,6 +118,11 @@ export {
   hero3,
   hero4,
   hero5,
+  heroNewGanesha,
+  heroNewLoveGanesha,
+  heroNewVenkateswara,
+  heroNewDomeEdison,
+  heroNewBananaCanopy,
 };
 
 export const WHATSAPP_NUMBER = "916302213452";
@@ -126,15 +137,67 @@ export const getEventWhatsAppLink = (eventTitle: string) => {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 };
 
-// 7 Top Crystal-Sharp HD Hero Slides Curated From Real Setups
+// 10 Flagship Crystal-Sharp 4K Real Wedding & Mandap Stage Showcases
 export const slides = [
   {
+    image: heroNewLoveGanesha,
+    eyebrow: "Royal Luxury Reception & Stage Artistry",
+    title: "Double Heart 'Love' & Ganesha Grand Arch Stage",
+    subtitle:
+      "Luminous golden Lord Ganesha canopy, double heart glowing neon motif, sculpted leaf light columns, cascading wisteria, and luxury cream velvet couch.",
+    alt: "Grand luxury wedding reception stage with glowing love heart and golden ganesha arch",
+    tag: "Trending Royal Stage",
+    theme: "pink-gold",
+  },
+  {
+    image: heroNewGanesha,
+    eyebrow: "South Indian Vedic Heritage",
+    title: "Imperial Banana Plantain & Golden Ganesha Mandap",
+    subtitle:
+      "Fresh live banana pillars with full fruit bunches, lush green leaf backdrop with golden Lord Ganesha, multi-tier marigold & rose dwaram, and sacred brass samai lamps.",
+    alt: "Traditional South Indian Kalyana Mandapam with banana trees, gold ganesha idol, and fresh flower canopy",
+    tag: "Authentic Vedic Mandap",
+    theme: "temple-gold",
+  },
+  {
+    image: heroNewVenkateswara,
+    eyebrow: "Devotional Palace Grandeur",
+    title: "Sacred Tirupati Balaji & Padmavathi Palace Mandapam",
+    subtitle:
+      "Silver carved temple pillars, golden sanctum of Lord Venkateswara Swamy, pastel pink silk curtains, hanging temple bells, and cascading pink floral chandelier.",
+    alt: "Grand divine Tirupati Balaji temple mandap with silver carved pillars and pink silk drapery",
+    tag: "Divine Balaji Mandap",
+    theme: "divine-pink",
+  },
+  {
+    image: heroNewDomeEdison,
+    eyebrow: "Modern Royal Ambience",
+    title: "Blush Rose Floral Dome & Edison Fairy Light Stage",
+    subtitle:
+      "Circular floral dome canopy with warm hanging Edison bulbs, glowing feather light pillars, floral ring backdrop, and royal tufted sofa.",
+    alt: "Circular dome floral reception stage with hanging warm Edison lamps and royal sofa",
+    tag: "Celebrity Stage",
+    theme: "warm-gold",
+  },
+  {
+    image: heroNewBananaCanopy,
+    eyebrow: "Eco-Heritage Wedding Traditions",
+    title: "Heritage Banana Leaf Canopy & Temple Bell Mandap",
+    subtitle:
+      "Traditional four-pillar banana tree structure, dense green leaf ceiling with hanging bronze temple bells, jasmine strings, and antique wooden carved thrones.",
+    alt: "Eco-heritage traditional Telugu wedding mandap with banana tree pillars and temple bells",
+    tag: "Eco-Heritage Mandap",
+    theme: "temple-green",
+  },
+  {
     image: hero5,
-    eyebrow: "Grand Reception & Stage Artistry",
-    title: "Blush Peach Floral & Fairy Light Stages",
+    eyebrow: "Grand Reception Elegance",
+    title: "Blush Peach Floral & Candlelight Stage",
     subtitle:
       "Lush rose garland arch, warm Edison candle lighting, floral wreath centerpiece, and royal tufted beige sofa.",
     alt: "Grand peach floral reception stage with hanging Edison lights and royal sofa",
+    tag: "Peach Luxe",
+    theme: "warm-gold",
   },
   {
     image: hero1,
@@ -143,6 +206,8 @@ export const slides = [
     subtitle:
       "Golden carved temple dwaram, golden elephants, and tiered floral dome with cascading jasmine curtains.",
     alt: "Imperial domed floral canopy temple mandap with golden carved dwaram",
+    tag: "Imperial Gold",
+    theme: "temple-gold",
   },
   {
     image: hero2,
@@ -151,14 +216,18 @@ export const slides = [
     subtitle:
       "Silver carved pillars, lush red and white floral tassels, and royal red velvet maharaja throne.",
     alt: "Grand traditional temple gopuram mandap with silver pillars and red throne",
+    tag: "Gopuram Classic",
+    theme: "temple-gold",
   },
   {
     image: hero3,
     eyebrow: "Romantic Reception Royalty",
-    title: "Fairy Light Arch & Rangoli Stages",
+    title: "Fairy Light Arch & Floor Rangoli Stage",
     subtitle:
       "Full circular floral ring, fairy light waterfall backdrop, antique Victorian gold sofa, and traditional floor rangoli.",
     alt: "Circular floral ring arch with fairy lights, gold sofa and floor rangoli",
+    tag: "Fairy Ring",
+    theme: "pink-gold",
   },
   {
     image: hero4,
@@ -167,76 +236,78 @@ export const slides = [
     subtitle:
       "Grand floral arch, golden jaali pillars, warm waterfall lighting, and royal carved settee on fresh green turf.",
     alt: "Grand floral stage with golden jaali pillars and waterfall fairy lights",
-  },
-  {
-    image: clientEvent28,
-    eyebrow: "Auspicious Heritage",
-    title: "Red Rose Velvet & Kalasam Mandapams",
-    subtitle:
-      "Intricately carved golden pillars, rich red rose velvet backdrop, and sacred kalasam floral artistry.",
-    alt: "Grand traditional golden carved mandap decor with red rose velvet backdrop",
-  },
-  {
-    image: clientEvent43,
-    eyebrow: "Devotional Elegance",
-    title: "Golden Carved Temple Mandapams",
-    subtitle:
-      "Sacred Lord Venkateswara Namam and Shankhu Chakra floral artwork with cascading jasmine canopy.",
-    alt: "Golden carved temple mandap with sacred Namam and jasmine canopy",
+    tag: "Lawn Palace",
+    theme: "warm-gold",
   },
 ];
 
 export const services = [
-  { name: "Hindu Wedding", icon: "Flower2", group: "Weddings" },
-  { name: "Christian Wedding", icon: "Church", group: "Weddings" },
-  { name: "Muslim Wedding", icon: "Moon", group: "Weddings" },
-  { name: "Reception", icon: "GlassWater", group: "Weddings" },
-  { name: "Engagement", icon: "Gem", group: "Weddings" },
-  { name: "Haldi", icon: "Sun", group: "Weddings" },
-  { name: "Mehendi", icon: "Hand", group: "Weddings" },
-  { name: "Sangeet", icon: "Music4", group: "Weddings" },
-  { name: "Destination Wedding", icon: "Plane", group: "Weddings" },
-  { name: "Bridal Entry", icon: "Crown", group: "Weddings" },
-  { name: "Groom Entry", icon: "Bike", group: "Weddings" },
-  { name: "Birthday Party", icon: "Cake", group: "Celebrations" },
-  { name: "Baby Shower", icon: "Baby", group: "Celebrations" },
-  { name: "Naming Ceremony", icon: "Feather", group: "Celebrations" },
-  { name: "House Warming", icon: "Home", group: "Celebrations" },
-  { name: "Anniversary", icon: "Heart", group: "Celebrations" },
-  { name: "Mature Function", icon: "Sparkles", group: "Celebrations" },
-  { name: "College Events", icon: "GraduationCap", group: "Corporate & Campus" },
-  { name: "School Events", icon: "BookOpen", group: "Corporate & Campus" },
-  { name: "Corporate Events", icon: "Building2", group: "Corporate & Campus" },
-  { name: "Farewell", icon: "HandHeart", group: "Corporate & Campus" },
-  { name: "Freshers Party", icon: "PartyPopper", group: "Corporate & Campus" },
-  { name: "DJ Night", icon: "Disc3", group: "Entertainment" },
-  { name: "Live Orchestra", icon: "Drum", group: "Entertainment" },
-  { name: "Live Music", icon: "Mic2", group: "Entertainment" },
-  { name: "Artist Management", icon: "Star", group: "Entertainment" },
-  { name: "Fireworks", icon: "Sparkle", group: "Entertainment" },
-  { name: "Stage Decoration", icon: "Theater", group: "Decor & Production" },
-  { name: "Flower Decoration", icon: "Flower", group: "Decor & Production" },
-  { name: "Balloon Decoration", icon: "Circle", group: "Decor & Production" },
-  { name: "LED Dance Floor", icon: "Grid3x3", group: "Decor & Production" },
-  { name: "Sound System", icon: "Speaker", group: "Decor & Production" },
-  { name: "LED Wall", icon: "MonitorPlay", group: "Decor & Production" },
-  { name: "Luxury Car Decoration", icon: "Car", group: "Decor & Production" },
-  { name: "Photography", icon: "Camera", group: "Media & Services" },
-  { name: "Cinematic Videography", icon: "Clapperboard", group: "Media & Services" },
-  { name: "Drone Shoot", icon: "Send", group: "Media & Services" },
-  { name: "Catering", icon: "UtensilsCrossed", group: "Media & Services" },
-  { name: "Invitation Design", icon: "Mail", group: "Media & Services" },
-  { name: "Event Planning", icon: "CalendarCheck", group: "Media & Services" },
+  {
+    name: "Grand Kalyana Mandapams",
+    tagline: "Temple Gopurams, Floral Domes & Royal Mandaps",
+    desc: "Bespoke traditional carved mandaps, jasmine canopies & sacred dwarams.",
+    icon: "Flower2",
+    group: "Weddings",
+  },
+  {
+    name: "Luxury Reception Stages",
+    tagline: "Fairy Lights, Circular Arches & Maharaja Couches",
+    desc: "Modern royal stages, romantic LED illumination & floral backdrop styling.",
+    icon: "GlassWater",
+    group: "Weddings",
+  },
+  {
+    name: "Haldi & Mehendi Artistry",
+    tagline: "Brass Urlis, Marigold Decor & Poolside Setups",
+    desc: "Vibrant yellow marigold canopies, flower jewelry, and traditional urli seating.",
+    icon: "Sun",
+    group: "Traditions",
+  },
+  {
+    name: "Thematic Milestone Birthdays",
+    tagline: "1st Birthdays, Balloon Arches & 3D Character Sets",
+    desc: "Magical custom birthday productions, illuminated marquee numbers & backdrops.",
+    icon: "Cake",
+    group: "Celebrations",
+  },
+  {
+    name: "Engagements & Housewarmings",
+    tagline: "Couple Name Motifs, Swan Statues & Kalasam Decor",
+    desc: "Intimate festive setups with floral rangoli and elegant brass decor.",
+    icon: "Gem",
+    group: "Celebrations",
+  },
+  {
+    name: "Concert Light, Sound & DJ",
+    tagline: "Concert Truss Rigs, LED Dance Floors & Live DJ",
+    desc: "Electrifying sound systems, moving heads, cold pyros and live orchestra.",
+    icon: "Disc3",
+    group: "Entertainment",
+  },
+  {
+    name: "Cinematic Photography & 4K Film",
+    tagline: "Candid Moments, Drone Shoots & Live Streaming",
+    desc: "Premium cinema video coverage, candid frames and instant digital albums.",
+    icon: "Camera",
+    group: "Media",
+  },
+  {
+    name: "Royal Catering & Hospitality",
+    tagline: "FSSAI Certified, Live Counters & Guest Concierge",
+    desc: "Authentic multi-cuisine feast, welcome hospitality and event coordination.",
+    icon: "UtensilsCrossed",
+    group: "Hospitality",
+  },
 ] as const;
 
 export const serviceGroups = [
   "All",
   "Weddings",
+  "Traditions",
   "Celebrations",
-  "Corporate & Campus",
   "Entertainment",
-  "Decor & Production",
-  "Media & Services",
+  "Media",
+  "Hospitality",
 ];
 
 export const packages = [

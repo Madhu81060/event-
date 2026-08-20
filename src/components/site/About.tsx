@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Award, HeartHandshake, ShieldCheck, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import { clientEvent43, clientEvent42 } from "./data";
+import { heroNewGanesha, heroNewLoveGanesha } from "./data";
 
 const stats = [
   { value: 1200, suffix: "+", label: "Grand Events Crafted" },
@@ -101,16 +101,16 @@ export function About() {
           <Reveal className="order-1 lg:order-2" delay={100}>
             <div className="relative">
               <img
-                src={clientEvent43}
-                alt="Golden carved temple mandap designed by Elite Events"
+                src={heroNewGanesha}
+                alt="Imperial traditional South Indian banana plantain & golden Ganesha mandap designed by Elite Events"
                 width={1024}
                 height={768}
                 loading="lazy"
                 className="aspect-4/5 w-full rounded-3xl object-cover object-center border-2 border-amber-300/60 shadow-xl"
               />
               <img
-                src={clientEvent42}
-                alt="Circular rose arch reception stage"
+                src={heroNewLoveGanesha}
+                alt="Double heart Love neon reception stage"
                 width={500}
                 height={500}
                 loading="lazy"

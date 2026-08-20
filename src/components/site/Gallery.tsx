@@ -56,6 +56,11 @@ import {
   hero3,
   hero4,
   hero5,
+  heroNewGanesha,
+  heroNewLoveGanesha,
+  heroNewVenkateswara,
+  heroNewDomeEdison,
+  heroNewBananaCanopy,
 } from "./data";
 
 type Item = {
@@ -64,8 +69,33 @@ type Item = {
   cat: string;
 };
 
-// 49+ Verified, Crystal-Clear Right-Side-Up Real Event Photographs
+// 54+ Verified, Crystal-Clear Right-Side-Up Real Event Photographs
 const allGalleryItems: Item[] = [
+  {
+    src: heroNewLoveGanesha,
+    alt: "Grand Double Heart 'Love' Neon & Golden Ganesha Wedding Reception Stage with Glowing Wing Pillars",
+    cat: "Reception & Stages",
+  },
+  {
+    src: heroNewGanesha,
+    alt: "Imperial Traditional South Indian Mandap with Live Banana Trees, Golden Ganesha Sanctum & Rose Dwaram",
+    cat: "Kalyana Mandapams",
+  },
+  {
+    src: heroNewVenkateswara,
+    alt: "Sacred Tirupati Balaji & Padmavathi Palace Mandapam with Silver Carved Pillars & Pink Silk Drapes",
+    cat: "Kalyana Mandapams",
+  },
+  {
+    src: heroNewDomeEdison,
+    alt: "Blush Rose Dome & Warm Edison Light Reception Stage with Illuminated Leaf Pillars & Royal Sofa",
+    cat: "Reception & Stages",
+  },
+  {
+    src: heroNewBananaCanopy,
+    alt: "Eco-Heritage Telugu Wedding Mandap with Fresh Banana Leaf Roof Canopy, Temple Bells & Wooden Thrones",
+    cat: "Kalyana Mandapams",
+  },
   {
     src: hero5,
     alt: "Blush Peach Floral Reception Stage with Edison Lights & Royal Tufted Sofa",
