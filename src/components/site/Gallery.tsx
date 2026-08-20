@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
+import { X, ZoomIn, ChevronLeft, ChevronRight, MessageCircle, Loader2, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "@/components/ui/button";
@@ -301,28 +301,49 @@ const categories = [
 export function Gallery() {
   const [cat, setCat] = useState("All Setups");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   const shown = allGalleryItems.filter((i) => cat === "All Setups" || i.cat === cat);
 
   const openLightbox = (index: number) => {
+    setImgLoaded(false);
     setLightboxIndex(index);
   };
 
   const closeLightbox = () => {
     setLightboxIndex(null);
+    setImgLoaded(false);
   };
 
   const nextImage = () => {
     if (lightboxIndex !== null) {
+      setImgLoaded(false);
       setLightboxIndex((lightboxIndex + 1) % shown.length);
     }
   };
 
   const prevImage = () => {
     if (lightboxIndex !== null) {
+      setImgLoaded(false);
       setLightboxIndex((lightboxIndex - 1 + shown.length) % shown.length);
     }
   };
+
+  // Preload adjacent images for instant next/prev viewing
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      const nextIdx = (lightboxIndex + 1) % shown.length;
+      const prevIdx = (lightboxIndex - 1 + shown.length) % shown.length;
+      if (shown[nextIdx]) {
+        const imgNext = new Image();
+        imgNext.src = shown[nextIdx].src;
+      }
+      if (shown[prevIdx]) {
+        const imgPrev = new Image();
+        imgPrev.src = shown[prevIdx].src;
+      }
+    }
+  }, [lightboxIndex, shown]);
 
   return (
     <section id="gallery" className="relative py-12 sm:py-16 bg-gradient-to-b from-amber-50/35 via-white/70 to-amber-50/25 backdrop-blur-[2px]">
@@ -462,83 +483,123 @@ export function Gallery() {
         </div>
       </div>
 
-      {/* Fullscreen HD Modal */}
+      {/* Fullscreen HD Modal — Responsive Luxury Dialog Card (No Vertical Scrolling, Fits Screen Flawlessly) */}
       {lightboxIndex !== null && shown[lightboxIndex] && (
         <div
           role="dialog"
           aria-modal="true"
           aria-label={shown[lightboxIndex].alt}
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/95 p-4 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-950/85 backdrop-blur-md p-3 sm:p-5 md:p-6 overflow-hidden animate-in fade-in duration-200"
           onClick={closeLightbox}
         >
-          <button
-            aria-label="Close viewer"
-            onClick={closeLightbox}
-            className="absolute top-6 right-6 flex size-12 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/40 hover:scale-110 cursor-pointer"
-          >
-            <X className="size-6" aria-hidden />
-          </button>
-
-          <button
-            aria-label="Previous image"
-            onClick={(e) => {
-              e.stopPropagation();
-              prevImage();
-            }}
-            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 flex size-12 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/40 hover:scale-110 cursor-pointer"
-          >
-            <ChevronLeft className="size-7" />
-          </button>
-
-          <button
-            aria-label="Next image"
-            onClick={(e) => {
-              e.stopPropagation();
-              nextImage();
-            }}
-            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 flex size-12 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/40 hover:scale-110 cursor-pointer"
-          >
-            <ChevronRight className="size-7" />
-          </button>
-
-          <figure
+          <div
             onClick={(e) => e.stopPropagation()}
-            className="max-w-6xl max-h-[92vh] flex flex-col items-center px-4"
+            className="relative flex flex-col w-full max-w-4xl max-h-[94vh] rounded-3xl bg-stone-950/95 border-2 border-amber-400/80 shadow-[0_25px_80px_rgba(0,0,0,0.9)] overflow-hidden animate-in zoom-in-95 duration-200"
           >
-            <img
-              src={shown[lightboxIndex].src}
-              alt={shown[lightboxIndex].alt}
-              className="max-h-[72vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl border border-amber-300/40"
-            />
-            <figcaption className="mt-3 text-center font-display text-base font-bold text-amber-200 drop-shadow-md">
-              {shown[lightboxIndex].alt}
-            </figcaption>
-            <span className="mt-0.5 text-xs text-stone-300 font-semibold">
-              {lightboxIndex + 1} of {shown.length} • {shown[lightboxIndex].cat}
-            </span>
+            {/* Top Modal Header Bar */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-amber-400/20 bg-stone-900/80">
+              <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                <span className="shrink-0 rounded-full bg-amber-500/20 border border-amber-400/60 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-300">
+                  {shown[lightboxIndex].cat}
+                </span>
+                <h3 className="truncate font-display text-xs sm:text-sm font-bold text-stone-100">
+                  {shown[lightboxIndex].alt}
+                </h3>
+              </div>
 
-            {/* Direct WhatsApp Action in Modal */}
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={getEventWhatsAppLink(shown[lightboxIndex].alt)}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white shadow-xl transition hover:bg-emerald-500 hover:scale-104 cursor-pointer"
-              >
-                <MessageCircle className="size-4.5 fill-white/20" />
-                Inquire This Decor on WhatsApp
-              </a>
-              <Button
-                variant="outline"
-                className="rounded-full border-amber-300/80 bg-white/10 text-amber-200 font-bold hover:bg-amber-500 hover:text-white"
-                asChild
-              >
-                <a href="#book" onClick={closeLightbox}>
-                  Book Consultation
-                </a>
-              </Button>
+              <div className="flex items-center gap-3 shrink-0">
+                <span className="text-[11px] font-bold text-amber-300/80">
+                  {lightboxIndex + 1} / {shown.length}
+                </span>
+                <button
+                  aria-label="Close HD viewer"
+                  onClick={closeLightbox}
+                  className="flex size-8 sm:size-9 items-center justify-center rounded-full bg-white/10 hover:bg-amber-500 text-stone-200 hover:text-stone-950 transition-all cursor-pointer"
+                >
+                  <X className="size-4.5" />
+                </button>
+              </div>
             </div>
-          </figure>
+
+            {/* Center Stage Image Container with Left/Right Arrow Navigators */}
+            <div className="relative flex items-center justify-center bg-black/60 min-h-[280px] max-h-[60vh] sm:max-h-[66vh] overflow-hidden p-2 sm:p-4">
+              {/* Previous Image Button */}
+              <button
+                aria-label="Previous image"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevImage();
+                }}
+                className="absolute left-3 sm:left-4 z-20 flex size-10 sm:size-11 items-center justify-center rounded-full bg-stone-950/70 hover:bg-amber-500 text-white hover:text-stone-950 border border-white/20 transition-all hover:scale-110 cursor-pointer shadow-lg"
+              >
+                <ChevronLeft className="size-6" />
+              </button>
+
+              {/* Next Image Button */}
+              <button
+                aria-label="Next image"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextImage();
+                }}
+                className="absolute right-3 sm:right-4 z-20 flex size-10 sm:size-11 items-center justify-center rounded-full bg-stone-950/70 hover:bg-amber-500 text-white hover:text-stone-950 border border-white/20 transition-all hover:scale-110 cursor-pointer shadow-lg"
+              >
+                <ChevronRight className="size-6" />
+              </button>
+
+              {/* Loading Spinner */}
+              {!imgLoaded && (
+                <div className="flex flex-col items-center justify-center py-12">
+                  <Loader2 className="size-9 text-amber-400 animate-spin" />
+                  <p className="mt-2 text-xs font-bold text-amber-200 tracking-wider uppercase">
+                    Loading HD Showcase...
+                  </p>
+                </div>
+              )}
+
+              {/* HD Image */}
+              <img
+                src={shown[lightboxIndex].src}
+                alt={shown[lightboxIndex].alt}
+                loading="eager"
+                decoding="async"
+                onLoad={() => setImgLoaded(true)}
+                className={cn(
+                  "max-h-[58vh] sm:max-h-[64vh] w-auto max-w-full rounded-xl object-contain shadow-xl transition-all duration-300",
+                  imgLoaded ? "opacity-100 scale-100 block" : "opacity-0 scale-95 absolute pointer-events-none",
+                )}
+              />
+            </div>
+
+            {/* Bottom Modal Actions Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-2.5 px-4 sm:px-6 py-3 border-t border-amber-400/20 bg-stone-900/90">
+              <span className="text-[11px] font-bold text-amber-200 hidden sm:inline">
+                ✨ 100% Real Elite Events Production
+              </span>
+
+              <div className="flex items-center gap-2.5 ml-auto">
+                <a
+                  href={getEventWhatsAppLink(shown[lightboxIndex].alt)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 px-4 sm:px-5 py-2 text-xs font-bold text-white shadow-md transition-all hover:scale-104 cursor-pointer"
+                >
+                  <MessageCircle className="size-4 fill-white/20" />
+                  Inquire on WhatsApp
+                </a>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="rounded-full border-amber-400/80 bg-white/10 text-amber-200 font-bold hover:bg-amber-500 hover:text-stone-950 text-xs px-3.5 sm:px-4 py-2"
+                  asChild
+                >
+                  <a href="#book" onClick={closeLightbox}>
+                    Book Consultation
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </section>
