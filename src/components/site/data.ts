@@ -141,10 +141,10 @@ export const getEventWhatsAppLink = (eventTitle: string) => {
 export const slides = [
   {
     image: heroNewLoveGanesha,
-    eyebrow: "Royal Luxury Reception & Stage Artistry",
-    title: "Double Heart 'Love' & Ganesha Grand Arch Stage",
+    eyebrow: "Royal Luxury Reception",
+    title: "Double Heart & Golden Ganesha Stage",
     subtitle:
-      "Luminous golden Lord Ganesha canopy, double heart glowing neon motif, sculpted leaf light columns, cascading wisteria, and luxury cream velvet couch.",
+      "Golden Ganesha canopy with glowing neon love motif, wisteria blooms, and luxury lounge seating.",
     alt: "Grand luxury wedding reception stage with glowing love heart and golden ganesha arch",
     tag: "Trending Royal Stage",
     theme: "pink-gold",
@@ -152,9 +152,9 @@ export const slides = [
   {
     image: heroNewGanesha,
     eyebrow: "South Indian Vedic Heritage",
-    title: "Imperial Banana Plantain & Golden Ganesha Mandap",
+    title: "Imperial Banana & Golden Ganesha Mandap",
     subtitle:
-      "Fresh live banana pillars with full fruit bunches, lush green leaf backdrop with golden Lord Ganesha, multi-tier marigold & rose dwaram, and sacred brass samai lamps.",
+      "Live banana pillars, lush green leaf backdrop, golden Ganesha sanctum, and fresh marigold dwaram.",
     alt: "Traditional South Indian Kalyana Mandapam with banana trees, gold ganesha idol, and fresh flower canopy",
     tag: "Authentic Vedic Mandap",
     theme: "temple-gold",
@@ -162,9 +162,9 @@ export const slides = [
   {
     image: heroNewVenkateswara,
     eyebrow: "Devotional Palace Grandeur",
-    title: "Sacred Tirupati Balaji & Padmavathi Palace Mandapam",
+    title: "Sacred Tirupati Balaji Palace Mandapam",
     subtitle:
-      "Silver carved temple pillars, golden sanctum of Lord Venkateswara Swamy, pastel pink silk curtains, hanging temple bells, and cascading pink floral chandelier.",
+      "Silver carved temple pillars, golden Venkateswara sanctum, pink silk curtains, and cascading florals.",
     alt: "Grand divine Tirupati Balaji temple mandap with silver carved pillars and pink silk drapery",
     tag: "Divine Balaji Mandap",
     theme: "divine-pink",
@@ -172,19 +172,19 @@ export const slides = [
   {
     image: heroNewDomeEdison,
     eyebrow: "Modern Royal Ambience",
-    title: "Blush Rose Floral Dome & Edison Fairy Light Stage",
+    title: "Blush Rose Dome & Edison Light Stage",
     subtitle:
-      "Circular floral dome canopy with warm hanging Edison bulbs, glowing feather light pillars, floral ring backdrop, and royal tufted sofa.",
+      "Circular floral dome with hanging warm Edison lamps, glowing light columns, and royal sofa.",
     alt: "Circular dome floral reception stage with hanging warm Edison lamps and royal sofa",
     tag: "Celebrity Stage",
     theme: "warm-gold",
   },
   {
     image: heroNewBananaCanopy,
-    eyebrow: "Eco-Heritage Wedding Traditions",
-    title: "Heritage Banana Leaf Canopy & Temple Bell Mandap",
+    eyebrow: "Eco-Heritage Traditions",
+    title: "Heritage Banana Leaf & Temple Bell Mandap",
     subtitle:
-      "Traditional four-pillar banana tree structure, dense green leaf ceiling with hanging bronze temple bells, jasmine strings, and antique wooden carved thrones.",
+      "Traditional banana tree canopy with bronze temple bells, fresh jasmine strings, and carved thrones.",
     alt: "Eco-heritage traditional Telugu wedding mandap with banana tree pillars and temple bells",
     tag: "Eco-Heritage Mandap",
     theme: "temple-green",
@@ -194,7 +194,7 @@ export const slides = [
     eyebrow: "Grand Reception Elegance",
     title: "Blush Peach Floral & Candlelight Stage",
     subtitle:
-      "Lush rose garland arch, warm Edison candle lighting, floral wreath centerpiece, and royal tufted beige sofa.",
+      "Lush rose garland arch, warm Edison candle lighting, and royal tufted beige sofa.",
     alt: "Grand peach floral reception stage with hanging Edison lights and royal sofa",
     tag: "Peach Luxe",
     theme: "warm-gold",
@@ -204,7 +204,7 @@ export const slides = [
     eyebrow: "Palace-Scale Grandeur",
     title: "Imperial Domed Temple Mandapams",
     subtitle:
-      "Golden carved temple dwaram, golden elephants, and tiered floral dome with cascading jasmine curtains.",
+      "Golden carved dwaram, royal elephants, and tiered floral dome with cascading jasmine.",
     alt: "Imperial domed floral canopy temple mandap with golden carved dwaram",
     tag: "Imperial Gold",
     theme: "temple-gold",
@@ -214,7 +214,7 @@ export const slides = [
     eyebrow: "Sacred Temple Architecture",
     title: "Royal Temple Gopuram Mandapams",
     subtitle:
-      "Silver carved pillars, lush red and white floral tassels, and royal red velvet maharaja throne.",
+      "Silver carved pillars with red and white floral tassels and royal red velvet maharaja throne.",
     alt: "Grand traditional temple gopuram mandap with silver pillars and red throne",
     tag: "Gopuram Classic",
     theme: "temple-gold",
@@ -224,7 +224,7 @@ export const slides = [
     eyebrow: "Romantic Reception Royalty",
     title: "Fairy Light Arch & Floor Rangoli Stage",
     subtitle:
-      "Full circular floral ring, fairy light waterfall backdrop, antique Victorian gold sofa, and traditional floor rangoli.",
+      "Circular floral ring, fairy light waterfall backdrop, Victorian gold sofa, and fresh petal rangoli.",
     alt: "Circular floral ring arch with fairy lights, gold sofa and floor rangoli",
     tag: "Fairy Ring",
     theme: "pink-gold",
@@ -234,7 +234,7 @@ export const slides = [
     eyebrow: "Lush Lawn Luxury",
     title: "Golden Jaali Arch & Floral Lawn Stages",
     subtitle:
-      "Grand floral arch, golden jaali pillars, warm waterfall lighting, and royal carved settee on fresh green turf.",
+      "Grand floral arch with golden jaali pillars, warm waterfall lighting, and royal carved settee.",
     alt: "Grand floral stage with golden jaali pillars and waterfall fairy lights",
     tag: "Lawn Palace",
     theme: "warm-gold",

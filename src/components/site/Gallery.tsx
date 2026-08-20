@@ -324,16 +324,16 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="relative py-20 sm:py-28 bg-gradient-to-b from-amber-50/60 via-white to-amber-50/40">
+    <section id="gallery" className="relative py-12 sm:py-16 bg-gradient-to-b from-amber-50/60 via-white to-amber-50/40">
       <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-10">
         <SectionHeading
           eyebrow="100% Real Celebrations"
           title="Mandaps & Luxury Stages Portfolio"
-          description="Explore our grand temple mandapams, reception setups, and festive decor crafted across Hyderabad, Vijayawada & Eluru."
+          description="Grand temple mandapams, reception setups, and festive decor crafted across Hyderabad, Vijayawada & Eluru."
         />
 
         {/* Category Filter Tabs */}
-        <Reveal className="mt-8 flex flex-wrap justify-center gap-2 sm:gap-3">
+        <Reveal className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
           {categories.map((c) => {
             const count = allGalleryItems.filter((i) => c === "All Setups" || i.cat === c).length;
             return (
@@ -342,7 +342,7 @@ export function Gallery() {
                 onClick={() => setCat(c)}
                 aria-pressed={cat === c}
                 className={cn(
-                  "rounded-full px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer shadow-sm",
+                  "rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer shadow-xs",
                   cat === c
                     ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md scale-103 ring-2 ring-amber-300"
                     : "bg-white text-stone-700 border border-amber-200 hover:text-amber-800 hover:bg-amber-100/60",
@@ -354,10 +354,26 @@ export function Gallery() {
           })}
         </Reveal>
 
+        {/* Dynamic Portfolio Status Bar (Replaces empty white space with interactive info) */}
+        <Reveal delay={80} className="mt-5">
+          <div className="flex flex-wrap items-center justify-between gap-2.5 rounded-2xl bg-amber-100/80 border border-amber-300/80 px-4 py-2 text-xs font-bold text-amber-950 shadow-xs">
+            <div className="flex items-center gap-2">
+              <span className="flex size-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>
+                Showing <strong className="text-amber-900">{shown.length} Real Event Setups</strong> in {cat}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-amber-800 text-[11px] sm:text-xs font-semibold">
+              <span>✨ Tap any photo to zoom in HD</span>
+              <span className="hidden sm:inline">• Direct WhatsApp booking available</span>
+            </div>
+          </div>
+        </Reveal>
+
         {/* Wide Full-Bleed Gallery Grid with Beautiful Golden Borders & Zero Margin Wastes */}
         <div
           id="showreel"
-          className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {shown.map((item, i) => (
             <Reveal

@@ -8,7 +8,7 @@ interface Sparkle {
   vx: number;
   vy: number;
   size: number;
-  maxSize: number;
+  targetSize: number;
   alpha: number;
   maxAlpha: number;
   decay: number;
@@ -17,24 +17,50 @@ interface Sparkle {
   points: 4 | 8;
   color: string;
   glow: string;
+  isBurst?: boolean;
 }
 
-const PALETTES: Record<AmbienceMood, { colors: string[]; glow: string }> = {
+interface RadiantBeam {
+  x: number;
+  width: number;
+  speed: number;
+  opacity: number;
+  maxOpacity: number;
+  angle: number;
+}
+
+const PALETTES: Record<
+  AmbienceMood,
+  {
+    colors: string[];
+    glow: string;
+    beamGlow: string;
+    beamColor: string;
+  }
+> = {
   gold: {
-    colors: ["#FFFBEB", "#FEF08A", "#FDE047", "#F59E0B", "#D4AF37"],
-    glow: "rgba(245, 158, 11, 0.6)",
+    colors: ["#FFFFFF", "#FEF08A", "#FDE047", "#F59E0B", "#D4AF37", "#FFEAA7"],
+    glow: "rgba(245, 158, 11, 0.85)",
+    beamGlow: "rgba(253, 224, 71, 0.22)",
+    beamColor: "rgba(245, 158, 11, 0.18)",
   },
   rose: {
-    colors: ["#FFF1F2", "#FFE4E6", "#F472B6", "#FB7185", "#FDE047"],
-    glow: "rgba(244, 114, 182, 0.55)",
+    colors: ["#FFFFFF", "#FFE4E6", "#F472B6", "#FB7185", "#FDA4AF", "#FFF1F2"],
+    glow: "rgba(244, 114, 182, 0.8)",
+    beamGlow: "rgba(251, 113, 133, 0.22)",
+    beamColor: "rgba(244, 114, 182, 0.18)",
   },
   divine: {
-    colors: ["#F0FDF4", "#FEF9C3", "#E0E7FF", "#FFFFFF", "#FBBF24"],
-    glow: "rgba(254, 240, 138, 0.65)",
+    colors: ["#FFFFFF", "#E0E7FF", "#C7D2FE", "#FEF9C3", "#818CF8", "#FDE047"],
+    glow: "rgba(165, 180, 252, 0.85)",
+    beamGlow: "rgba(199, 210, 254, 0.25)",
+    beamColor: "rgba(254, 240, 138, 0.2)",
   },
   temple: {
-    colors: ["#FFFBEB", "#FDE68A", "#F59E0B", "#EA580C", "#34D399"],
-    glow: "rgba(217, 119, 6, 0.6)",
+    colors: ["#FFFFFF", "#FEF08A", "#F59E0B", "#EA580C", "#34D399", "#FDE68A"],
+    glow: "rgba(234, 88, 12, 0.85)",
+    beamGlow: "rgba(245, 158, 11, 0.25)",
+    beamColor: "rgba(52, 211, 153, 0.15)",
   },
 };
 
@@ -59,39 +85,64 @@ export function MerupuluCanvas({ mood = "gold" }: { mood?: AmbienceMood }) {
     window.addEventListener("resize", handleResize);
 
     const sparkles: Sparkle[] = [];
-    const maxAmbientSparkles = 55;
+    const maxAmbientSparkles = 75;
 
-    const spawnSparkle = (x?: number, y?: number, isInteractive = false): Sparkle => {
-      const palette = PALETTES[mood] || PALETTES.gold;
+    const palette = PALETTES[mood] || PALETTES.gold;
+
+    const spawnSparkle = (x?: number, y?: number, isBurst = false): Sparkle => {
       const color = palette.colors[Math.floor(Math.random() * palette.colors.length)];
-      const points: 4 | 8 = Math.random() > 0.6 ? 8 : 4;
-      const maxSize = isInteractive ? 8 + Math.random() * 12 : 5 + Math.random() * 9;
+      const points: 4 | 8 = Math.random() > 0.4 ? 8 : 4;
+      const targetSize = isBurst ? 10 + Math.random() * 16 : 6 + Math.random() * 12;
 
       return {
         x: x !== undefined ? x : Math.random() * width,
         y: y !== undefined ? y : Math.random() * height,
-        vx: (Math.random() - 0.5) * (isInteractive ? 2.5 : 0.8),
-        vy: isInteractive ? (Math.random() - 0.7) * 2.5 : -0.2 - Math.random() * 0.7,
-        size: 0.5,
-        maxSize,
+        vx: (Math.random() - 0.5) * (isBurst ? 2.8 : 0.9),
+        vy: isBurst ? (Math.random() - 0.7) * 2.8 : -0.3 - Math.random() * 0.9,
+        size: 0.8,
+        targetSize,
         alpha: 0,
-        maxAlpha: isInteractive ? 0.9 + Math.random() * 0.1 : 0.45 + Math.random() * 0.5,
-        decay: isInteractive ? 0.015 + Math.random() * 0.02 : 0.005 + Math.random() * 0.008,
+        maxAlpha: isBurst ? 0.95 + Math.random() * 0.05 : 0.65 + Math.random() * 0.35,
+        decay: isBurst ? 0.02 + Math.random() * 0.02 : 0.006 + Math.random() * 0.008,
         rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.04,
+        rotSpeed: (Math.random() - 0.5) * 0.06,
         points,
         color,
         glow: palette.glow,
+        isBurst,
       };
     };
 
-    // Pre-populate ambient sparkles across the canvas
+    // Pre-populate vibrant ambient sparkles across the stage
     for (let i = 0; i < maxAmbientSparkles; i++) {
       const s = spawnSparkle();
       s.alpha = Math.random() * s.maxAlpha;
-      s.size = Math.random() * s.maxSize;
+      s.size = 2 + Math.random() * s.targetSize;
       sparkles.push(s);
     }
+
+    // Continuous automatic radiant lightning / ambient ray sweeps ("మెరుపుల కాంతులు")
+    const beams: RadiantBeam[] = [
+      {
+        x: -300,
+        width: 320,
+        speed: 3.2,
+        opacity: 0,
+        maxOpacity: 0.28,
+        angle: 0.35,
+      },
+      {
+        x: -700,
+        width: 260,
+        speed: 2.4,
+        opacity: 0,
+        maxOpacity: 0.22,
+        angle: -0.25,
+      },
+    ];
+
+    // Auto-sparkle bursts interval timer (automatically creates vivid diamond bursts)
+    let burstTimer = 0;
 
     // Interactive mouse / touch move
     const handlePointerMove = (e: MouseEvent | TouchEvent) => {
@@ -101,8 +152,10 @@ export function MerupuluCanvas({ mood = "gold" }: { mood?: AmbienceMood }) {
       const x = clientX - rect.left;
       const y = clientY - rect.top;
 
-      for (let i = 0; i < 3; i++) {
-        sparkles.push(spawnSparkle(x + (Math.random() - 0.5) * 20, y + (Math.random() - 0.5) * 20, true));
+      for (let i = 0; i < 4; i++) {
+        sparkles.push(
+          spawnSparkle(x + (Math.random() - 0.5) * 35, y + (Math.random() - 0.5) * 35, true),
+        );
       }
     };
 
@@ -121,7 +174,7 @@ export function MerupuluCanvas({ mood = "gold" }: { mood?: AmbienceMood }) {
       innerRadius: number,
       rot: number,
     ) => {
-      let rotStep = Math.PI / spikes;
+      const rotStep = Math.PI / spikes;
       let x = cx;
       let y = cy;
 
@@ -142,64 +195,97 @@ export function MerupuluCanvas({ mood = "gold" }: { mood?: AmbienceMood }) {
       c.closePath();
     };
 
-    let shimmerWaveX = -200;
-
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Moving golden lightning shimmer wave ("Merupu Tarangam")
-      shimmerWaveX += 2.4;
-      if (shimmerWaveX > width + 500) shimmerWaveX = -350;
+      // 1. Continuous Moving Radiant Lightning Shimmer Beams ("మెరుపుల తళుకులు")
+      beams.forEach((beam) => {
+        beam.x += beam.speed;
+        if (beam.x > width + 600) {
+          beam.x = -400 - Math.random() * 300;
+          beam.speed = 2.0 + Math.random() * 2.2;
+        }
 
-      const shimmerGrad = ctx.createLinearGradient(shimmerWaveX - 250, 0, shimmerWaveX + 250, height);
-      shimmerGrad.addColorStop(0, "rgba(254, 240, 138, 0)");
-      shimmerGrad.addColorStop(0.5, "rgba(254, 240, 138, 0.12)");
-      shimmerGrad.addColorStop(1, "rgba(254, 240, 138, 0)");
-      ctx.fillStyle = shimmerGrad;
-      ctx.fillRect(0, 0, width, height);
+        const beamGrad = ctx.createLinearGradient(
+          beam.x - beam.width / 2,
+          0,
+          beam.x + beam.width / 2,
+          height,
+        );
+        beamGrad.addColorStop(0, "rgba(255, 255, 255, 0)");
+        beamGrad.addColorStop(0.3, palette.beamColor);
+        beamGrad.addColorStop(0.5, palette.beamGlow);
+        beamGrad.addColorStop(0.7, palette.beamColor);
+        beamGrad.addColorStop(1, "rgba(255, 255, 255, 0)");
 
-      // 2. Render & update Sparkles ("Merupulu")
+        ctx.save();
+        ctx.fillStyle = beamGrad;
+        ctx.fillRect(0, 0, width, height);
+        ctx.restore();
+      });
+
+      // 2. Automatic Continuous Merupu Star Bursts every ~60 frames
+      burstTimer++;
+      if (burstTimer > 45) {
+        burstTimer = 0;
+        // Spawn 2-3 bright royal diamond flares in random beautiful stage locations
+        const burstX = width * (0.2 + Math.random() * 0.75);
+        const burstY = height * (0.15 + Math.random() * 0.7);
+        for (let b = 0; b < 3; b++) {
+          sparkles.push(
+            spawnSparkle(
+              burstX + (Math.random() - 0.5) * 50,
+              burstY + (Math.random() - 0.5) * 50,
+              true,
+            ),
+          );
+        }
+      }
+
+      // 3. Render & Update Continuous Twinkling Sparkles ("నిరంతర మెరుపులు")
       for (let i = sparkles.length - 1; i >= 0; i--) {
         const s = sparkles[i];
         s.x += s.vx;
         s.y += s.vy;
         s.rotation += s.rotSpeed;
 
-        // Size & Alpha lifecycle
-        if (s.size < s.maxSize) {
-          s.size += 0.35;
+        // Size expansion & alpha breathing cycle
+        if (s.size < s.targetSize) {
+          s.size += 0.45;
         }
         if (s.alpha < s.maxAlpha) {
-          s.alpha = Math.min(s.maxAlpha, s.alpha + 0.05);
+          s.alpha = Math.min(s.maxAlpha, s.alpha + 0.08);
         } else {
           s.alpha -= s.decay;
         }
 
-        if (s.alpha <= 0 || s.y < -30 || s.x < -30 || s.x > width + 30) {
+        if (s.alpha <= 0 || s.y < -40 || s.x < -40 || s.x > width + 40) {
           sparkles.splice(i, 1);
           continue;
         }
 
         ctx.save();
         ctx.globalAlpha = Math.max(0, Math.min(1, s.alpha));
-        ctx.shadowBlur = 14;
+        ctx.shadowBlur = s.isBurst ? 22 : 14;
         ctx.shadowColor = s.glow;
         ctx.fillStyle = s.color;
 
-        // Draw central sparkling star
-        drawStar(ctx, s.x, s.y, s.points, s.size, s.size * 0.28, s.rotation);
+        // Draw multi-point diamond star
+        drawStar(ctx, s.x, s.y, s.points, s.size, s.size * 0.24, s.rotation);
         ctx.fill();
 
-        // Core bright center dot
+        // High-intensity white center gleam
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size * 0.22, 0, Math.PI * 2);
+        ctx.arc(s.x, s.y, Math.max(1, s.size * 0.26), 0, Math.PI * 2);
         ctx.fillStyle = "#FFFFFF";
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#FFFFFF";
         ctx.fill();
 
         ctx.restore();
       }
 
-      // Maintain ambient sparkles count
+      // Keep ambient sparkles dense & glowing across the whole stage
       while (sparkles.length < maxAmbientSparkles) {
         sparkles.push(spawnSparkle());
       }

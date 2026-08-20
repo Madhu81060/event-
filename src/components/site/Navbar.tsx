@@ -60,12 +60,12 @@ export function Navbar() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden items-center gap-1 xl:gap-1.5 lg:flex">
+        <ul className="hidden items-center gap-1 xl:gap-2 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="rounded-full px-3 py-1.5 text-[13.5px] font-bold text-stone-700 transition-all duration-200 hover:text-amber-800 hover:bg-amber-100/60"
+                className="rounded-full px-2.5 xl:px-3.5 py-1.5 text-xs xl:text-[13.5px] font-bold text-stone-700 transition-all duration-200 hover:text-amber-800 hover:bg-amber-100/60 whitespace-nowrap"
               >
                 {l.label}
               </a>
@@ -74,12 +74,12 @@ export function Navbar() {
         </ul>
 
         {/* CTA Buttons */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 px-3.5 py-1.5 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100 hover:scale-103 shadow-xs"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100 hover:scale-103 shadow-xs shrink-0"
           >
             <MessageCircle className="size-3.5 text-emerald-600 fill-emerald-600/20" />
             WhatsApp
@@ -87,16 +87,16 @@ export function Navbar() {
 
           <a
             href={`tel:${PHONE.replace(/\s/g, "")}`}
-            className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 transition hover:bg-amber-100 hover:scale-103 shadow-xs"
+            className="hidden 2xl:inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 transition hover:bg-amber-100 hover:scale-103 shadow-xs shrink-0"
           >
             <Phone className="size-3.5 text-amber-700" />
             {PHONE}
           </a>
 
-          <Button asChild className="btn-gold-glow rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold shadow-md">
-            <a href="#book">
-              <Sparkles className="size-3.5 mr-1" />
-              Book Event
+          <Button asChild className="btn-gold-glow rounded-full px-3.5 sm:px-5 py-2 text-xs sm:text-sm font-bold shadow-md shrink-0">
+            <a href="#book" className="flex items-center gap-1 whitespace-nowrap">
+              <Sparkles className="size-3.5" />
+              <span>Book Event</span>
             </a>
           </Button>
 

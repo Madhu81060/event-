@@ -71,9 +71,9 @@ const pillars = [
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-24 sm:py-32 bg-white">
+    <section id="about" className="relative overflow-hidden py-14 sm:py-20 bg-white">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
             <span className="inline-block rounded-full bg-amber-100 border border-amber-300/80 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-900 shadow-xs">
               Who We Are
@@ -81,16 +81,16 @@ export function About() {
             <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
               10+ Years of Crafting Royal Celebrations
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-stone-600 font-medium leading-relaxed">
-              Elite Events is a premier full-service luxury event management company operating across Hyderabad, Vijayawada, and Eluru. We specialize in royal traditional mandaps, luxury modern receptions, vibrant haldi ceremonies, and thematic milestone birthdays.
+            <p className="mt-3 text-sm sm:text-base text-stone-600 font-medium leading-relaxed">
+              Elite Events is South India's premier luxury event production house across Hyderabad, Vijayawada, and Eluru — specializing in royal temple mandaps, modern celebrity stages, and vibrant festive ceremonies.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="mt-6 grid gap-3.5 sm:grid-cols-2">
               {pillars.map((p, i) => (
                 <Reveal key={p.title} delay={i * 60}>
-                  <article className="card-3d h-full rounded-2xl bg-amber-50/50 border border-amber-200/80 p-5 shadow-xs transition-all hover:border-amber-400 hover:shadow-md">
-                    <p.icon className="size-6 text-amber-700" aria-hidden />
-                    <h3 className="mt-3 font-bold text-stone-900 text-base">{p.title}</h3>
+                  <article className="card-3d h-full rounded-2xl bg-amber-50/50 border border-amber-200/80 p-4.5 shadow-xs transition-all hover:border-amber-400 hover:shadow-md">
+                    <p.icon className="size-5.5 text-amber-700" aria-hidden />
+                    <h3 className="mt-2.5 font-bold text-stone-900 text-sm sm:text-base">{p.title}</h3>
                     <p className="mt-1 text-xs font-semibold text-stone-600 leading-relaxed">{p.text}</p>
                   </article>
                 </Reveal>
@@ -125,7 +125,7 @@ export function About() {
         </div>
 
         {/* Numbers Section */}
-        <div className="mt-24">
+        <div className="mt-16">
           <SectionHeading
             eyebrow="Our Track Record"
             title="Trusted By 950+ Families Across AP & Telangana"

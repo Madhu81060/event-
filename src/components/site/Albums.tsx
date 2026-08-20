@@ -17,34 +17,34 @@ export function Albums() {
     {
       id: "royal-wedding-vol1",
       title: "Royal South Indian Mandapam Portfolio",
-      subtitle: "Volume 1 • 50+ High-Res Design Spreads",
+      subtitle: "Volume 1 • 50+ Real Photos",
       cover: heroNewGanesha,
       category: "Temple Mandap Artistry",
       count: "50+ Photos",
-      desc: "Live banana plantain mandaps, golden Lord Ganesha sanctums, Tirupati Balaji silver shrines, and tiered jasmine floral canopies.",
+      desc: "Live banana plantain mandaps, golden Ganesha sanctums, and tiered jasmine floral canopies.",
     },
     {
       id: "luxury-reception-vol2",
-      title: "Grand Reception & Celebrity Stage Lookbook",
-      subtitle: "Volume 2 • 40+ High-Res Design Spreads",
+      title: "Grand Reception & Luxury Stage Lookbook",
+      subtitle: "Volume 2 • 40+ Real Photos",
       cover: heroNewLoveGanesha,
       category: "Luxury Stage Production",
       count: "40+ Photos",
-      desc: "Double heart 'Love' neon stages, circular blush rose domes with hanging Edison bulbs, glowing feather light columns, and royal velvet lounges.",
+      desc: "Double heart neon arches, circular blush floral domes, Edison bulbs, and velvet lounges.",
     },
     {
       id: "heritage-tradition-vol3",
       title: "Eco-Heritage & Temple Gopuram Weddings",
-      subtitle: "Volume 3 • 35+ High-Res Design Spreads",
+      subtitle: "Volume 3 • 35+ Real Photos",
       cover: heroNewBananaCanopy,
       category: "Vedic & Eco Traditions",
       count: "35+ Photos",
-      desc: "Banana leaf ceiling canopies with antique bronze temple bells, traditional wooden carved thrones, brass samai deepams, and marigold garlands.",
+      desc: "Banana leaf ceiling canopies, antique bronze temple bells, and carved wooden thrones.",
     },
   ];
 
   return (
-    <section id="albums" className="relative py-20 sm:py-28 bg-gradient-to-b from-white via-amber-50/40 to-white">
+    <section id="albums" className="relative py-14 sm:py-20 bg-gradient-to-b from-white via-amber-50/40 to-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Digital Portfolios"
