@@ -18,13 +18,72 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("#home");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+
+      // Detect current active section in viewport
+      const sectionIds = [
+        "contact",
+        "about",
+        "albums",
+        "packages",
+        "services",
+        "gallery",
+        "home",
+      ];
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 180) {
+            setActiveHash(`#${id}`);
+            break;
+          }
+        }
+      }
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    setActiveHash(href);
+    setOpen(false);
+
+    if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      try {
+        window.history.pushState(null, "", "#home");
+      } catch {}
+      return;
+    }
+
+    const targetId = href.replace("#", "");
+    const target = document.getElementById(targetId);
+    if (target) {
+      const headerOffset = 76;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
+
+      try {
+        window.history.pushState(null, "", href);
+      } catch {}
+    }
+  };
 
   return (
     <header
@@ -39,7 +98,11 @@ export function Navbar() {
         className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6"
       >
         {/* Brand Logo & Name */}
-        <a href="#home" className="flex items-center gap-2.5 group shrink-0">
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, "#home")}
+          className="flex items-center gap-2.5 group shrink-0"
+        >
           <span className="flex size-10 sm:size-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-300/80 p-1 shadow-xs transition-transform duration-300 group-hover:scale-105">
             <img
               src={logo}
@@ -61,16 +124,24 @@ export function Navbar() {
 
         {/* Desktop Navigation Links */}
         <ul className="hidden items-center gap-1 xl:gap-2 lg:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="rounded-full px-2.5 xl:px-3.5 py-1.5 text-xs xl:text-[13.5px] font-bold text-stone-700 transition-all duration-200 hover:text-amber-800 hover:bg-amber-100/60 whitespace-nowrap"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
+          {links.map((l) => {
+            const isActive = activeHash === l.href;
+            return (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={(e) => handleNavClick(e, l.href)}
+                  className={`rounded-full px-2.5 xl:px-3.5 py-1.5 text-xs xl:text-[13.5px] font-bold transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? "bg-amber-500 text-white shadow-xs"
+                      : "text-stone-700 hover:text-amber-800 hover:bg-amber-100/60"
+                  }`}
+                >
+                  {l.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         {/* CTA Buttons */}
@@ -129,8 +200,12 @@ export function Navbar() {
                   <li key={l.href}>
                     <a
                       href={l.href}
-                      onClick={() => setOpen(false)}
-                      className="block rounded-xl px-4 py-2.5 text-sm font-bold text-stone-800 transition-colors hover:bg-amber-50 hover:text-amber-800"
+                      onClick={(e) => handleNavClick(e, l.href)}
+                      className={`block rounded-xl px-4 py-2.5 text-sm font-bold transition-colors ${
+                        activeHash === l.href
+                          ? "bg-amber-500 text-white"
+                          : "text-stone-800 hover:bg-amber-50 hover:text-amber-800"
+                      }`}
                     >
                       {l.label}
                     </a>

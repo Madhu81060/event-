@@ -44,7 +44,7 @@ export function Albums() {
   ];
 
   return (
-    <section id="albums" className="relative py-14 sm:py-20 bg-gradient-to-b from-white via-amber-50/40 to-white">
+    <section id="albums" className="relative py-14 sm:py-20 bg-gradient-to-b from-white/75 via-amber-50/30 to-white/75 backdrop-blur-[2px]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Digital Portfolios"

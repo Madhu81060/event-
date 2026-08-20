@@ -6,7 +6,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function Services() {
   return (
-    <section id="services" className="relative py-18 sm:py-24 bg-amber-50/40 border-y border-amber-200/60">
+    <section id="services" className="relative py-18 sm:py-24 bg-amber-50/25 border-y border-amber-200/50 backdrop-blur-[2px]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Complete Production House"

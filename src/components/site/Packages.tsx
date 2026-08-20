@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function Packages() {
   return (
-    <section id="packages" className="relative overflow-hidden py-24 sm:py-32 bg-gradient-to-b from-amber-50/40 via-white to-amber-50/20">
+    <section id="packages" className="relative overflow-hidden py-24 sm:py-32 bg-gradient-to-b from-amber-50/25 via-white/70 to-amber-50/15 backdrop-blur-[2px]">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Pricing & Packages"

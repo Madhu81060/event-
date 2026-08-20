@@ -71,7 +71,7 @@ const pillars = [
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-14 sm:py-20 bg-white">
+    <section id="about" className="relative overflow-hidden py-14 sm:py-20 bg-white/75 backdrop-blur-[2px]">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
@@ -101,16 +101,16 @@ export function About() {
           <Reveal className="order-1 lg:order-2" delay={100}>
             <div className="relative">
               <img
-                src={heroNewGanesha}
-                alt="Imperial traditional South Indian banana plantain & golden Ganesha mandap designed by Elite Events"
+                src={heroNewLoveGanesha}
+                alt="Double heart Love neon & golden Ganesha luxury wedding reception stage designed by Elite Events"
                 width={1024}
                 height={768}
                 loading="lazy"
                 className="aspect-4/5 w-full rounded-3xl object-cover object-center border-2 border-amber-300/60 shadow-xl"
               />
               <img
-                src={heroNewLoveGanesha}
-                alt="Double heart Love neon reception stage"
+                src={heroNewGanesha}
+                alt="Imperial traditional South Indian banana plantain & golden Ganesha mandap"
                 width={500}
                 height={500}
                 loading="lazy"

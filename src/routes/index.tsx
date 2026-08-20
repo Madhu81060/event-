@@ -16,6 +16,7 @@ import { FAQ } from "@/components/site/FAQ";
 import { Blog } from "@/components/site/Blog";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
+import { ShiningWavesCanvas } from "@/components/site/ShiningWavesCanvas";
 import { faqs } from "@/components/site/data";
 
 const title = "Elite Events | Luxury Event Management in Hyderabad, Vijayawada & Eluru";
@@ -66,7 +67,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-dvh">
+    <div className="min-h-dvh relative">
+      <ShiningWavesCanvas />
       <Navbar />
       <main>
         <Hero />

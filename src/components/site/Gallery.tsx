@@ -324,7 +324,7 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="relative py-12 sm:py-16 bg-gradient-to-b from-amber-50/60 via-white to-amber-50/40">
+    <section id="gallery" className="relative py-12 sm:py-16 bg-gradient-to-b from-amber-50/35 via-white/70 to-amber-50/25 backdrop-blur-[2px]">
       <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-10">
         <SectionHeading
           eyebrow="100% Real Celebrations"
