@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { BookOpen, Sparkles, Eye, CheckCircle2, X } from "lucide-react";
+import { BookOpen, Sparkles, Eye, CheckCircle2, X, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "@/components/ui/button";
 import {
   clientEvent28,
   clientEvent25,
+  getEventWhatsAppLink,
 } from "./data";
 
 export function Albums() {
@@ -19,7 +20,7 @@ export function Albums() {
       cover: clientEvent28,
       category: "Mandap & Stage Artistry",
       count: "45 Photos",
-      desc: "Traditional carved mandaps, red rose backdrops, golden kalasams, and luxury couple stages curated across Hyderabad & Vijayawada.",
+      desc: "Traditional carved mandaps, red rose backdrops, golden kalasams, and luxury couple stages curated across Vijayawada & Hyderabad.",
     },
     {
       id: "luxury-reception-vol2",
@@ -33,7 +34,7 @@ export function Albums() {
   ];
 
   return (
-    <section id="albums" className="relative py-24 sm:py-32 bg-amber-50/30">
+    <section id="albums" className="relative py-20 sm:py-28 bg-amber-50/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Digital Portfolios"
@@ -41,7 +42,7 @@ export function Albums() {
           description="Browse our high-resolution wedding lookbooks and real event design catalogs."
         />
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
           {albums.map((album, i) => (
             <Reveal key={album.id} delay={i * 90}>
               <div className="card-3d group overflow-hidden rounded-3xl bg-white border border-amber-200/80 p-6 shadow-md transition-all duration-500 hover:border-amber-400 hover:shadow-xl">
@@ -74,7 +75,7 @@ export function Albums() {
                     {album.desc}
                   </p>
 
-                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
                     <Button
                       size="sm"
                       className="btn-gold-glow rounded-full px-5 py-2 text-xs font-bold cursor-pointer"
@@ -83,6 +84,15 @@ export function Albums() {
                       <Eye className="size-4 mr-1.5" />
                       Preview Lookbook
                     </Button>
+                    <a
+                      href={getEventWhatsAppLink(album.title)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-emerald-500 hover:scale-103 cursor-pointer"
+                    >
+                      <MessageCircle className="size-3.5" />
+                      WhatsApp Inquiry
+                    </a>
                     <Button
                       variant="outline"
                       size="sm"
@@ -91,7 +101,7 @@ export function Albums() {
                     >
                       <a href="#book">
                         <Sparkles className="size-4 mr-1.5" />
-                        Request Custom Design
+                        Custom Design
                       </a>
                     </Button>
                   </div>

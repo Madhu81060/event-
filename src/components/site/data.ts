@@ -54,6 +54,7 @@ import hero1 from "@/assets/events/hero-1-domed-mandap.jpg";
 import hero2 from "@/assets/events/hero-2-temple-gopuram.jpg";
 import hero3 from "@/assets/events/hero-3-floral-rangoli.jpg";
 import hero4 from "@/assets/events/hero-4-lawn-arch.jpg";
+import hero5 from "@/assets/events/hero-5-reception-stage.jpg";
 
 export {
   clientEvent1,
@@ -110,17 +111,31 @@ export {
   hero2,
   hero3,
   hero4,
+  hero5,
 };
 
 export const WHATSAPP_NUMBER = "916302213452";
 export const WHATSAPP_MESSAGE =
-  "Hello Elite Events,\nI would like to book an event.\nPlease contact me.";
+  "Hello Elite Events,\nI would like to book an event in Vijayawada / AP / Telangana.\nPlease contact me.";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const PHONE = "+91 63022 13452";
 export const EMAIL = "hello@eliteevents.in";
 
-// 6 Top Crystal-Sharp HD Hero Slides Curated From Real Setups
+export const getEventWhatsAppLink = (eventTitle: string) => {
+  const msg = `Hello Elite Events,\nI am interested in this decor setup:\n"${eventTitle}"\n\nPlease share pricing, customization details and date availability for my event in Vijayawada / AP / Telangana.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+};
+
+// 7 Top Crystal-Sharp HD Hero Slides Curated From Real Setups
 export const slides = [
+  {
+    image: hero5,
+    eyebrow: "Grand Reception & Stage Artistry",
+    title: "Blush Peach Floral & Fairy Light Stages",
+    subtitle:
+      "Lush rose garland arch, warm Edison candle lighting, floral wreath centerpiece, and royal tufted beige sofa.",
+    alt: "Grand peach floral reception stage with hanging Edison lights and royal sofa",
+  },
   {
     image: hero1,
     eyebrow: "Palace-Scale Grandeur",
@@ -407,17 +422,20 @@ export const faqs = [
 
 export const offices = [
   {
+    city: "Vijayawada",
+    role: "Regional Hub & Design Studio",
+    address: "2nd Floor, MG Road, Opposite Trendset Mall, Labbipet, Vijayawada 520010",
+    phone: "+91 63022 13452",
+  },
+  {
     city: "Hyderabad",
+    role: "Flagship Studio",
     address: "3rd Floor, Jubilee Trade Centre, Road No. 36, Jubilee Hills, Hyderabad 500033",
     phone: "+91 63022 13452",
   },
   {
-    city: "Vijayawada",
-    address: "2nd Floor, MG Road, Labbipet, Vijayawada 520010",
-    phone: "+91 63022 13452",
-  },
-  {
     city: "Eluru",
+    role: "Branch Office & Production Unit",
     address: "Powerpet Main Road, Near Clock Tower, Eluru 534002",
     phone: "+91 63022 13452",
   },

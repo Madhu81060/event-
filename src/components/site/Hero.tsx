@@ -29,9 +29,9 @@ export function Hero() {
       ref={sectionRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative h-[94dvh] min-h-[640px] max-h-[960px] w-full overflow-hidden pt-16 select-none bg-stone-950"
+      className="relative h-[94dvh] min-h-[640px] max-h-[960px] w-full overflow-hidden pt-16 select-none bg-stone-900"
     >
-      {/* 100% Crisp, High-Definition Background Slider */}
+      {/* 100% Crisp, High-Definition Background Slider - Bright & Radiant */}
       <div className="absolute inset-0 size-full">
         {slides.map((slide, i) => (
           <div
@@ -50,7 +50,7 @@ export function Hero() {
               loading={i === 0 ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : "low"}
               className={cn(
-                "size-full object-cover object-center transform transition-transform duration-7000 ease-out",
+                "size-full object-cover object-center transform transition-transform duration-7000 ease-out brightness-105 contrast-102",
                 i === index ? "scale-103" : "scale-100",
               )}
             />
@@ -58,13 +58,13 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Cinematic Gradient Vignette: Leaves the stage and mandap 100% visible while making text ultra-readable */}
+      {/* Luminous & Clean Ambient Lighting Scrim - Keeps stage photos bright while ensuring text legibility */}
       <div
-        className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-black/25 z-20 pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-black/10 z-20 pointer-events-none"
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-stone-950/70 via-stone-950/20 to-transparent z-20 pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-r from-stone-950/50 via-transparent to-transparent z-20 pointer-events-none"
         aria-hidden
       />
 
@@ -74,7 +74,7 @@ export function Hero() {
       <button
         onClick={prevSlide}
         aria-label="Previous Setup"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 flex size-11 sm:size-13 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md border border-white/40 shadow-xl hover:bg-amber-500 hover:border-amber-400 hover:scale-110 transition-all cursor-pointer"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 flex size-11 sm:size-13 items-center justify-center rounded-full bg-white/30 text-white backdrop-blur-md border border-white/50 shadow-xl hover:bg-amber-500 hover:border-amber-400 hover:scale-110 transition-all cursor-pointer"
       >
         <ChevronLeft className="size-6 sm:size-7" />
       </button>
@@ -82,43 +82,43 @@ export function Hero() {
       <button
         onClick={nextSlide}
         aria-label="Next Setup"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 flex size-11 sm:size-13 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md border border-white/40 shadow-xl hover:bg-amber-500 hover:border-amber-400 hover:scale-110 transition-all cursor-pointer"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 flex size-11 sm:size-13 items-center justify-center rounded-full bg-white/30 text-white backdrop-blur-md border border-white/50 shadow-xl hover:bg-amber-500 hover:border-amber-400 hover:scale-110 transition-all cursor-pointer"
       >
         <ChevronRight className="size-6 sm:size-7" />
       </button>
 
       {/* Main Content Showcase */}
-      <div className="relative z-30 mx-auto flex h-full max-w-7xl flex-col justify-between px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="relative z-30 mx-auto flex h-full max-w-7xl flex-col justify-between px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {/* Top Trust Badge */}
         <div className="pt-2 sm:pt-4">
-          <div className="inline-flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md border border-amber-400/50 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-amber-300 shadow-lg">
+          <div className="inline-flex items-center gap-2 rounded-full bg-stone-950/60 backdrop-blur-md border border-amber-400/60 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-amber-300 shadow-xl">
             <span className="flex text-amber-400">
               <Star className="size-3.5 fill-amber-400" />
             </span>
-            <span>4.9/5 Rating • 1200+ Grand Celebrations • Hyderabad · Vijayawada · Eluru</span>
+            <span>4.9/5 Rating • 1200+ Grand Celebrations • Vijayawada · Hyderabad · Eluru</span>
           </div>
         </div>
 
-        {/* Center & Lower-Third Dynamic Hero Content */}
-        <div className="max-w-3xl pb-2 sm:pb-6">
-          <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/90 text-white px-3.5 py-1 text-xs font-black uppercase tracking-[0.2em] shadow-md backdrop-blur-sm mb-3.5">
+        {/* Center Dynamic Hero Card */}
+        <div className="max-w-3xl pb-2 sm:pb-4 rounded-3xl bg-stone-950/45 backdrop-blur-md border border-white/20 p-5 sm:p-7 shadow-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-3.5 py-1 text-xs font-black uppercase tracking-[0.2em] shadow-md mb-3">
             <Sparkles className="size-3.5" />
             <span>{active.eyebrow}</span>
           </div>
 
           <h1
             key={active.title}
-            className="font-display text-3xl sm:text-5xl md:text-6xl font-black text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)] tracking-tight leading-[1.12]"
+            className="font-display text-2xl sm:text-4xl md:text-5xl font-black text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] tracking-tight leading-[1.14]"
           >
             {active.title}
           </h1>
 
-          <p className="mt-3.5 max-w-2xl text-sm sm:text-base md:text-lg font-medium text-stone-200 drop-shadow-md leading-relaxed">
+          <p className="mt-2.5 max-w-2xl text-xs sm:text-sm md:text-base font-medium text-stone-100 drop-shadow-md leading-relaxed">
             {active.subtitle}
           </p>
 
           {/* Action CTAs */}
-          <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
             <Button
               asChild
               size="lg"
@@ -155,28 +155,28 @@ export function Hero() {
         </div>
 
         {/* Bottom Interactive Thumbnail Strip */}
-        <div className="border-t border-white/20 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="border-t border-white/25 pt-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-stone-950/40 backdrop-blur-md rounded-2xl px-4 py-2.5 border border-white/10">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
             <span>Featured Setups ({index + 1}/{slides.length}):</span>
           </div>
 
-          <div className="grid grid-cols-6 gap-2 sm:gap-3 w-full sm:w-auto max-w-xl">
+          <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none w-full sm:w-auto">
             {slides.map((s, i) => (
               <button
                 key={s.title}
                 onClick={() => setIndex(i)}
                 aria-label={`Switch to ${s.title}`}
                 className={cn(
-                  "relative h-12 sm:h-14 overflow-hidden rounded-xl border-2 transition-all duration-300 cursor-pointer shadow-md group",
+                  "relative h-11 sm:h-13 w-16 sm:w-20 shrink-0 overflow-hidden rounded-xl border-2 transition-all duration-300 cursor-pointer shadow-md group",
                   i === index
-                    ? "border-amber-400 ring-2 ring-amber-400 scale-106 z-10"
-                    : "border-white/40 opacity-70 hover:opacity-100 hover:border-amber-300",
+                    ? "border-amber-400 ring-2 ring-amber-400 scale-106 z-10 opacity-100"
+                    : "border-white/50 opacity-70 hover:opacity-100 hover:border-amber-300",
                 )}
               >
                 <img
                   src={s.image}
                   alt={s.alt}
-                  className="size-full object-cover object-center group-hover:scale-110 transition-transform duration-300"
+                  className="size-full object-cover object-center group-hover:scale-110 transition-transform duration-300 brightness-105"
                 />
                 {i === index && (
                   <div className="absolute inset-0 bg-amber-500/20 pointer-events-none" />

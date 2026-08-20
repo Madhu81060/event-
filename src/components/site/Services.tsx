@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Icons from "lucide-react";
 import { Reveal } from "./Reveal";
-import { services, serviceGroups } from "./data";
+import { services, serviceGroups, getEventWhatsAppLink } from "./data";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { SectionHeading } from "./SectionHeading";
@@ -17,44 +17,45 @@ export function Services() {
   );
 
   return (
-    <section id="services" className="relative py-24 sm:py-32 bg-amber-50/40">
+    <section id="services" className="relative py-14 sm:py-18 bg-amber-50/40 border-y border-amber-200/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="What We Do"
+          eyebrow="Comprehensive Capabilities"
           title="40+ Signature Event Services"
-          description="Everything under one roof — floral mandap artistry, lighting, DJ, catering, and end-to-end production."
+          description="From palace mandapams and luxury receptions to sound, light, and catering — all under one roof."
         />
 
-        <Reveal className="mt-10 flex flex-col items-center gap-4">
+        {/* Compact Search & Category Filters */}
+        <Reveal className="mt-8 flex flex-col items-center gap-3">
           <div className="w-full max-w-md">
             <label htmlFor="service-search" className="sr-only">
               Search events and services
             </label>
             <div className="relative">
               <Icons.Search
-                className="text-amber-700 pointer-events-none absolute top-1/2 left-4 size-4.5 -translate-y-1/2"
+                className="text-amber-700 pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2"
                 aria-hidden
               />
               <Input
                 id="service-search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search mandap, haldi, birthday, photography…"
-                className="h-12 rounded-full pl-11 bg-white border border-amber-200 shadow-xs focus-visible:ring-amber-500 text-stone-800 font-medium"
+                placeholder="Search mandap, reception, haldi, birthday, photography…"
+                className="h-10 rounded-full pl-10 text-xs sm:text-sm bg-white border border-amber-200 shadow-2xs focus-visible:ring-amber-500 text-stone-800 font-medium"
               />
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
             {serviceGroups.map((g) => (
               <button
                 key={g}
                 onClick={() => setGroup(g)}
                 aria-pressed={group === g}
                 className={cn(
-                  "rounded-full px-4.5 py-2 text-sm font-semibold transition-all duration-300 cursor-pointer shadow-xs",
+                  "rounded-full px-3.5 py-1 text-xs font-bold transition-all duration-200 cursor-pointer shadow-2xs",
                   group === g
-                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md scale-103"
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-xs scale-102"
                     : "bg-white text-stone-700 border border-amber-200/80 hover:text-amber-800 hover:bg-amber-100/50",
                 )}
               >
@@ -64,26 +65,39 @@ export function Services() {
           </div>
         </Reveal>
 
-        <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {/* Ultra-Compact Service Grid with Small Icons & Direct WhatsApp Connect */}
+        <ul className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {filtered.map((s, i) => {
             const Icon = (Icons[s.icon as keyof typeof Icons] ??
               Icons.Sparkles) as Icons.LucideIcon;
             return (
-              <Reveal as="li" key={s.name} delay={(i % 10) * 35}>
-                <article className="card-3d group h-full rounded-2xl bg-white border border-amber-200/70 p-5 shadow-xs transition-all duration-300 hover:border-amber-400 hover:shadow-lg">
-                  <span className="mb-4 flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="size-6" aria-hidden />
+              <Reveal as="li" key={s.name} delay={(i % 12) * 20}>
+                <a
+                  href={getEventWhatsAppLink(s.name)}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={`Inquire about ${s.name} on WhatsApp`}
+                  className="group flex items-center gap-2.5 rounded-xl bg-white border border-amber-200/80 p-2.5 shadow-2xs transition-all duration-200 hover:border-amber-400 hover:bg-amber-50/60 hover:shadow-sm cursor-pointer"
+                >
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-2xs transition-transform duration-200 group-hover:scale-108">
+                    <Icon className="size-4" aria-hidden />
                   </span>
-                  <h3 className="text-base font-bold text-stone-900 leading-snug">{s.name}</h3>
-                  <p className="mt-1 text-xs font-semibold text-amber-700">{s.group}</p>
-                </article>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="truncate text-xs font-bold text-stone-900 group-hover:text-amber-900">
+                      {s.name}
+                    </h3>
+                    <p className="truncate text-[10px] font-semibold text-amber-700">
+                      {s.group}
+                    </p>
+                  </div>
+                </a>
               </Reveal>
             );
           })}
         </ul>
 
         {filtered.length === 0 && (
-          <p className="mt-12 text-center text-stone-500 font-medium">
+          <p className="mt-8 text-center text-xs sm:text-sm text-stone-500 font-medium">
             No services matched “{query}”. Tell us your event idea and we'll craft it custom!
           </p>
         )}

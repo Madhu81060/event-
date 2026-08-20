@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { X, ZoomIn, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { cn } from "@/lib/utils";
 import {
+  getEventWhatsAppLink,
   clientEvent1,
   clientEvent2,
   clientEvent3,
@@ -54,6 +55,7 @@ import {
   hero2,
   hero3,
   hero4,
+  hero5,
 } from "./data";
 
 type Item = {
@@ -62,8 +64,13 @@ type Item = {
   cat: string;
 };
 
-// 48+ Verified, Crystal-Clear Right-Side-Up Real Event Photographs
+// 49+ Verified, Crystal-Clear Right-Side-Up Real Event Photographs
 const allGalleryItems: Item[] = [
+  {
+    src: hero5,
+    alt: "Blush Peach Floral Reception Stage with Edison Lights & Royal Tufted Sofa",
+    cat: "Reception & Stages",
+  },
   {
     src: hero1,
     alt: "Imperial Domed Floral Canopy Mandap with Golden Carved Dwaram & Elephants",
@@ -326,12 +333,20 @@ export function Gallery() {
             <Reveal
               key={`${item.alt}-${i}`}
               delay={(i % 8) * 35}
-              className="h-[270px] sm:h-[300px] w-full"
+              className="h-[280px] sm:h-[310px] w-full"
             >
-              <button
+              <div
                 onClick={() => openLightbox(i)}
-                className="group relative block size-full overflow-hidden rounded-2xl bg-white border-2 border-amber-200 shadow-md transition-all duration-400 hover:border-amber-500 hover:shadow-2xl focus-visible:outline-none cursor-pointer"
+                className="group relative flex flex-col justify-end size-full overflow-hidden rounded-2xl bg-white border-2 border-amber-200 shadow-md transition-all duration-400 hover:border-amber-500 hover:shadow-2xl cursor-pointer select-none"
+                role="button"
+                tabIndex={0}
                 aria-label={`Open ${item.alt}`}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openLightbox(i);
+                  }
+                }}
               >
                 <img
                   src={item.src}
@@ -339,32 +354,62 @@ export function Gallery() {
                   width={1024}
                   height={768}
                   loading="lazy"
-                  className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-106"
+                  className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 group-hover:scale-106"
                 />
 
                 {/* Subtle Bottom Shade */}
                 <span
                   aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-75 transition-opacity duration-300 group-hover:opacity-90"
+                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-95"
                 />
 
-                {/* Center Hover Zoom */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="flex items-center gap-1.5 rounded-full bg-amber-500 px-4 py-2 text-xs font-black text-white shadow-xl backdrop-blur-md">
+                {/* Top Category Badge & Direct WhatsApp Quick Action */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-20">
+                  <span className="shrink-0 rounded-full bg-stone-950/70 backdrop-blur-md border border-white/20 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-300 shadow-sm">
+                    {item.cat}
+                  </span>
+
+                  <a
+                    href={getEventWhatsAppLink(item.alt)}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/90 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-white shadow-md transition hover:bg-emerald-500 hover:scale-105 cursor-pointer"
+                    title="Inquire this decor on WhatsApp"
+                  >
+                    <MessageCircle className="size-3.5 fill-white/20" />
+                    Inquire
+                  </a>
+                </div>
+
+                {/* Center Hover Zoom Hint */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <span className="flex items-center gap-1.5 rounded-full bg-amber-500/95 backdrop-blur-md px-4 py-2 text-xs font-black text-white shadow-xl">
                     <ZoomIn className="size-4" /> View Full HD
                   </span>
                 </div>
 
-                {/* Caption & Category Badge */}
-                <div className="absolute bottom-3 left-3.5 right-3.5 flex items-center justify-between text-left text-white">
-                  <span className="truncate pr-2 font-display text-xs sm:text-sm font-bold drop-shadow-md">
+                {/* Bottom Caption & WhatsApp Connect Bar */}
+                <div className="relative z-20 p-3.5 flex flex-col gap-2 text-left text-white">
+                  <p className="line-clamp-2 font-display text-xs sm:text-sm font-bold text-stone-100 drop-shadow-md">
                     {item.alt}
-                  </span>
-                  <span className="shrink-0 rounded-full bg-amber-500 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-white shadow-sm">
-                    {item.cat}
-                  </span>
+                  </p>
+                  <div className="flex items-center justify-between pt-1 border-t border-white/15">
+                    <span className="text-[10px] text-amber-300 font-bold uppercase tracking-wider">
+                      Vijayawada · Hyd · Eluru
+                    </span>
+                    <a
+                      href={getEventWhatsAppLink(item.alt)}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 text-[11px] font-extrabold text-emerald-300 hover:text-emerald-200 transition-colors"
+                    >
+                      <MessageCircle className="size-3.5" /> Book on WhatsApp →
+                    </a>
+                  </div>
                 </div>
-              </button>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -416,14 +461,36 @@ export function Gallery() {
             <img
               src={shown[lightboxIndex].src}
               alt={shown[lightboxIndex].alt}
-              className="max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl border border-amber-300/40"
+              className="max-h-[72vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl border border-amber-300/40"
             />
-            <figcaption className="mt-4 text-center font-display text-base font-bold text-amber-200 drop-shadow-md">
+            <figcaption className="mt-3 text-center font-display text-base font-bold text-amber-200 drop-shadow-md">
               {shown[lightboxIndex].alt}
             </figcaption>
-            <span className="mt-1 text-xs text-stone-300 font-semibold">
+            <span className="mt-0.5 text-xs text-stone-300 font-semibold">
               {lightboxIndex + 1} of {shown.length} • {shown[lightboxIndex].cat}
             </span>
+
+            {/* Direct WhatsApp Action in Modal */}
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={getEventWhatsAppLink(shown[lightboxIndex].alt)}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white shadow-xl transition hover:bg-emerald-500 hover:scale-104 cursor-pointer"
+              >
+                <MessageCircle className="size-4.5 fill-white/20" />
+                Inquire This Decor on WhatsApp
+              </a>
+              <Button
+                variant="outline"
+                className="rounded-full border-amber-300/80 bg-white/10 text-amber-200 font-bold hover:bg-amber-500 hover:text-white"
+                asChild
+              >
+                <a href="#book" onClick={closeLightbox}>
+                  Book Consultation
+                </a>
+              </Button>
+            </div>
           </figure>
         </div>
       )}
