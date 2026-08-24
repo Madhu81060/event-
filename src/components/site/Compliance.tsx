@@ -1,3 +1,5 @@
+"use client";
+
 import { ShieldCheck, UtensilsCrossed, FlameKindling, FileCheck2, Music4, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
@@ -19,7 +21,7 @@ export function Compliance() {
         <SectionHeading
           eyebrow="Safety & Standards"
           title="FSSAI Licensed & Government Permitted"
-          description="Every Elite Events celebration is served by certified FSSAI kitchens with sound, fire, and venue permissions fully managed."
+          description="Every Subhamasthu Events celebration is served by certified FSSAI kitchens with sound, fire, and venue permissions fully managed."
         />
 
         <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,9 +1,11 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { X, ZoomIn, ChevronLeft, ChevronRight, MessageCircle, Loader2, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, getImageSrc } from "@/lib/utils";
 import {
   getEventWhatsAppLink,
   clientEvent1,
@@ -65,7 +67,7 @@ import {
 } from "./data";
 
 type Item = {
-  src: string;
+  src: any;
   alt: string;
   cat: string;
 };
@@ -417,7 +419,7 @@ export function Gallery() {
                 }}
               >
                 <img
-                  src={item.src}
+                  src={getImageSrc(item.src)}
                   alt={item.alt}
                   width={1024}
                   height={768}
@@ -559,7 +561,7 @@ export function Gallery() {
 
               {/* HD Image */}
               <img
-                src={shown[lightboxIndex].src}
+                src={getImageSrc(shown[lightboxIndex].src)}
                 alt={shown[lightboxIndex].alt}
                 loading="eager"
                 decoding="async"
@@ -574,7 +576,7 @@ export function Gallery() {
             {/* Bottom Modal Actions Bar */}
             <div className="flex flex-wrap items-center justify-between gap-2.5 px-4 sm:px-6 py-3 border-t border-amber-400/20 bg-stone-900/90">
               <span className="text-[11px] font-bold text-amber-200 hidden sm:inline">
-                ✨ 100% Real Elite Events Production
+                ✨ 100% Real Subhamasthu Events Production
               </span>
 
               <div className="flex items-center gap-2.5 ml-auto">

@@ -125,15 +125,15 @@ export {
   heroNewBananaCanopy,
 };
 
-export const WHATSAPP_NUMBER = "916302213452";
+export const WHATSAPP_NUMBER = "919966449609";
 export const WHATSAPP_MESSAGE =
-  "Hello Elite Events,\nI would like to book an event in Vijayawada / AP / Telangana.\nPlease contact me.";
+  "Hello Subhamasthu Events,\nI would like to book an event in Vijayawada / AP / Telangana.\nPlease contact me.";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-export const PHONE = "+91 63022 13452";
-export const EMAIL = "hello@eliteevents.in";
+export const PHONE = "+91 99664 49609";
+export const EMAIL = "info@subhamasthuevents.com";
 
 export const getEventWhatsAppLink = (eventTitle: string) => {
-  const msg = `Hello Elite Events,\nI am interested in this decor setup:\n"${eventTitle}"\n\nPlease share pricing, customization details and date availability for my event in Vijayawada / AP / Telangana.`;
+  const msg = `Hello Subhamasthu Events,\nI am interested in this decor setup:\n"${eventTitle}"\n\nPlease share pricing, customization details and date availability for my event in Vijayawada / AP / Telangana.`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 };
 
@@ -241,27 +241,145 @@ export const slides = [
   },
 ];
 
+export const corePillars = [
+  {
+    id: "decor",
+    title: "Grand Decor & Production",
+    subtitle: "రాయల్ డెకరేషన్ & మండపాలు",
+    tagline: "Temple Mandapams, Luxury Stages & Thematic Sets",
+    desc: "From authentic Vedic temple gopuram mandapams to modern luxury floral dome stages, concert lighting truss, and 3D themed sets — executed with our own in-house fabrication.",
+    icon: "Flower2",
+    badge: "1200+ Stage Setups",
+    gradient: "from-amber-500 via-amber-600 to-amber-700",
+    features: [
+      "Traditional South Indian Vedic & Carved Temple Mandapams",
+      "Celebrity-Style Floral Dome & Candlelight Reception Stages",
+      "Haldi, Mehendi & Sangeet Lounge Canopies",
+      "Theme Birthdays, 3D Props & Balloon Sculptures",
+      "Festival Celebrations & Corporate Stage Truss",
+    ],
+  },
+  {
+    id: "photography",
+    title: "Cinematic Photography & Albums",
+    subtitle: "సినిమాటిక్ ఫోటోగ్రఫీ & వెడ్డింగ్ ఆల్బమ్స్",
+    tagline: "Candid Moments, 4K Cinema Films & Flush-Mount Albums",
+    desc: "Capturing your priceless emotions with top wedding photographers, Sony FX3 4K cinema cameras, DJI drone cinematography, and ultra HD flush-mount velvet/acrylic photo albums.",
+    icon: "Camera",
+    badge: "4K Cinema & HDR Albums",
+    gradient: "from-rose-500 via-pink-600 to-amber-600",
+    features: [
+      "Candid Wedding Photography & Master Bridal Portraits",
+      "4K Cinematic Wedding Films & Drone Aerial Shoots",
+      "Premium Flush-Mount Velvet & Acrylic Hardcover Albums",
+      "Pre-Wedding & Post-Wedding Destination Shoots",
+      "Live HD Webcast for Relatives & Same-Day Teasers",
+    ],
+  },
+  {
+    id: "catering",
+    title: "Royal Catering & Gastronomy",
+    subtitle: "రాయల్ క్యాటరింగ్ & రుచికరమైన విందు",
+    tagline: "Delicious Food, 100% Hygienic Kitchen & Memorable Dining",
+    desc: "A feast fit for royalty! Authentic multi-cuisine culinary masterpieces prepared under strict FSSAI hygiene protocols with live interactive chaat, sweet, mocktail and tandoor counters.",
+    icon: "UtensilsCrossed",
+    badge: "FSSAI Certified • 100% Hygienic",
+    gradient: "from-emerald-600 via-teal-600 to-amber-600",
+    features: [
+      "Traditional Andhra & South Indian Royal Banana Leaf Bhojanam",
+      "Rich North Indian, Mughlai & Pan-Asian Delicacies",
+      "Live Tawa Sweets, Jalebi, Chaat & Mocktail Lounges",
+      "100% Hygienic Centralized Commercial Kitchen & Pure Oils",
+      "Trained Royal Hospitality & Buffet Service Staff",
+    ],
+  },
+];
+
+export const eventCategories = [
+  {
+    id: "weddings",
+    title: "Weddings & Receptions",
+    subtitle: "పెళ్లిళ్లు & రిసెప్షన్స్",
+    desc: "Complete end-to-end wedding production: sacred Vedic mandaps, floral stages, candid cinematography, wedding albums, and grand royal catering.",
+    icon: "Heart",
+    count: "650+ Celebrated",
+  },
+  {
+    id: "birthdays",
+    title: "Milestone Birthdays",
+    subtitle: "పుట్టినరోజు వేడుకలు",
+    desc: "Magical 1st birthdays, Half-Saree / Dhoti ceremonies, sweet 16s with custom 3D props, balloon arches, and live fun counters.",
+    icon: "Cake",
+    count: "350+ Celebrated",
+  },
+  {
+    id: "corporate",
+    title: "Corporate Summits & Galas",
+    subtitle: "కార్పొరేట్ ఈవెంట్స్",
+    desc: "Annual galas, award nights, product launches with professional LED walls, concert sound systems, and VIP executive dining.",
+    icon: "Briefcase",
+    count: "120+ Completed",
+  },
+  {
+    id: "private",
+    title: "Private Parties & Anniversaries",
+    subtitle: "ప్రైవేట్ పార్టీలు",
+    desc: "Intimate anniversaries, housewarmings, cocktail evenings, and family reunions with cozy decor and bespoke hospitality.",
+    icon: "Sparkles",
+    count: "200+ Hosted",
+  },
+  {
+    id: "festivals",
+    title: "Festival Celebrations & Utsavams",
+    subtitle: "పండుగ సంబరాలు",
+    desc: "Grand community Sankranti, Ganesh Utsavams, Navratri Dandiya nights, and Diwali galas with massive traditional flower decor.",
+    icon: "Flame",
+    count: "80+ Utsavams",
+  },
+];
+
 export const services = [
   {
     name: "Grand Kalyana Mandapams",
     tagline: "Temple Gopurams, Floral Domes & Royal Mandaps",
     desc: "Bespoke traditional carved mandaps, jasmine canopies & sacred dwarams.",
     icon: "Flower2",
-    group: "Weddings",
+    group: "Decoration",
   },
   {
     name: "Luxury Reception Stages",
     tagline: "Fairy Lights, Circular Arches & Maharaja Couches",
     desc: "Modern royal stages, romantic LED illumination & floral backdrop styling.",
     icon: "GlassWater",
-    group: "Weddings",
+    group: "Decoration",
   },
   {
-    name: "Haldi & Mehendi Artistry",
+    name: "Cinematic Photography & Films",
+    tagline: "Candid Moments, 4K Drone Shoots & Live Streaming",
+    desc: "High-end Sony FX3 4K cinema cameras, candid frames & emotional bridal captures.",
+    icon: "Camera",
+    group: "Photography",
+  },
+  {
+    name: "Luxury Flush-Mount Albums",
+    tagline: "Velvet Covers, Acrylic Hardbacks & Ultra HD Print",
+    desc: "Bespoke wedding lookbooks and printed story keepsakes delivered to your home.",
+    icon: "BookOpen",
+    group: "Photography",
+  },
+  {
+    name: "Royal Catering & Live Counters",
+    tagline: "Delicious Food, 100% Hygienic & Memorable Feasts",
+    desc: "Authentic Andhra banana leaf bhojanam, live chaat, sweets & mocktail bars.",
+    icon: "UtensilsCrossed",
+    group: "Catering",
+  },
+  {
+    name: "Haldi, Mehendi & Sangeet",
     tagline: "Brass Urlis, Marigold Decor & Poolside Setups",
     desc: "Vibrant yellow marigold canopies, flower jewelry, and traditional urli seating.",
     icon: "Sun",
-    group: "Traditions",
+    group: "Decoration",
   },
   {
     name: "Thematic Milestone Birthdays",
@@ -271,117 +389,95 @@ export const services = [
     group: "Celebrations",
   },
   {
-    name: "Engagements & Housewarmings",
-    tagline: "Couple Name Motifs, Swan Statues & Kalasam Decor",
-    desc: "Intimate festive setups with floral rangoli and elegant brass decor.",
-    icon: "Gem",
-    group: "Celebrations",
-  },
-  {
     name: "Concert Light, Sound & DJ",
     tagline: "Concert Truss Rigs, LED Dance Floors & Live DJ",
     desc: "Electrifying sound systems, moving heads, cold pyros and live orchestra.",
     icon: "Disc3",
     group: "Entertainment",
   },
-  {
-    name: "Cinematic Photography & 4K Film",
-    tagline: "Candid Moments, Drone Shoots & Live Streaming",
-    desc: "Premium cinema video coverage, candid frames and instant digital albums.",
-    icon: "Camera",
-    group: "Media",
-  },
-  {
-    name: "Royal Catering & Hospitality",
-    tagline: "FSSAI Certified, Live Counters & Guest Concierge",
-    desc: "Authentic multi-cuisine feast, welcome hospitality and event coordination.",
-    icon: "UtensilsCrossed",
-    group: "Hospitality",
-  },
 ] as const;
 
 export const serviceGroups = [
   "All",
-  "Weddings",
-  "Traditions",
+  "Decoration",
+  "Photography",
+  "Catering",
   "Celebrations",
   "Entertainment",
-  "Media",
-  "Hospitality",
 ];
 
 export const packages = [
   {
-    name: "Silver",
-    price: "₹85,000",
-    tagline: "Intimate gatherings done beautifully",
+    name: "Silver Essential",
+    tagline: "Intimate gatherings done beautifully with elegant decor & coverage",
+    badge: "Budget Friendly",
     features: [
-      "Stage & backdrop decoration",
-      "Basic floral styling",
-      "Sound system + 1 technician",
-      "Photography (4 hrs)",
-      "Event coordinator on site",
+      "Designer stage & backdrop decoration",
+      "Traditional floral styling & entrance arch",
+      "Pro sound system + dedicated technician",
+      "HD photography & ceremony coverage",
+      "Dedicated on-site event coordinator",
     ],
   },
   {
-    name: "Gold",
-    price: "₹1,75,000",
-    tagline: "The most-loved celebration package",
+    name: "Gold Celebration",
+    tagline: "The most-loved choice for grand family weddings & receptions",
+    badge: "Most Popular Choice",
     features: [
-      "Designer stage & entrance arch",
-      "Premium fresh flower decor",
-      "DJ + lighting package",
-      "Photography & videography",
-      "Guest welcome & hospitality team",
-    ],
-  },
-  {
-    name: "Platinum",
-    price: "₹3,50,000",
-    tagline: "Full-scale luxury production",
-    features: [
-      "Themed 360° venue transformation",
-      "Imported flowers & chandeliers",
-      "LED wall + concert lighting",
-      "Cinematic film + drone shoot",
-      "Bridal & groom entry concepts",
+      "Premium designer stage & grand entrance arch",
+      "Exotic fresh flower decor & stage lighting",
+      "DJ setup + ambient mood lighting package",
+      "Candid photography & traditional videography",
+      "Guest welcome & hospitality management team",
     ],
     featured: true,
   },
   {
-    name: "Diamond",
-    price: "₹6,50,000",
-    tagline: "Multi-day weddings, flawlessly run",
+    name: "Platinum Luxury",
+    tagline: "Full-scale royal production & 360° venue transformation",
+    badge: "Luxury Production",
     features: [
-      "Haldi, Mehendi, Sangeet & Reception",
-      "Dedicated design director",
-      "Celebrity artist management",
-      "Luxury car & fireworks finale",
-      "Full catering curation",
+      "Themed 360° venue transformation & ceiling canopy",
+      "Imported exotic flowers & royal chandeliers",
+      "High-res LED wall + concert lighting trusses",
+      "Cinematic 4K teaser film + DJI drone shoot",
+      "Grand bridal & groom entry special concepts",
     ],
   },
   {
-    name: "Royal Premium",
-    price: "₹12,00,000",
-    tagline: "Palace-scale, destination ready",
+    name: "Diamond Grandeur",
+    tagline: "Multi-day weddings & ceremonies, flawlessly managed",
+    badge: "Multi-Day Wedding",
     features: [
-      "Destination venue scouting",
-      "Bespoke set fabrication",
-      "Guest travel & stay management",
-      "Full media crew + live streaming",
-      "Round-the-clock concierge",
+      "End-to-end: Haldi, Mehendi, Sangeet, Muhurtham & Reception",
+      "Dedicated senior creative design director",
+      "Celebrity artist & live entertainment management",
+      "Vintage luxury car entry & cold-pyro fireworks finale",
+      "Full FSSAI catering curation & royal dining hospitality",
     ],
   },
   {
-    name: "Custom Package",
-    price: "On request",
-    tagline: "Built precisely around your vision",
+    name: "Royal Heritage",
+    tagline: "Palace-scale destination & bespoke Vedic temple mandapams",
+    badge: "Bespoke Royal Setups",
     features: [
-      "Choose any services à la carte",
-      "Flexible budget planning",
-      "Transparent vendor pricing",
-      "Free design consultation",
-      "Available in all three cities",
+      "Handcrafted palace & Vedic temple set fabrication",
+      "Complete destination venue scouting & logistics",
+      "Guest travel, luxury stay & VIP protocol management",
+      "Full multi-camera cinematography crew + live 4K streaming",
+      "24/7 dedicated event management concierge",
+    ],
+  },
+  {
+    name: "Custom Bespoke",
+    tagline: "Built entirely around your specific vision and budget",
+    badge: "100% Customized",
+    features: [
+      "Choose any services à la carte (Decor, Photo, Catering, Lights)",
+      "Tailored budget planning with zero hidden charges",
+      "Free 1-on-1 3D design consultation & moodboards",
+      "Transparent vendor management across Vijayawada & Eluru",
+      "Flexible payment milestones and schedule",
     ],
   },
 ];
@@ -429,7 +525,7 @@ export const testimonials = [
   {
     name: "Sravani & Karthik",
     city: "Vijayawada",
-    text: "Our mandap looked like something out of a film. Elite Events handled 900 guests without a single hiccup — every ritual ran exactly on time.",
+    text: "Our mandap looked like something out of a film. Subhamasthu Events handled 900 guests without a single hiccup — every ritual ran exactly on time.",
     initials: "SK",
   },
   {
@@ -466,7 +562,7 @@ export const testimonials = [
 
 export const faqs = [
   {
-    q: "Which cities does Elite Events serve?",
+    q: "Which cities does Subhamasthu Events serve?",
     a: "We operate full-service offices in Vijayawada and Eluru, and travel across Andhra Pradesh for destination events.",
   },
   {
@@ -475,7 +571,7 @@ export const faqs = [
   },
   {
     q: "Can you work within our budget?",
-    a: "Yes. Our Custom Package lets you pick services à la carte with 100% transparent pricing.",
+    a: "Yes. Our packages and à la carte options are completely customizable to match your exact budget with transparent quotes.",
   },
   {
     q: "Do you handle multi-religion and multi-day weddings?",
@@ -496,29 +592,31 @@ export const offices = [
     city: "Vijayawada",
     role: "Main Design Studio & Regional Hub",
     address: "2nd Floor, MG Road, Opposite Trendset Mall, Labbipet, Vijayawada 520010",
-    phone: "+91 63022 13452",
+    phone: "+91 99664 49609",
   },
   {
     city: "Eluru",
     role: "Production Studio & Warehouse",
     address: "Powerpet Main Road, Near Clock Tower, Eluru 534002",
-    phone: "+91 63022 13452",
+    phone: "+91 99664 49609",
   },
 ];
 
 export const eventTypes = [
-  "Hindu Wedding",
+  "Hindu Wedding & Kalyanam",
   "Christian Wedding",
   "Muslim Wedding",
-  "Reception",
-  "Engagement",
-  "Haldi / Mehendi",
-  "Sangeet",
-  "Birthday Party",
-  "Baby Shower",
-  "House Warming",
-  "Anniversary",
-  "College Event",
-  "Corporate Event",
-  "Other",
+  "Reception & Sangeet",
+  "Pre-Wedding Shoot & Album Lookbook",
+  "Engagement Ceremony",
+  "Haldi / Mehendi Artistry",
+  "Milestone Birthday Party",
+  "Half-Saree / Dhoti Ceremony",
+  "Baby Shower / Seemantham",
+  "House Warming (Gruhapravesam)",
+  "Anniversary Celebration",
+  "Festival Utsavam (Sankranti / Ganesh / Navratri / Diwali)",
+  "Corporate Summit & Annual Gala",
+  "Royal Catering & Banquet Service",
+  "Other Celebration",
 ];

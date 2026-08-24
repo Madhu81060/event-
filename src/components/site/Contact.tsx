@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Clock, Mail, MapPin, MessageCircle, Navigation, Phone, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
@@ -10,7 +12,7 @@ export function Contact() {
   const [activeCity, setActiveCity] = useState("Vijayawada");
 
   const currentOffice = offices.find((o) => o.city === activeCity) || offices[0];
-  const MAP_QUERY = encodeURIComponent(`Elite Events, ${currentOffice.address}`);
+  const MAP_QUERY = encodeURIComponent(`Subhamasthu Events, ${currentOffice.address}`);
 
   return (
     <section id="contact" className="relative py-20 sm:py-28 bg-gradient-to-b from-white via-amber-50/30 to-white">
@@ -92,7 +94,7 @@ export function Contact() {
           <div className="glass-card grid gap-0 overflow-hidden rounded-3xl lg:grid-cols-5 border-2 border-amber-200 shadow-xl">
             <div className="p-3 lg:col-span-3 bg-stone-50">
               <iframe
-                title={`Map of Elite Events office, ${currentOffice.city}`}
+                title={`Map of Subhamasthu Events office, ${currentOffice.city}`}
                 src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -152,7 +154,7 @@ export function Contact() {
                 </Button>
 
                 <Button asChild variant="ghost" size="lg" className="rounded-full border border-stone-200 hover:bg-stone-100">
-                  <a href={`mailto:${EMAIL}?subject=${encodeURIComponent(`Event enquiry in ${currentOffice.city} — Elite Events`)}`}>
+                  <a href={`mailto:${EMAIL}?subject=${encodeURIComponent(`Event enquiry in ${currentOffice.city} — Subhamasthu Events`)}`}>
                     <Mail className="size-4 mr-1.5" aria-hidden /> Email Studio
                   </a>
                 </Button>

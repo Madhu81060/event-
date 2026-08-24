@@ -1,16 +1,19 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Menu, Phone, Sparkles, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo-elite-events.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PHONE, WHATSAPP_LINK } from "./data";
+import { getImageSrc } from "@/lib/utils";
 
 const links = [
   { label: "Home", href: "#home" },
-  { label: "Mandaps & Stages", href: "#gallery" },
-  { label: "Services", href: "#services" },
+  { label: "Stages & Mandaps", href: "#gallery" },
+  { label: "Photo Albums", href: "#albums" },
+  { label: "Services & Catering", href: "#services" },
   { label: "Packages", href: "#packages" },
-  { label: "Lookbooks", href: "#albums" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -98,8 +101,8 @@ export function Navbar() {
         >
           <span className="flex size-10 sm:size-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-300/80 p-1 shadow-xs transition-transform duration-300 group-hover:scale-105">
             <img
-              src={logo}
-              alt="Elite Events logo"
+              src={getImageSrc(logo)}
+              alt="Subhamasthu Events logo"
               width={40}
               height={40}
               className="size-full object-contain"
@@ -107,7 +110,7 @@ export function Navbar() {
           </span>
           <div className="leading-tight">
             <span className="font-display block text-lg sm:text-xl font-black tracking-tight text-amber-950">
-              Elite Events
+              Subhamasthu Events
             </span>
             <span className="block text-[9px] sm:text-[10px] font-extrabold tracking-[0.18em] text-amber-700 uppercase">
               Vijayawada · Eluru
@@ -178,10 +181,10 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[85vw] max-w-sm bg-white border-l border-amber-200 p-6">
               <div className="flex items-center gap-2.5 mt-1">
-                <img src={logo} alt="Elite Events" className="size-8 object-contain" />
+                <img src={getImageSrc(logo)} alt="Subhamasthu Events" className="size-8 object-contain" />
                 <div>
                   <SheetTitle className="font-display text-lg font-black text-amber-950 text-left">
-                    Elite Events
+                    Subhamasthu Events
                   </SheetTitle>
                   <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">
                     Vijayawada · Eluru

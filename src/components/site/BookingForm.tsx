@@ -1,14 +1,16 @@
+"use client";
+
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { CalendarHeart, Calculator } from "lucide-react";
+import { CalendarHeart, Sparkles, MessageCircle, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import { eventTypes, offices, WHATSAPP_LINK } from "./data";
+import { eventTypes, offices, WHATSAPP_LINK, PHONE, EMAIL } from "./data";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
@@ -30,8 +32,6 @@ const fieldClass = "glass-card h-12 rounded-xl";
 
 export function BookingForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [guests, setGuests] = useState(300);
-  const [tier, setTier] = useState(2500);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,8 +48,6 @@ export function BookingForm() {
     e.currentTarget.reset();
     toast.success("Enquiry received — our team will call you within 24 hours.");
   };
-
-  const estimate = guests * tier;
 
   return (
     <section id="book" className="relative overflow-hidden py-24 sm:py-32">
@@ -184,60 +182,63 @@ export function BookingForm() {
           </Reveal>
 
           <Reveal delay={140}>
-            <div className="glass-card sticky top-28 rounded-3xl p-7">
-              <h3 className="font-display flex items-center gap-2 text-xl font-bold">
-                <Calculator className="text-accent size-5" aria-hidden />
-                Cost Calculator
-              </h3>
-              <p className="text-muted-foreground mt-2 text-sm">
-                A quick indicative estimate. Your final quote is always itemised.
+            <div className="glass-card sticky top-28 rounded-3xl p-7 border border-amber-300/60 shadow-lg bg-white/90">
+              <div className="flex items-center gap-2.5">
+                <span className="flex size-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800 border border-amber-300/80 shadow-xs">
+                  <Sparkles className="size-5" />
+                </span>
+                <div>
+                  <h3 className="font-display text-lg font-bold text-stone-900">Customized Event Planning</h3>
+                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wide">100% Tailored To Your Budget</span>
+                </div>
+              </div>
+
+              <p className="mt-4 text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
+                Looking for transparent quotes on Mandap Decor, 4K Cinematic Photography & Luxury Albums, or Royal Catering? Chat directly with our senior event planners.
               </p>
 
-              <div className="mt-6">
-                <Label htmlFor="calc-guests" className="text-sm">
-                  Guests: <span className="text-primary font-semibold">{guests}</span>
-                </Label>
-                <input
-                  id="calc-guests"
-                  type="range"
-                  min={50}
-                  max={2000}
-                  step={50}
-                  value={guests}
-                  onChange={(e) => setGuests(Number(e.target.value))}
-                  className="accent-primary mt-3 w-full"
-                />
+              <div className="mt-5 space-y-2.5">
+                <div className="flex items-center gap-2 text-xs font-semibold text-stone-700">
+                  <span className="flex size-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">✓</span>
+                  <span>Zero hidden costs & flexible milestone payments</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-stone-700">
+                  <span className="flex size-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">✓</span>
+                  <span>Free 1-on-1 3D layout & theme moodboard</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-stone-700">
+                  <span className="flex size-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">✓</span>
+                  <span>FSSAI certified catering & government approvals</span>
+                </div>
               </div>
 
-              <div className="mt-6">
-                <Label htmlFor="calc-tier" className="text-sm">
-                  Experience level
-                </Label>
-                <select
-                  id="calc-tier"
-                  value={tier}
-                  onChange={(e) => setTier(Number(e.target.value))}
-                  className={`${fieldClass} mt-2 w-full px-3 text-sm`}
+              <div className="mt-7 border-t border-amber-200/80 pt-5 space-y-2.5">
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 text-xs sm:text-sm shadow-md transition-all hover:scale-102 cursor-pointer"
                 >
-                  <option value={1200}>Essential</option>
-                  <option value={2500}>Premium</option>
-                  <option value={4200}>Luxury</option>
-                  <option value={6800}>Royal</option>
-                </select>
-              </div>
+                  <MessageCircle className="size-4.5" />
+                  Chat on WhatsApp for Quote
+                </a>
 
-              <div className="border-border/60 mt-7 border-t pt-6">
-                <p className="text-muted-foreground text-xs tracking-[0.25em] uppercase">
-                  Indicative total
-                </p>
-                <p className="text-gradient-luxe font-display mt-1 text-4xl font-bold">
-                  ₹{estimate.toLocaleString("en-IN")}
-                </p>
-              </div>
+                <a
+                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("Event Booking Inquiry — Subhamasthu Events")}`}
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-950 font-bold py-2.5 text-xs transition-all cursor-pointer"
+                >
+                  <Mail className="size-4 text-amber-700" />
+                  Email: {EMAIL}
+                </a>
 
-              <Button asChild variant="gold" size="lg" className="mt-6 w-full">
-                <a href="#contact">Get an exact quote</a>
-              </Button>
+                <a
+                  href={`tel:${PHONE.replace(/\s/g, "")}`}
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-stone-200 bg-white hover:bg-stone-50 text-stone-800 font-bold py-2 text-xs transition-all cursor-pointer"
+                >
+                  <Phone className="size-3.5 text-stone-600" />
+                  Direct Call: {PHONE}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>

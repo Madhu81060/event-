@@ -1,8 +1,11 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { Award, HeartHandshake, ShieldCheck, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { heroNewGanesha, heroNewLoveGanesha } from "./data";
+import { getImageSrc } from "@/lib/utils";
 
 const stats = [
   { value: 1200, suffix: "+", label: "Grand Events Crafted" },
@@ -82,7 +85,7 @@ export function About() {
               10+ Years of Crafting Royal Celebrations
             </h2>
             <p className="mt-3 text-sm sm:text-base text-stone-600 font-medium leading-relaxed">
-              Elite Events is South India's premier luxury event production house across Vijayawada and Eluru — specializing in royal temple mandaps, modern celebrity stages, and vibrant festive ceremonies.
+              Subhamasthu Events is South India&apos;s premier luxury event production house across Vijayawada and Eluru — specializing in royal temple mandaps, modern celebrity stages, and vibrant festive ceremonies.
             </p>
 
             <div className="mt-6 grid gap-3.5 sm:grid-cols-2">
@@ -101,15 +104,15 @@ export function About() {
           <Reveal className="order-1 lg:order-2" delay={100}>
             <div className="relative">
               <img
-                src={heroNewLoveGanesha}
-                alt="Double heart Love neon & golden Ganesha luxury wedding reception stage designed by Elite Events"
+                src={getImageSrc(heroNewLoveGanesha)}
+                alt="Double heart Love neon & golden Ganesha luxury wedding reception stage designed by Subhamasthu Events"
                 width={1024}
                 height={768}
                 loading="lazy"
                 className="aspect-4/5 w-full rounded-3xl object-cover object-center border-2 border-amber-300/60 shadow-xl"
               />
               <img
-                src={heroNewGanesha}
+                src={getImageSrc(heroNewGanesha)}
                 alt="Imperial traditional South Indian banana plantain & golden Ganesha mandap"
                 width={500}
                 height={500}

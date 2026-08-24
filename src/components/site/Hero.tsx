@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import {
   CalendarDays,
@@ -19,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { MerupuluCanvas, AmbienceMood } from "./MerupuluCanvas";
 import { Particles } from "./Particles";
 import { slides, getEventWhatsAppLink, WHATSAPP_LINK } from "./data";
-import { cn } from "@/lib/utils";
+import { cn, getImageSrc } from "@/lib/utils";
 
 const AMBIENCE_OPTIONS: {
   id: AmbienceMood;
@@ -119,7 +121,7 @@ export function Hero() {
             )}
           >
             <img
-              src={slide.image}
+              src={getImageSrc(slide.image)}
               alt={slide.alt}
               width={1920}
               height={1088}
@@ -342,7 +344,7 @@ export function Hero() {
                 )}
               >
                 <img
-                  src={s.image}
+                  src={getImageSrc(s.image)}
                   alt={s.alt}
                   className="size-full object-cover object-center group-hover:scale-110 transition-transform duration-300 brightness-105"
                 />

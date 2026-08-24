@@ -1,8 +1,11 @@
+"use client";
+
 import { ArrowRight, Award, BadgeCheck, Download, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { clientEvent13, clientEvent43, clientEvent42 } from "./data";
+import { getImageSrc } from "@/lib/utils";
 
 const posts = [
   {
@@ -50,7 +53,7 @@ export function Blog() {
               <article className="card-3d group flex h-full flex-col overflow-hidden rounded-3xl bg-white border border-amber-200/80 shadow-xs hover:border-amber-400 hover:shadow-xl transition-all">
                 <div className="overflow-hidden aspect-16/10">
                   <img
-                    src={p.image}
+                    src={getImageSrc(p.image)}
                     alt={p.title}
                     width={1024}
                     height={640}

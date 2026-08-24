@@ -1,9 +1,12 @@
+"use client";
+
 import { Facebook, Instagram, Youtube, Send, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo-elite-events.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { EMAIL, PHONE, offices } from "./data";
+import { getImageSrc } from "@/lib/utils";
 
 const quickLinks = [
   { label: "Home", href: "#home" },
@@ -34,8 +37,8 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <span className="flex size-11 items-center justify-center rounded-2xl bg-white/10 p-1 border border-amber-400/40">
                 <img
-                  src={logo}
-                  alt="Elite Events logo"
+                  src={getImageSrc(logo)}
+                  alt="Subhamasthu Events logo"
                   loading="lazy"
                   width={40}
                   height={40}
@@ -43,14 +46,14 @@ export function Footer() {
                 />
               </span>
               <div>
-                <span className="font-display text-xl font-extrabold text-amber-200">Elite Events</span>
+                <span className="font-display text-xl font-extrabold text-amber-200">Subhamasthu Events</span>
                 <span className="block text-[10px] tracking-widest uppercase text-amber-400 font-bold">
                   Vijayawada · Eluru
                 </span>
               </div>
             </div>
             <p className="mt-4 text-sm text-stone-300 font-medium leading-relaxed">
-              South India's signature event management house. Traditional temple mandaps, modern luxury receptions, and milestone celebrations since 2015.
+              South India&apos;s signature event management house. Traditional temple mandaps, modern luxury receptions, and milestone celebrations since 2015.
             </p>
             <div className="mt-5 flex gap-2">
               {[
@@ -61,7 +64,7 @@ export function Footer() {
                 <a
                   key={label}
                   href="#contact"
-                  aria-label={`Elite Events on ${label}`}
+                  aria-label={`Subhamasthu Events on ${label}`}
                   className="flex size-10 items-center justify-center rounded-full bg-white/10 text-amber-300 transition hover:bg-amber-500 hover:text-white"
                 >
                   <Icon className="size-5" aria-hidden />
@@ -124,7 +127,7 @@ export function Footer() {
               onSubmit={(e) => {
                 e.preventDefault();
                 e.currentTarget.reset();
-                toast.success("You're subscribed to Elite Events updates.");
+                toast.success("You're subscribed to Subhamasthu Events updates.");
               }}
             >
               <label htmlFor="newsletter" className="text-xs font-bold uppercase tracking-wider text-amber-300">
@@ -147,7 +150,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 border-t border-amber-900/60 pt-6 flex flex-col items-center justify-between gap-3 text-xs text-stone-400 sm:flex-row">
-          <p>© {new Date().getFullYear()} Elite Events. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Subhamasthu Events. All rights reserved.</p>
           <p className="flex gap-4">
             <a href="#contact" className="hover:text-amber-300">
               Privacy Policy

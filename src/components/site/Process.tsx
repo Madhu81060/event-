@@ -1,3 +1,5 @@
+"use client";
+
 import { ClipboardList, PenTool, Flower2, Settings2, PartyPopper } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";

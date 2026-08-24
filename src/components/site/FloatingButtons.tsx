@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { ArrowUp, Mail, MessageCircle, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -21,21 +23,21 @@ export function FloatingButtons() {
         href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Elite Events on WhatsApp"
+        aria-label="Chat with Subhamasthu Events on WhatsApp"
         className={cn(base, "bg-[oklch(0.72_0.17_150)] text-white")}
       >
         <MessageCircle className="size-6" aria-hidden />
       </a>
       <a
         href={`tel:${PHONE.replace(/\s/g, "")}`}
-        aria-label="Call Elite Events now"
+        aria-label="Call Subhamasthu Events now"
         className={cn(base, "bg-gradient-luxe text-primary-foreground")}
       >
         <Phone className="size-5" aria-hidden />
       </a>
       <a
         href={`mailto:${EMAIL}`}
-        aria-label="Email Elite Events"
+        aria-label="Email Subhamasthu Events"
         className={cn(base, "bg-gradient-gold text-accent-foreground")}
       >
         <Mail className="size-5" aria-hidden />

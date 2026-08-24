@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
