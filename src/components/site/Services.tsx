@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import * as Icons from "lucide-react";
 import {
   MessageCircle,
   ArrowRight,
@@ -13,6 +12,11 @@ import {
   Camera,
   UtensilsCrossed,
   Flower2,
+  GlassWater,
+  BookOpen,
+  Sun,
+  Disc3,
+  type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import {
@@ -38,6 +42,17 @@ const pillarIconMap: Record<string, typeof Flower2> = {
   decor: Flower2,
   photography: Camera,
   catering: UtensilsCrossed,
+};
+
+const serviceIconMap: Record<string, LucideIcon> = {
+  Flower2,
+  GlassWater,
+  Camera,
+  BookOpen,
+  UtensilsCrossed,
+  Sun,
+  Cake,
+  Disc3,
 };
 
 export function Services() {
@@ -230,8 +245,7 @@ export function Services() {
 
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {filteredServices.map((s, i) => {
-              const Icon = (Icons[s.icon as keyof typeof Icons] ??
-                Icons.Sparkles) as Icons.LucideIcon;
+              const Icon = serviceIconMap[s.icon] ?? Sparkles;
               return (
                 <Reveal key={s.name} delay={i * 30}>
                   <article className="card-3d group flex flex-col justify-between h-full rounded-2xl bg-white border border-amber-200/90 p-5 shadow-xs transition-all duration-300 hover:border-amber-400 hover:shadow-lg">

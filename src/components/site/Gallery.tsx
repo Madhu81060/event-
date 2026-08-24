@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight, MessageCircle, Loader2, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { ZoomIn, ChevronLeft, ChevronRight, MessageCircle, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { Button } from "@/components/ui/button";
@@ -302,63 +302,53 @@ const categories = [
 
 export function Gallery() {
   const [cat, setCat] = useState("All Setups");
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [imgLoaded, setImgLoaded] = useState(false);
+  const [selectedStageIndex, setSelectedStageIndex] = useState<number>(0);
+  const [visibleCount, setVisibleCount] = useState<number>(12);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   const shown = allGalleryItems.filter((i) => cat === "All Setups" || i.cat === cat);
+  const displayedItems = shown.slice(0, visibleCount);
 
-  const openLightbox = (index: number) => {
-    setImgLoaded(false);
-    setLightboxIndex(index);
+  // Keep selected index within range when category changes
+  const activeIndex = Math.min(selectedStageIndex, Math.max(0, shown.length - 1));
+  const activeStage = shown[activeIndex] || shown[0];
+
+  const handleCategoryChange = (newCat: string) => {
+    setCat(newCat);
+    setSelectedStageIndex(0);
+    setVisibleCount(12);
   };
 
-  const closeLightbox = () => {
-    setLightboxIndex(null);
-    setImgLoaded(false);
-  };
+  const selectStage = (index: number) => {
+    setIsTransitioning(true);
+    setSelectedStageIndex(index);
+    setTimeout(() => setIsTransitioning(false), 250);
 
-  const nextImage = () => {
-    if (lightboxIndex !== null) {
-      setImgLoaded(false);
-      setLightboxIndex((lightboxIndex + 1) % shown.length);
+    const el = document.getElementById("gallery-spotlight");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
-  const prevImage = () => {
-    if (lightboxIndex !== null) {
-      setImgLoaded(false);
-      setLightboxIndex((lightboxIndex - 1 + shown.length) % shown.length);
-    }
+  const nextStage = () => {
+    if (shown.length === 0) return;
+    setIsTransitioning(true);
+    setSelectedStageIndex((prev) => (prev + 1) % shown.length);
+    setTimeout(() => setIsTransitioning(false), 250);
   };
 
-  // Lock body scroll and handle keyboard navigation when lightbox is open
-  useEffect(() => {
-    if (lightboxIndex === null) return;
-
-    document.body.style.overflow = "hidden";
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setLightboxIndex(null);
-      } else if (e.key === "ArrowRight") {
-        setLightboxIndex((prev) => (prev !== null ? (prev + 1) % shown.length : null));
-      } else if (e.key === "ArrowLeft") {
-        setLightboxIndex((prev) => (prev !== null ? (prev - 1 + shown.length) % shown.length : null));
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [lightboxIndex, shown.length]);
+  const prevStage = () => {
+    if (shown.length === 0) return;
+    setIsTransitioning(true);
+    setSelectedStageIndex((prev) => (prev - 1 + shown.length) % shown.length);
+    setTimeout(() => setIsTransitioning(false), 250);
+  };
 
   return (
     <section id="gallery" className="relative py-12 sm:py-16 bg-gradient-to-b from-amber-50/35 via-white/70 to-amber-50/25 backdrop-blur-[2px]">
       <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-10">
         <SectionHeading
-          eyebrow="100% Real Celebrations"
+          eyebrow="100% Real Celebrations • High Definition"
           title="Mandaps & Luxury Stages Portfolio"
           description="Grand temple mandapams, reception setups, and festive decor crafted across Vijayawada & Eluru."
         />
@@ -370,7 +360,7 @@ export function Gallery() {
             return (
               <button
                 key={c}
-                onClick={() => setCat(c)}
+                onClick={() => handleCategoryChange(c)}
                 aria-pressed={cat === c}
                 className={cn(
                   "rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer shadow-xs",
@@ -385,185 +375,216 @@ export function Gallery() {
           })}
         </Reveal>
 
-        {/* Gallery Grid */}
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {shown.map((item, i) => (
-            <Reveal key={`${item.alt}-${i}`} delay={(i % 8) * 40}>
-              <div
-                onClick={() => openLightbox(i)}
-                className="card-3d group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-stone-950 border border-amber-300/40 shadow-md transition-all duration-500 hover:border-amber-400 hover:shadow-2xl cursor-pointer aspect-4/3"
-              >
-                <img
-                  src={getImageSrc(item.src)}
-                  alt={item.alt}
-                  loading="lazy"
-                  width={600}
-                  height={450}
-                  className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-108"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent" />
+        {/* GRAND FEATURED HD STAGE SPOTLIGHT (Inline On-Page Luxury Viewer) */}
+        {activeStage && (
+          <div id="gallery-spotlight" className="mt-8 relative rounded-3xl overflow-hidden bg-stone-950 border-2 border-amber-400/70 shadow-2xl">
+            <div className="relative aspect-16/10 sm:aspect-16/9 lg:aspect-21/9 max-h-[680px] w-full overflow-hidden bg-black flex items-center justify-center">
+              <img
+                key={activeStage.alt}
+                src={getImageSrc(activeStage.src)}
+                alt={activeStage.alt}
+                loading="eager"
+                decoding="async"
+                className={cn(
+                  "size-full object-contain object-center transition-all duration-500 select-none",
+                  isTransitioning ? "opacity-40 scale-98" : "opacity-100 scale-100",
+                )}
+              />
 
-                {/* Top Badge */}
-                <div className="relative z-20 flex items-center justify-between p-3">
-                  <span className="rounded-full bg-black/70 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-300 border border-amber-300/30">
-                    {item.cat}
+              {/* Ambient Golden Frame Gradients */}
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-950/20 to-stone-950/40 pointer-events-none" />
+
+              {/* Top Meta Bar */}
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
+                <div className="flex items-center gap-2">
+                  <span className="flex items-center gap-1.5 rounded-full bg-amber-500 text-stone-950 px-3.5 py-1 text-xs font-black uppercase tracking-wider shadow-md">
+                    <Sparkles className="size-3.5" />
+                    {activeStage.cat}
                   </span>
+                  <span className="hidden sm:inline-block rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-xs font-bold text-amber-200 border border-amber-400/30">
+                    Shubhamastu Events • Vijayawada · Eluru
+                  </span>
+                </div>
+
+                <div className="rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-xs font-black text-amber-300 border border-amber-400/30">
+                  {activeIndex + 1} / {shown.length} Setups
+                </div>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                aria-label="Previous stage setup"
+                onClick={prevStage}
+                className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 flex size-12 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer backdrop-blur-md hover:scale-108"
+              >
+                <ChevronLeft className="size-7 sm:size-8" />
+              </button>
+
+              <button
+                aria-label="Next stage setup"
+                onClick={nextStage}
+                className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 flex size-12 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer backdrop-blur-md hover:scale-108"
+              >
+                <ChevronRight className="size-7 sm:size-8" />
+              </button>
+
+              {/* Bottom Caption & Live Inquire Bar */}
+              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-20 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="max-w-2xl">
+                  <h3 className="font-display text-base sm:text-xl md:text-2xl font-black text-white leading-snug drop-shadow-md">
+                    {activeStage.alt}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-amber-300 font-semibold mt-1">
+                    ✓ Handcrafted Mandap & Stage Architecture • In-House Fabrication
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2.5 shrink-0 w-full sm:w-auto">
                   <a
-                    href={getEventWhatsAppLink(item.alt)}
+                    href={getEventWhatsAppLink(activeStage.alt)}
                     target="_blank"
                     rel="noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-1 rounded-full bg-emerald-600/90 hover:bg-emerald-500 px-2.5 py-1 text-[10px] font-bold text-white shadow-xs backdrop-blur-md transition-colors"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-104 cursor-pointer"
                   >
-                    <MessageCircle className="size-3.5 fill-white/20" />
-                    Inquire
+                    <MessageCircle className="size-4.5" />
+                    Inquire This Setup
                   </a>
-                </div>
 
-                {/* Center Hover Zoom Hint */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <span className="flex items-center gap-1.5 rounded-full bg-amber-500/95 backdrop-blur-md px-4 py-2 text-xs font-black text-stone-950 shadow-xl">
-                    <ZoomIn className="size-4" /> View Full HD
-                  </span>
-                </div>
-
-                {/* Bottom Caption & WhatsApp Connect Bar */}
-                <div className="relative z-20 p-3 flex flex-col gap-1 text-left text-white">
-                  <p className="line-clamp-2 font-display text-xs sm:text-sm font-bold text-stone-100 drop-shadow-md">
-                    {item.alt}
-                  </p>
-                  <div className="flex items-center justify-between pt-1 border-t border-white/15">
-                    <span className="text-[10px] text-amber-300 font-bold uppercase tracking-wider">
-                      Vijayawada · Eluru
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-
-      {/* Royal Gold Centered Fullscreen HD Lightbox Modal */}
-      {lightboxIndex !== null && shown[lightboxIndex] && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={shown[lightboxIndex].alt}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-8 bg-black/90 backdrop-blur-xl select-none text-white animate-in fade-in duration-200"
-          onClick={closeLightbox}
-        >
-          {/* Royal Decorative Frame Container */}
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative flex flex-col justify-between w-full max-w-4xl max-h-[90vh] rounded-3xl bg-gradient-to-b from-stone-900/95 via-stone-950/98 to-stone-900/95 border-2 border-amber-400 shadow-[0_0_60px_rgba(245,158,11,0.45)] ring-1 ring-amber-300/40 p-4 sm:p-5 overflow-hidden"
-          >
-            {/* Top Modal Header */}
-            <div className="flex items-center justify-between border-b border-amber-400/20 pb-3 z-10 shrink-0">
-              <div className="flex items-center gap-2.5 min-w-0 pr-2">
-                <span className="shrink-0 rounded-full bg-amber-500 text-stone-950 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider shadow-sm">
-                  {shown[lightboxIndex].cat}
-                </span>
-                <h3 className="truncate font-display text-xs sm:text-sm font-bold text-amber-200">
-                  {shown[lightboxIndex].alt}
-                </h3>
-              </div>
-
-              <div className="flex items-center gap-3 shrink-0">
-                <span className="text-[11px] font-bold text-amber-300/90">
-                  {lightboxIndex + 1} / {shown.length}
-                </span>
-                <button
-                  aria-label="Close HD viewer"
-                  onClick={closeLightbox}
-                  className="flex size-9 items-center justify-center rounded-full bg-white/10 hover:bg-amber-500 hover:text-stone-950 text-white transition-all cursor-pointer shadow-md"
-                >
-                  <X className="size-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Center Stage Image with Nav Arrows */}
-            <div className="relative flex items-center justify-center w-full my-3 flex-1 min-h-0">
-              {/* Previous Image Button */}
-              <button
-                aria-label="Previous image"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  prevImage();
-                }}
-                className="absolute left-1 sm:left-3 z-20 flex size-10 sm:size-12 items-center justify-center rounded-full bg-stone-900/85 text-amber-300 border border-amber-400/60 shadow-xl hover:bg-amber-500 hover:text-stone-950 hover:scale-110 transition-all cursor-pointer"
-              >
-                <ChevronLeft className="size-6 sm:size-7" />
-              </button>
-
-              {/* Main Image in Decorative Glow Frame */}
-              <div className="relative max-h-full max-w-full flex items-center justify-center overflow-hidden rounded-2xl border border-amber-300/40 shadow-2xl bg-stone-950">
-                {!imgLoaded && (
-                  <div className="flex flex-col items-center justify-center py-16 px-8">
-                    <Loader2 className="size-8 text-amber-400 animate-spin" />
-                    <p className="mt-2 text-xs font-bold text-amber-200 tracking-wider uppercase">
-                      Loading HD Showcase...
-                    </p>
-                  </div>
-                )}
-                <img
-                  key={shown[lightboxIndex].alt}
-                  src={getImageSrc(shown[lightboxIndex].src)}
-                  alt={shown[lightboxIndex].alt}
-                  loading="eager"
-                  onLoad={() => setImgLoaded(true)}
-                  className={cn(
-                    "max-h-[50vh] sm:max-h-[58vh] md:max-h-[62vh] w-auto max-w-full object-contain rounded-2xl transition-all duration-200",
-                    imgLoaded ? "opacity-100 scale-100 block" : "opacity-0 scale-95 absolute pointer-events-none",
-                  )}
-                />
-              </div>
-
-              {/* Next Image Button */}
-              <button
-                aria-label="Next image"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  nextImage();
-                }}
-                className="absolute right-1 sm:right-3 z-20 flex size-10 sm:size-12 items-center justify-center rounded-full bg-stone-900/85 text-amber-300 border border-amber-400/60 shadow-xl hover:bg-amber-500 hover:text-stone-950 hover:scale-110 transition-all cursor-pointer"
-              >
-                <ChevronRight className="size-6 sm:size-7" />
-              </button>
-            </div>
-
-            {/* Bottom Modal Actions Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-amber-400/20 pt-3 z-10 shrink-0">
-              <span className="text-[11px] font-bold text-amber-200 hidden sm:inline">
-                ✨ Subhamasthu Events • Mandapams & Stages Portfolio
-              </span>
-
-              <div className="flex items-center gap-2.5 ml-auto">
-                <a
-                  href={getEventWhatsAppLink(shown[lightboxIndex].alt)}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 px-4 py-2 text-xs font-bold text-white shadow-md transition-all hover:scale-104 cursor-pointer"
-                >
-                  <MessageCircle className="size-3.5" />
-                  Inquire on WhatsApp
-                </a>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="rounded-full border-amber-400/80 bg-stone-900 text-amber-200 font-bold hover:bg-amber-500 hover:text-stone-950 text-xs px-3.5 py-2 cursor-pointer"
-                  asChild
-                >
-                  <a href="#book" onClick={closeLightbox}>
+                  <a
+                    href="#book"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 rounded-full border border-amber-300/80 bg-amber-500/20 hover:bg-amber-500 hover:text-stone-950 text-amber-200 px-4 py-2.5 text-xs sm:text-sm font-bold backdrop-blur-md transition-all cursor-pointer"
+                  >
+                    <Sparkles className="size-4" />
                     Book Consultation
                   </a>
-                </Button>
+                </div>
               </div>
             </div>
+
+            {/* Filmstrip of Thumbnails */}
+            <div className="p-3 bg-stone-900 border-t border-amber-400/30 flex items-center gap-2.5 overflow-x-auto scrollbar-thin">
+              {shown.map((item, idx) => (
+                <button
+                  key={`${item.alt}-thumb-${idx}`}
+                  onClick={() => selectStage(idx)}
+                  className={cn(
+                    "relative size-16 sm:size-20 shrink-0 rounded-xl overflow-hidden border-2 transition-all cursor-pointer",
+                    activeIndex === idx
+                      ? "border-amber-400 ring-2 ring-amber-300 scale-105 shadow-md"
+                      : "border-white/20 opacity-60 hover:opacity-100 hover:border-amber-200",
+                  )}
+                >
+                  <img
+                    src={getImageSrc(item.src)}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="size-full object-cover"
+                  />
+                  {activeIndex === idx && (
+                    <div className="absolute inset-0 bg-amber-500/20 border-2 border-amber-400 rounded-xl" />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
+        )}
+
+        {/* Gallery Grid of All Setups */}
+        <div className="mt-12">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="font-display text-lg sm:text-xl font-bold text-stone-900">
+              Browse All {shown.length} Mandaps & Stage Designs
+            </h4>
+            <span className="text-xs font-semibold text-amber-800">
+              Click any photo to feature it above ↑
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {displayedItems.map((item, i) => (
+              <Reveal key={`${item.alt}-${i}`} delay={(i % 8) * 40}>
+                <div
+                  onClick={() => selectStage(i)}
+                  className={cn(
+                    "card-3d group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-stone-950 border transition-all duration-300 cursor-pointer aspect-4/3 shadow-md",
+                    activeIndex === i
+                      ? "border-amber-400 ring-2 ring-amber-400 shadow-xl"
+                      : "border-amber-300/40 hover:border-amber-400 hover:shadow-xl",
+                  )}
+                >
+                  <img
+                    src={getImageSrc(item.src)}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={600}
+                    height={450}
+                    className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-108"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent" />
+
+                  {/* Top Badge */}
+                  <div className="relative z-20 flex items-center justify-between p-3">
+                    <span className="rounded-full bg-black/70 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-300 border border-amber-300/30">
+                      {item.cat}
+                    </span>
+                    <a
+                      href={getEventWhatsAppLink(item.alt)}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-1 rounded-full bg-emerald-600/90 hover:bg-emerald-500 px-2.5 py-1 text-[10px] font-bold text-white shadow-xs backdrop-blur-md transition-colors"
+                    >
+                      <MessageCircle className="size-3.5 fill-white/20" />
+                      Inquire
+                    </a>
+                  </div>
+
+                  {/* Center Hover Zoom Hint */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <span className="flex items-center gap-1.5 rounded-full bg-amber-500/95 backdrop-blur-md px-4 py-2 text-xs font-black text-stone-950 shadow-xl">
+                      <ZoomIn className="size-4" /> View in Spotlight
+                    </span>
+                  </div>
+
+                  {/* Bottom Caption */}
+                  <div className="relative z-20 p-3 flex flex-col gap-1 text-left text-white">
+                    <p className="line-clamp-2 font-display text-xs sm:text-sm font-bold text-stone-100 drop-shadow-md">
+                      {item.alt}
+                    </p>
+                    <div className="flex items-center justify-between pt-1 border-t border-white/15">
+                      <span className="text-[10px] text-amber-300 font-bold uppercase tracking-wider">
+                        Vijayawada · Eluru
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Load More Button */}
+          {shown.length > visibleCount && (
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <Button
+                onClick={() => setVisibleCount((prev) => prev + 12)}
+                className="btn-gold-glow rounded-full px-6 py-3 text-xs sm:text-sm font-black shadow-lg cursor-pointer"
+              >
+                <Sparkles className="size-4 mr-1.5" />
+                Load More Setups ({shown.length - visibleCount} More)
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => setVisibleCount(shown.length)}
+                className="rounded-full border-amber-300/80 bg-white/90 text-stone-800 hover:bg-amber-100 font-bold text-xs sm:text-sm px-5 py-3 cursor-pointer shadow-xs"
+              >
+                Show All ({shown.length}) Setups
+              </Button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </section>
   );
 }

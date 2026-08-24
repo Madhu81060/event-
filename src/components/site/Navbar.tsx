@@ -103,9 +103,9 @@ export function Navbar() {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="flex items-center gap-2.5 group shrink min-w-0"
+          className="flex items-center gap-2 sm:gap-2.5 group shrink-0"
         >
-          <div className="relative flex size-10 sm:size-12 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.35)] ring-1 ring-amber-300/60 transition-transform duration-300 group-hover:scale-106 shrink-0 overflow-hidden">
+          <div className="relative flex size-9 sm:size-11 md:size-12 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.35)] ring-1 ring-amber-300/60 transition-transform duration-300 group-hover:scale-106 shrink-0 overflow-hidden">
             <img
               src={getImageSrc(logo)}
               alt="Shubhamastu Events logo"
@@ -114,18 +114,18 @@ export function Navbar() {
               className="size-full rounded-full object-cover object-center"
             />
           </div>
-          <div className="leading-tight min-w-0">
-            <span className="font-display block text-sm sm:text-base md:text-lg lg:text-xl font-black tracking-tight text-amber-950 truncate">
+          <div className="leading-tight shrink-0">
+            <span className="font-display block text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-black tracking-tight text-amber-950 whitespace-nowrap">
               Shubhamastu Events
             </span>
-            <span className="block text-[8px] sm:text-[9.5px] font-extrabold tracking-[0.14em] text-amber-700 uppercase truncate">
+            <span className="block text-[7.5px] xs:text-[8px] sm:text-[9.5px] font-extrabold tracking-[0.12em] sm:tracking-[0.14em] text-amber-700 uppercase whitespace-nowrap">
               Eluru · Vijayawada
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden items-center gap-1 xl:gap-2 lg:flex">
+        <ul className="hidden items-center gap-0.5 xl:gap-1.5 lg:flex">
           {links.map((l) => {
             const isActive = activeHash === l.href;
             return (
@@ -133,7 +133,7 @@ export function Navbar() {
                 <a
                   href={l.href}
                   onClick={(e) => handleNavClick(e, l.href)}
-                  className={`rounded-full px-2.5 xl:px-3.5 py-1.5 text-xs xl:text-[13.5px] font-bold transition-all duration-200 whitespace-nowrap ${
+                  className={`rounded-full px-2 xl:px-3 py-1.5 text-xs xl:text-[13px] font-bold transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? "bg-amber-500 text-white shadow-xs"
                       : "text-stone-700 hover:text-amber-800 hover:bg-amber-100/60"
@@ -172,10 +172,10 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="btn-gold-glow rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold shadow-md shrink-0 h-8 sm:h-9"
+            className="btn-gold-glow rounded-full px-2.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-sm font-bold shadow-md shrink-0 h-7.5 sm:h-9"
           >
             <a href="#book" className="flex items-center gap-1 whitespace-nowrap">
-              <Sparkles className="size-3 sm:size-3.5 text-amber-950" />
+              <Sparkles className="size-2.5 sm:size-3.5 text-amber-950" />
               <span>Book Event</span>
             </a>
           </Button>
@@ -185,9 +185,9 @@ export function Navbar() {
             <SheetTrigger asChild>
               <button
                 aria-label="Open mobile menu navigation"
-                className="flex size-8 sm:size-9 items-center justify-center rounded-xl bg-amber-100/80 hover:bg-amber-200/90 text-amber-950 border border-amber-300/80 shadow-xs lg:hidden shrink-0 transition-colors cursor-pointer"
+                className="flex size-7.5 sm:size-9 items-center justify-center rounded-xl bg-amber-100/80 hover:bg-amber-200/90 text-amber-950 border border-amber-300/80 shadow-xs lg:hidden shrink-0 transition-colors cursor-pointer"
               >
-                <Menu className="size-4.5 sm:size-5" />
+                <Menu className="size-4 sm:size-5" />
               </button>
             </SheetTrigger>
             <SheetContent

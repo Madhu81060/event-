@@ -83,21 +83,21 @@ const slides = [
   },
   {
     image: clientEvent1,
-    eyebrow: "Grand Entrance Welcome Arch",
-    title: "Majestic Floral Tunnel & Royal Chandelier Portals",
+    eyebrow: "Royal Couple Reception Stage",
+    title: "Handcrafted Floral Arch & Royal Maharaja Sofa",
     subtitle:
-      "Impress your guests from the very first step with 100-foot floral tunnels, brass urlis, and warm pathway lighting.",
-    alt: "Grand Royal Wedding Entrance Arch and Walkway Lighting",
-    tag: "Grand Entrance",
+      "Warm backlight glow, illuminated candle plinths, and bespoke fresh flower arrangements for reception celebrations.",
+    alt: "Royal Couple Reception Stage with Floral Arch and Maharaja Sofa in Vijayawada",
+    tag: "Royal Reception",
   },
   {
     image: clientEvent2,
-    eyebrow: "Imperial Couple Stage & Mandapam",
-    title: "Golden Carved Temple Gopuram & Crystal Droplets",
+    eyebrow: "Lush Greenery Gala Backdrop",
+    title: "Living Foliage Floral Wall & Hanging Edison Bulbs",
     subtitle:
-      "Bespoke stage architecture designed for large convention centres and five-star wedding resorts.",
-    alt: "Imperial Royal Mandapam Stage with Golden Gopuram in Vijayawada",
-    tag: "Imperial Stage",
+      "Full-span green foliage backdrop bordered with cascading marigolds, roses, and vintage warm hanging lights.",
+    alt: "Living Foliage Floral Backdrop Stage with Hanging Bulbs in Vijayawada",
+    tag: "Foliage Stage",
   },
   {
     image: clientEvent14,
