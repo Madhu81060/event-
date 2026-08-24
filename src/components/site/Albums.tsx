@@ -58,9 +58,11 @@ export function Albums() {
     );
   }, [currentAlbum.spreads.length]);
 
-  // Keyboard navigation for the reader modal
+  // Keyboard navigation and body scroll lock for the reader modal
   useEffect(() => {
     if (!isReaderOpen) return;
+
+    document.body.style.overflow = "hidden";
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -73,7 +75,10 @@ export function Albums() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isReaderOpen, nextSpread, prevSpread]);
 
   const getAlbumWhatsAppLink = (album: WeddingAlbum, spreadTitle?: string) => {
