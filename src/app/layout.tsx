@@ -24,26 +24,44 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Subhamasthu Events | Luxury Event Management in Vijayawada & Eluru",
+  title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering in Eluru & Vijayawada",
   description:
-    "Subhamasthu Events designs luxury weddings, birthdays, corporate summits and festive celebrations across Vijayawada and Eluru. 1200+ events, 10+ years, one flawless team.",
-  authors: [{ name: "Subhamasthu Events" }],
+    "Shubhamastu Events — Your Dreams • Our Planning • Memories Forever. Directed by Pavanswamy. Luxury weddings, temple mandapams, 4K cinematography and royal catering across Eluru & Vijayawada.",
+  authors: [{ name: "Pavanswamy - Shubhamastu Events" }],
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: [
+      { url: "/apple-icon.png" },
+      { url: "/apple-touch-icon.png" },
+    ],
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
-    title: "Subhamasthu Events | Luxury Event Management",
+    title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering",
     description:
-      "Luxury weddings, celebrations and corporate events across Vijayawada and Eluru.",
-    siteName: "Subhamasthu Events",
+      "Your Dreams • Our Planning • Memories Forever. Luxury weddings, celebrations and corporate events across Eluru and Vijayawada.",
+    siteName: "Shubhamastu Events",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Shubhamastu Events Official Logo",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subhamasthu Events | Luxury Event Management",
+    title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering",
     description:
-      "Luxury weddings, celebrations and corporate events across Vijayawada and Eluru.",
+      "Your Dreams • Our Planning • Memories Forever. Luxury weddings across Eluru and Vijayawada.",
+    images: ["/logo.png"],
   },
 };
 

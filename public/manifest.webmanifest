@@ -1,12 +1,13 @@
 {
-  "name": "Subhamasthu Events — Luxury Event Management",
-  "short_name": "Subhamasthu Events",
-  "description": "Luxury weddings, celebrations and corporate events in Vijayawada and Eluru.",
+  "name": "Shubhamastu Events — Royal Event Management",
+  "short_name": "Shubhamastu Events",
+  "description": "Your Dreams • Our Planning • Memories Forever. Royal weddings, mandaps and celebrations in Eluru & Vijayawada.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#7c3aed",
+  "theme_color": "#d97706",
   "icons": [
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png" },
     { "src": "/favicon.png", "sizes": "64x64", "type": "image/png" }
   ]
 }
