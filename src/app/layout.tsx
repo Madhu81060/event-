@@ -24,10 +24,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.shubhamastuevents.com"),
   title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering in Eluru & Vijayawada",
   description:
     "Shubhamastu Events — Your Dreams • Our Planning • Memories Forever. Directed by Pavanswamy. Luxury weddings, temple mandapams, 4K cinematography and royal catering across Eluru & Vijayawada.",
   authors: [{ name: "Pavanswamy - Shubhamastu Events" }],
+  verification: {
+    google: "1_X_FLTXsVMDJ_8a0i4RS99G7XED4GCrCZbheEOOT2w",
+  },
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
