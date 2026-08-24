@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, Phone, Sparkles, MessageCircle } from "lucide-react";
+import { Menu, Phone, Sparkles, MessageCircle, CalendarDays, X } from "lucide-react";
 import logo from "@/assets/logo-elite-events.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -30,18 +30,24 @@ export function Navbar() {
       // Detect current active section in viewport
       const sectionIds = [
         "contact",
-        "about",
-        "albums",
+        "faq",
+        "blog",
+        "book",
+        "testimonials",
+        "process",
+        "compliance",
         "packages",
-        "services",
+        "albums",
         "gallery",
+        "services",
+        "about",
         "home",
       ];
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 180) {
+          if (rect.top <= 200) {
             setActiveHash(`#${id}`);
             break;
           }
@@ -83,36 +89,36 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-lg border-b border-amber-200/90 shadow-md"
-          : "bg-white/90 backdrop-blur-md border-b border-amber-200/60 shadow-xs"
+          ? "bg-white/95 backdrop-blur-md border-b border-amber-200/90 shadow-md py-1.5"
+          : "bg-white/90 backdrop-blur-sm border-b border-amber-200/60 shadow-xs py-2"
       }`}
     >
       <nav
         aria-label="Main"
-        className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6"
+        className="mx-auto flex h-14 sm:h-16 max-w-7xl items-center justify-between gap-2 px-3 sm:px-6"
       >
         {/* Brand Logo & Name */}
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="flex items-center gap-2.5 group shrink-0"
+          className="flex items-center gap-2 group shrink min-w-0"
         >
-          <span className="flex size-10 sm:size-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-300/80 p-1 shadow-xs transition-transform duration-300 group-hover:scale-105">
+          <span className="flex size-8 sm:size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-300/80 p-0.5 sm:p-1 shadow-xs transition-transform duration-300 group-hover:scale-105 shrink-0">
             <img
               src={getImageSrc(logo)}
               alt="Subhamasthu Events logo"
-              width={40}
-              height={40}
+              width={36}
+              height={36}
               className="size-full object-contain"
             />
           </span>
-          <div className="leading-tight">
-            <span className="font-display block text-lg sm:text-xl font-black tracking-tight text-amber-950">
+          <div className="leading-tight min-w-0">
+            <span className="font-display block text-sm sm:text-base md:text-lg lg:text-xl font-black tracking-tight text-amber-950 truncate">
               Subhamasthu Events
             </span>
-            <span className="block text-[9px] sm:text-[10px] font-extrabold tracking-[0.18em] text-amber-700 uppercase">
+            <span className="block text-[8px] sm:text-[9.5px] font-extrabold tracking-[0.14em] text-amber-700 uppercase truncate">
               Vijayawada · Eluru
             </span>
           </div>
@@ -140,89 +146,118 @@ export function Navbar() {
           })}
         </ul>
 
-        {/* CTA Buttons */}
+        {/* Right Header CTAs & Mobile Toggle */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* WhatsApp CTA (Tablet/Desktop) */}
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100 hover:scale-103 shadow-xs shrink-0"
+            className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-800 transition hover:bg-emerald-100 hover:scale-103 shadow-xs shrink-0"
           >
             <MessageCircle className="size-3.5 text-emerald-600 fill-emerald-600/20" />
-            WhatsApp
+            <span>WhatsApp</span>
           </a>
 
+          {/* Direct Phone CTA (Large Screens) */}
           <a
             href={`tel:${PHONE.replace(/\s/g, "")}`}
             className="hidden 2xl:inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 transition hover:bg-amber-100 hover:scale-103 shadow-xs shrink-0"
           >
             <Phone className="size-3.5 text-amber-700" />
-            {PHONE}
+            <span>{PHONE}</span>
           </a>
 
-          <Button asChild className="btn-gold-glow rounded-full px-3.5 sm:px-5 py-2 text-xs sm:text-sm font-bold shadow-md shrink-0">
+          {/* Book Event Pill Button (Always visible on mobile & desktop) */}
+          <Button
+            asChild
+            size="sm"
+            className="btn-gold-glow rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold shadow-md shrink-0 h-8 sm:h-9"
+          >
             <a href="#book" className="flex items-center gap-1 whitespace-nowrap">
-              <Sparkles className="size-3.5" />
+              <Sparkles className="size-3 sm:size-3.5 text-amber-950" />
               <span>Book Event</span>
             </a>
           </Button>
 
-          {/* Mobile Hamburger Menu */}
+          {/* Mobile Hamburger Menu Toggle */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Open menu"
-                className="size-9 rounded-full lg:hidden text-stone-800 hover:bg-amber-50"
+              <button
+                aria-label="Open mobile menu navigation"
+                className="flex size-8 sm:size-9 items-center justify-center rounded-xl bg-amber-100/80 hover:bg-amber-200/90 text-amber-950 border border-amber-300/80 shadow-xs lg:hidden shrink-0 transition-colors cursor-pointer"
               >
-                <Menu className="size-5.5" />
-              </Button>
+                <Menu className="size-4.5 sm:size-5" />
+              </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[85vw] max-w-sm bg-white border-l border-amber-200 p-6">
-              <div className="flex items-center gap-2.5 mt-1">
-                <img src={getImageSrc(logo)} alt="Subhamasthu Events" className="size-8 object-contain" />
-                <div>
-                  <SheetTitle className="font-display text-lg font-black text-amber-950 text-left">
-                    Subhamasthu Events
-                  </SheetTitle>
-                  <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">
-                    Vijayawada · Eluru
-                  </span>
+            <SheetContent
+              side="right"
+              className="w-[85vw] max-w-sm bg-white border-l border-amber-200 p-5 sm:p-6 overflow-y-auto flex flex-col justify-between"
+            >
+              <div>
+                {/* Mobile Drawer Header */}
+                <div className="flex items-center gap-2.5 mt-2 pb-4 border-b border-amber-100">
+                  <img
+                    src={getImageSrc(logo)}
+                    alt="Subhamasthu Events"
+                    className="size-9 object-contain"
+                  />
+                  <div>
+                    <SheetTitle className="font-display text-lg font-black text-amber-950 text-left leading-tight">
+                      Subhamasthu Events
+                    </SheetTitle>
+                    <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">
+                      Vijayawada · Eluru · AP
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <ul className="mt-6 grid gap-1">
-                {[...links, { label: "Book Consultation", href: "#book" }].map((l) => (
-                  <li key={l.href}>
+
+                {/* Navigation Links List */}
+                <ul className="mt-5 grid gap-1.5">
+                  {links.map((l) => (
+                    <li key={l.href}>
+                      <a
+                        href={l.href}
+                        onClick={(e) => handleNavClick(e, l.href)}
+                        className={`block rounded-xl px-4 py-2.5 text-sm font-bold transition-colors ${
+                          activeHash === l.href
+                            ? "bg-amber-500 text-white shadow-xs"
+                            : "text-stone-800 hover:bg-amber-50 hover:text-amber-900"
+                        }`}
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                  <li>
                     <a
-                      href={l.href}
-                      onClick={(e) => handleNavClick(e, l.href)}
-                      className={`block rounded-xl px-4 py-2.5 text-sm font-bold transition-colors ${
-                        activeHash === l.href
-                          ? "bg-amber-500 text-white"
-                          : "text-stone-800 hover:bg-amber-50 hover:text-amber-800"
-                      }`}
+                      href="#book"
+                      onClick={(e) => handleNavClick(e, "#book")}
+                      className="flex items-center gap-2 rounded-xl bg-amber-100/70 px-4 py-2.5 text-sm font-black text-amber-900 hover:bg-amber-200/80 transition-colors"
                     >
-                      {l.label}
+                      <CalendarDays className="size-4 text-amber-700" />
+                      Book Consultation
                     </a>
                   </li>
-                ))}
-              </ul>
-              <div className="mt-6 pt-5 border-t border-amber-100 flex flex-col gap-2.5">
+                </ul>
+              </div>
+
+              {/* Drawer Bottom Actions */}
+              <div className="mt-8 pt-5 border-t border-amber-100 flex flex-col gap-2.5 shrink-0">
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 py-2.5 text-xs font-bold text-white shadow-sm"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 py-3 text-xs sm:text-sm font-bold text-white shadow-sm transition-all"
                 >
                   <MessageCircle className="size-4" />
                   Chat on WhatsApp
                 </a>
                 <a
                   href={`tel:${PHONE.replace(/\s/g, "")}`}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-amber-100 py-2.5 text-xs font-bold text-amber-900"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-amber-100 hover:bg-amber-200 py-3 text-xs sm:text-sm font-bold text-amber-950 transition-colors"
                 >
-                  <Phone className="size-4" />
+                  <Phone className="size-4 text-amber-700" />
                   Call: {PHONE}
                 </a>
               </div>
