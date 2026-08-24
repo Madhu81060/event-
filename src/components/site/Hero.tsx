@@ -207,7 +207,7 @@ export function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-[580px] sm:min-h-[640px] h-auto sm:h-[94dvh] max-h-[960px] w-full overflow-hidden pt-14 sm:pt-16 select-none bg-gradient-to-b from-amber-900/20 via-amber-950/30 to-amber-900/40"
+      className="relative min-h-[540px] sm:min-h-[640px] h-auto sm:h-[94dvh] max-h-[960px] w-full overflow-hidden pt-14 sm:pt-16 select-none bg-gradient-to-b from-amber-900/20 via-amber-950/30 to-amber-900/40"
     >
       {/* 100% Crisp, High-Definition Stage Photography Slider */}
       <div className="absolute inset-0 size-full">
@@ -270,24 +270,24 @@ export function Hero() {
       <button
         onClick={prevSlide}
         aria-label="Previous Setup"
-        className="absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-35 flex size-9 sm:size-11 md:size-13 items-center justify-center rounded-full bg-stone-900/60 text-white backdrop-blur-xl border border-amber-300/50 shadow-[0_8px_25px_rgba(217,119,6,0.35)] hover:bg-amber-500 hover:text-stone-950 hover:scale-110 transition-all cursor-pointer group"
+        className="absolute left-1.5 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-35 flex size-8 sm:size-11 md:size-13 items-center justify-center rounded-full bg-stone-900/70 text-white backdrop-blur-xl border border-amber-300/50 shadow-[0_8px_25px_rgba(217,119,6,0.35)] hover:bg-amber-500 hover:text-stone-950 hover:scale-110 transition-all cursor-pointer group"
       >
-        <ChevronLeft className="size-5 sm:size-6 md:size-7 transition-transform group-hover:-translate-x-0.5" />
+        <ChevronLeft className="size-4 sm:size-6 md:size-7 transition-transform group-hover:-translate-x-0.5" />
       </button>
 
       <button
         onClick={nextSlide}
         aria-label="Next Setup"
-        className="absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-35 flex size-9 sm:size-11 md:size-13 items-center justify-center rounded-full bg-stone-900/60 text-white backdrop-blur-xl border border-amber-300/50 shadow-[0_8px_25px_rgba(217,119,6,0.35)] hover:bg-amber-500 hover:border-amber-200 hover:scale-110 transition-all cursor-pointer group"
+        className="absolute right-1.5 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-35 flex size-8 sm:size-11 md:size-13 items-center justify-center rounded-full bg-stone-900/70 text-white backdrop-blur-xl border border-amber-300/50 shadow-[0_8px_25px_rgba(217,119,6,0.35)] hover:bg-amber-500 hover:border-amber-200 hover:scale-110 transition-all cursor-pointer group"
       >
-        <ChevronRight className="size-5 sm:size-6 md:size-7 transition-transform group-hover:translate-x-0.5" />
+        <ChevronRight className="size-4 sm:size-6 md:size-7 transition-transform group-hover:translate-x-0.5" />
       </button>
 
       {/* Main Content Showcase */}
-      <div className="relative z-30 mx-auto flex h-full max-w-7xl flex-col justify-between px-3 sm:px-6 lg:px-8 py-3.5 sm:py-6 gap-3">
+      <div className="relative z-30 mx-auto flex h-full max-w-7xl flex-col justify-between px-3 sm:px-6 lg:px-8 py-3 sm:py-6 gap-3">
         {/* Top Floating Bar: Trust Badge & Interactive Merupulu Ambience Preset Switcher */}
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-stone-900/70 backdrop-blur-xl border border-amber-400/70 px-3 sm:px-4 py-1 text-[10px] sm:text-xs font-black uppercase tracking-wider text-amber-200 shadow-md">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-stone-900/70 backdrop-blur-xl border border-amber-400/70 px-2.5 sm:px-4 py-1 text-[10px] sm:text-xs font-black uppercase tracking-wider text-amber-200 shadow-md">
             <span className="flex text-amber-400">
               <Star className="size-3 sm:size-3.5 fill-amber-400 text-amber-400" />
             </span>
@@ -299,7 +299,7 @@ export function Hero() {
           <div className="relative">
             <button
               onClick={() => setShowMoodMenu(!showMoodMenu)}
-              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-amber-500/90 hover:bg-amber-400 text-stone-950 px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-[10.5px] sm:text-xs font-black uppercase tracking-wider shadow-md backdrop-blur-xl border border-white/60 transition-all hover:scale-105 cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-amber-500/90 hover:bg-amber-400 text-stone-950 px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-md backdrop-blur-xl border border-white/60 transition-all hover:scale-105 cursor-pointer"
               title="Change Stage Lighting Mood"
             >
               <Sparkles className="size-3 sm:size-3.5 text-stone-950 animate-spin" style={{ animationDuration: "6s" }} />
@@ -308,7 +308,7 @@ export function Hero() {
             </button>
 
             {showMoodMenu && (
-              <div className="absolute right-0 top-full mt-2 w-60 sm:w-64 rounded-2xl bg-stone-900/95 backdrop-blur-2xl border-2 border-amber-400/80 p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.6)] z-50 animate-in fade-in zoom-in-95 duration-200">
+              <div className="absolute right-0 top-full mt-2 w-56 sm:w-64 max-w-[calc(100vw-24px)] rounded-2xl bg-stone-900/95 backdrop-blur-2xl border-2 border-amber-400/80 p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.6)] z-50 animate-in fade-in zoom-in-95 duration-200">
                 <div className="px-2 py-1 text-[11px] font-black uppercase tracking-widest text-amber-300 border-b border-white/10 mb-1.5 flex items-center justify-between">
                   <span>✨ Ambience Lighting</span>
                   <span className="text-[10px] text-amber-200/80 font-normal">Click to switch</span>
@@ -356,9 +356,9 @@ export function Hero() {
         </div>
 
         {/* Left-Aligned Royal Glassmorphic Hero Card */}
-        <div className="my-auto max-w-lg lg:max-w-xl self-start rounded-2xl sm:rounded-3xl bg-stone-950/55 backdrop-blur-xl border border-amber-300/50 p-4 sm:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.5)] ring-1 ring-white/20">
-          <div className="flex items-center gap-3 mb-2.5">
-            <div className="flex size-11 sm:size-13 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.5)] ring-2 ring-amber-300/60 shrink-0 overflow-hidden">
+        <div className="my-auto max-w-lg lg:max-w-xl self-start rounded-2xl sm:rounded-3xl bg-stone-950/60 backdrop-blur-xl border border-amber-300/50 p-3.5 sm:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.5)] ring-1 ring-white/20">
+          <div className="flex items-center gap-2.5 sm:gap-3 mb-2">
+            <div className="flex size-10 sm:size-13 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.5)] ring-2 ring-amber-300/60 shrink-0 overflow-hidden">
               <img
                 src={getImageSrc(logo)}
                 alt="Shubhamastu Events Official Logo"
@@ -367,19 +367,19 @@ export function Hero() {
                 className="size-full rounded-full object-cover"
               />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 text-white px-2.5 sm:px-3 py-0.5 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.14em] shadow-sm border border-amber-300/40">
-                  <Sparkles className="size-2.5 sm:size-3 fill-amber-200" />
+                <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 text-white px-2 sm:px-3 py-0.5 text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.1em] sm:tracking-[0.14em] shadow-sm border border-amber-300/40 truncate">
+                  <Sparkles className="size-2.5 sm:size-3 fill-amber-200 shrink-0" />
                   <span>{active.eyebrow}</span>
                 </span>
                 {active.tag && (
-                  <span className="rounded-full bg-amber-400/20 backdrop-blur-md border border-amber-300/50 px-2 sm:px-2.5 py-0.5 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-amber-200">
+                  <span className="rounded-full bg-amber-400/20 backdrop-blur-md border border-amber-300/50 px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-amber-200">
                     ⭐ {active.tag}
                   </span>
                 )}
               </div>
-              <p className="text-[10px] sm:text-[11px] font-bold text-amber-300 mt-0.5 uppercase tracking-wider">
+              <p className="text-[9.5px] sm:text-[11px] font-bold text-amber-300 mt-0.5 uppercase tracking-wider truncate">
                 Shubhamastu Events • Eluru · Vijayawada
               </p>
             </div>
@@ -387,21 +387,21 @@ export function Hero() {
 
           <h1
             key={active.title}
-            className="font-display text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)] tracking-tight leading-[1.2]"
+            className="font-display text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)] tracking-tight leading-[1.2]"
           >
             {active.title}
           </h1>
 
-          <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm font-medium text-stone-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] leading-relaxed line-clamp-3 sm:line-clamp-none">
+          <p className="mt-1 sm:mt-2 text-xs sm:text-sm font-medium text-stone-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] leading-relaxed line-clamp-2 sm:line-clamp-none">
             {active.subtitle}
           </p>
 
           {/* Action CTAs */}
-          <div className="mt-3.5 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="mt-3 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
             <Button
               asChild
               size="sm"
-              className="btn-gold-glow rounded-full px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-black shadow-md border border-amber-200/50 cursor-pointer"
+              className="btn-gold-glow rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-black shadow-md border border-amber-200/50 cursor-pointer"
             >
               <a href="#book" className="flex items-center gap-1.5">
                 <CalendarDays className="size-3.5 sm:size-4" />
@@ -413,7 +413,7 @@ export function Hero() {
               href={getEventWhatsAppLink(active.title)}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-white shadow-md backdrop-blur-md transition-all hover:scale-104 border border-emerald-400/40 cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-white shadow-md backdrop-blur-md transition-all hover:scale-104 border border-emerald-400/40 cursor-pointer"
               title="Book this stage on WhatsApp"
             >
               <MessageCircle className="size-3.5 sm:size-4" />
@@ -424,7 +424,7 @@ export function Hero() {
               asChild
               size="sm"
               variant="outline"
-              className="rounded-full border border-amber-300/80 bg-stone-900/60 text-amber-200 font-bold text-xs backdrop-blur-xl hover:bg-amber-500 hover:text-stone-950 hover:border-amber-200 shadow-sm cursor-pointer transition-all px-3 py-1.5 sm:py-2"
+              className="rounded-full border border-amber-300/80 bg-stone-900/60 text-amber-200 font-bold text-xs backdrop-blur-xl hover:bg-amber-500 hover:text-stone-950 hover:border-amber-200 shadow-sm cursor-pointer transition-all px-2.5 sm:px-3 py-1.5 sm:py-2"
             >
               <a href="#gallery" className="flex items-center gap-1">
                 <Images className="size-3 text-amber-300" />
@@ -435,15 +435,15 @@ export function Hero() {
         </div>
 
         {/* Bottom Interactive Thumbnail Strip & Slide Tracker */}
-        <div className="border-t border-amber-300/30 pt-2 sm:pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-stone-900/60 backdrop-blur-2xl rounded-2xl px-3 sm:px-4 py-2 border border-amber-300/30 shadow-md">
-          <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-amber-200 shrink-0">
+        <div className="border-t border-amber-300/30 pt-1.5 sm:pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 bg-stone-900/70 backdrop-blur-2xl rounded-2xl px-2.5 sm:px-4 py-1.5 sm:py-2 border border-amber-300/30 shadow-md">
+          <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-amber-200 shrink-0">
             <Sparkles className="size-3 sm:size-3.5 text-amber-400" />
             <span>Showcases ({index + 1}/{slides.length}):</span>
           </div>
 
           <div
             ref={thumbsRef}
-            className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none w-full sm:w-auto scroll-smooth"
+            className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none w-full sm:w-auto touch-scroll-x"
           >
             {slides.map((s, i) => (
               <button
@@ -451,7 +451,7 @@ export function Hero() {
                 onClick={() => setIndex(i)}
                 aria-label={`Switch to ${s.title}`}
                 className={cn(
-                  "relative h-9 sm:h-12 w-14 sm:w-18 shrink-0 overflow-hidden rounded-lg sm:rounded-xl border-2 transition-all duration-300 cursor-pointer shadow-xs group",
+                  "relative h-8.5 sm:h-12 w-13 sm:w-18 shrink-0 overflow-hidden rounded-lg sm:rounded-xl border-2 transition-all duration-300 cursor-pointer shadow-xs group",
                   i === index
                     ? "border-amber-400 ring-2 ring-amber-400 scale-105 z-10 opacity-100 shadow-[0_0_15px_rgba(245,158,11,0.8)]"
                     : "border-white/40 opacity-70 hover:opacity-100 hover:border-amber-300",

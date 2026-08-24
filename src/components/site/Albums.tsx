@@ -119,7 +119,7 @@ export function Albums() {
         />
 
         {/* Wedding Collection Switcher Tabs */}
-        <Reveal className="mt-8 flex flex-wrap justify-center gap-3">
+        <Reveal className="mt-8 flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 scrollbar-none touch-scroll-x sm:flex-wrap sm:justify-center">
           {weddingAlbums.map((album) => {
             const isSelected = album.id === selectedAlbumId;
             return (
@@ -127,13 +127,13 @@ export function Albums() {
                 key={album.id}
                 onClick={() => switchAlbum(album.id, 0)}
                 className={cn(
-                  "flex items-center gap-2.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer shadow-sm",
+                  "flex items-center gap-2 sm:gap-2.5 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer shadow-sm whitespace-nowrap shrink-0",
                   isSelected
                     ? "bg-gradient-to-r from-amber-500 via-amber-600 to-amber-500 text-stone-950 font-black shadow-lg scale-103 ring-2 ring-amber-400"
                     : "bg-white/90 text-stone-700 hover:bg-amber-100/80 hover:text-amber-900 border border-amber-200/80",
                 )}
               >
-                <Sparkles className={cn("size-4", isSelected ? "text-stone-950 fill-stone-950/30" : "text-amber-600")} />
+                <Sparkles className={cn("size-3.5 sm:size-4", isSelected ? "text-stone-950 fill-stone-950/30" : "text-amber-600")} />
                 <span>{album.coupleName} ({album.highlightTag})</span>
               </button>
             );
@@ -144,24 +144,24 @@ export function Albums() {
         <Reveal delay={100} className="mt-8">
           <div
             ref={showcaseRef}
-            className="card-3d relative overflow-hidden rounded-3xl bg-stone-950 border-2 border-amber-400 shadow-[0_15px_50px_rgba(245,158,11,0.25)] p-3 sm:p-5 md:p-6 text-white"
+            className="card-3d relative overflow-hidden rounded-2xl sm:rounded-3xl bg-stone-950 border-2 border-amber-400 shadow-[0_15px_50px_rgba(245,158,11,0.25)] p-3 sm:p-5 md:p-6 text-white"
           >
             {/* Stage Header Info Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-amber-400/20">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <span className="flex size-8 sm:size-9 items-center justify-center rounded-xl bg-amber-500 text-stone-950 font-black shadow-md shrink-0">
-                  <BookOpen className="size-4 sm:size-5" />
+            <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 pb-3 border-b border-amber-400/20">
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <span className="flex size-7.5 sm:size-9 items-center justify-center rounded-xl bg-amber-500 text-stone-950 font-black shadow-md shrink-0">
+                  <BookOpen className="size-3.5 sm:size-5" />
                 </span>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-display text-sm sm:text-lg font-black text-amber-200 truncate">
+                  <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                    <h3 className="font-display text-xs sm:text-base md:text-lg font-black text-amber-200 truncate">
                       {currentAlbum.coupleName} • {currentAlbum.albumTitle}
                     </h3>
-                    <span className="rounded-full bg-amber-500/20 border border-amber-400/40 px-2.5 py-0.5 text-[10px] font-bold text-amber-300 uppercase tracking-wider">
+                    <span className="rounded-full bg-amber-500/20 border border-amber-400/40 px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold text-amber-300 uppercase tracking-wider">
                       {currentAlbum.location}
                     </span>
                   </div>
-                  <span className="text-[11px] sm:text-xs text-stone-300 font-semibold block mt-0.5">
+                  <span className="text-[10px] sm:text-xs text-stone-300 font-semibold block mt-0.5">
                     {currentSpread.category} · Photo {activeSpreadIndex + 1} of {currentAlbum.spreads.length}
                   </span>
                 </div>
@@ -170,17 +170,17 @@ export function Albums() {
               <div className="flex items-center gap-2 ml-auto shrink-0">
                 <button
                   onClick={() => setIsFullscreenOpen(true)}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-stone-900/90 hover:bg-amber-500 hover:text-stone-950 text-amber-200 border border-amber-400/50 px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-sm"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-stone-900/90 hover:bg-amber-500 hover:text-stone-950 text-amber-200 border border-amber-400/50 px-3 sm:px-3.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-bold transition-all cursor-pointer shadow-sm"
                   title="Expand to Fullscreen HD"
                 >
-                  <Maximize2 className="size-3.5" />
+                  <Maximize2 className="size-3 sm:size-3.5" />
                   <span>Fullscreen HD</span>
                 </button>
               </div>
             </div>
 
             {/* Main Interactive Stage Photo Display */}
-            <div className="relative w-full aspect-16/10 sm:aspect-16/9 md:aspect-21/10 max-h-[560px] my-3 rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-amber-400/30 group/stage">
+            <div className="relative w-full aspect-4/3 xs:aspect-16/10 sm:aspect-16/9 md:aspect-21/10 min-h-[280px] sm:min-h-[400px] max-h-[560px] my-2.5 sm:my-3 rounded-xl sm:rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-amber-400/30 group/stage">
               <img
                 key={`${currentAlbum.id}-${currentSpread.id}`}
                 src={getImageSrc(currentSpread.image)}
@@ -192,38 +192,38 @@ export function Albums() {
               <button
                 onClick={prevSpread}
                 aria-label="Previous photo"
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 flex size-10 sm:size-12 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-xl transition-all hover:scale-110 cursor-pointer backdrop-blur-md"
+                className="absolute left-1.5 sm:left-4 top-1/2 -translate-y-1/2 z-20 flex size-9 sm:size-12 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-xl transition-all hover:scale-110 cursor-pointer backdrop-blur-md"
               >
-                <ChevronLeft className="size-6 sm:size-7" />
+                <ChevronLeft className="size-5 sm:size-7" />
               </button>
 
               <button
                 onClick={nextSpread}
                 aria-label="Next photo"
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 flex size-10 sm:size-12 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-xl transition-all hover:scale-110 cursor-pointer backdrop-blur-md"
+                className="absolute right-1.5 sm:right-4 top-1/2 -translate-y-1/2 z-20 flex size-9 sm:size-12 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-xl transition-all hover:scale-110 cursor-pointer backdrop-blur-md"
               >
-                <ChevronRight className="size-6 sm:size-7" />
+                <ChevronRight className="size-5 sm:size-7" />
               </button>
 
               {/* Bottom Caption Overlay */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-950/95 via-stone-950/60 to-transparent p-3 sm:p-5 pt-8 pointer-events-none flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-                <div className="max-w-2xl">
-                  <h4 className="font-display text-sm sm:text-base md:text-lg font-black text-white drop-shadow-md">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-950/95 via-stone-950/60 to-transparent p-2.5 sm:p-5 pt-6 pointer-events-none flex flex-col sm:flex-row sm:items-end justify-between gap-2 sm:gap-3">
+                <div className="max-w-2xl min-w-0">
+                  <h4 className="font-display text-xs sm:text-base md:text-lg font-black text-white drop-shadow-md truncate sm:whitespace-normal">
                     {currentSpread.title}
                   </h4>
-                  <p className="text-xs sm:text-[13px] text-stone-200 font-medium line-clamp-2 mt-0.5 drop-shadow-sm">
+                  <p className="text-[10.5px] sm:text-[13px] text-stone-200 font-medium line-clamp-1 sm:line-clamp-2 mt-0.5 drop-shadow-sm">
                     {currentSpread.caption}
                   </p>
                 </div>
 
-                <div className="pointer-events-auto shrink-0">
+                <div className="pointer-events-auto shrink-0 w-full sm:w-auto">
                   <a
                     href={getAlbumWhatsAppLink(currentAlbum, currentSpread.title)}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white shadow-lg transition-all hover:scale-104 cursor-pointer whitespace-nowrap"
+                    className="flex sm:inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 px-3.5 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white shadow-lg transition-all hover:scale-104 cursor-pointer whitespace-nowrap"
                   >
-                    <MessageCircle className="size-4" />
+                    <MessageCircle className="size-3.5 sm:size-4" />
                     <span>Inquire Photo on WhatsApp</span>
                   </a>
                 </div>
@@ -232,18 +232,18 @@ export function Albums() {
 
             {/* 10 HD Photos Interactive Filmstrip */}
             <div className="pt-2 border-t border-amber-400/20">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-amber-300">
+              <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-300">
                   ✨ Click any photo to preview (10 HD Spreads):
                 </span>
-                <span className="text-[11px] font-semibold text-stone-400">
+                <span className="text-[10px] sm:text-[11px] font-semibold text-stone-400">
                   Showing {activeSpreadIndex + 1} of {currentAlbum.spreads.length}
                 </span>
               </div>
 
               <div
                 ref={thumbsContainerRef}
-                className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 scrollbar-none scroll-smooth"
+                className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 scrollbar-none touch-scroll-x"
               >
                 {currentAlbum.spreads.map((spread, idx) => {
                   const isActive = idx === activeSpreadIndex;
@@ -252,7 +252,7 @@ export function Albums() {
                       key={spread.id}
                       onClick={() => setActiveSpreadIndex(idx)}
                       className={cn(
-                        "group/thumb relative h-14 sm:h-18 w-20 sm:w-28 shrink-0 overflow-hidden rounded-xl border-2 transition-all duration-300 cursor-pointer shadow-sm",
+                        "group/thumb relative h-12 sm:h-18 w-18 sm:w-28 shrink-0 overflow-hidden rounded-lg sm:rounded-xl border-2 transition-all duration-300 cursor-pointer shadow-sm",
                         isActive
                           ? "border-amber-400 ring-2 ring-amber-400 scale-105 opacity-100 z-10 shadow-[0_0_15px_rgba(245,158,11,0.7)]"
                           : "border-white/30 opacity-60 hover:opacity-100 hover:border-amber-300",
@@ -267,7 +267,7 @@ export function Albums() {
                       {isActive && (
                         <div className="absolute inset-0 bg-gradient-to-t from-amber-500/40 to-transparent pointer-events-none ring-1 ring-inset ring-amber-300" />
                       )}
-                      <span className="absolute bottom-1 right-1 rounded-sm bg-black/80 px-1 text-[9px] font-black text-amber-300">
+                      <span className="absolute bottom-1 right-1 rounded-sm bg-black/80 px-1 text-[8.5px] sm:text-[9px] font-black text-amber-300">
                         {idx + 1}
                       </span>
                     </button>
@@ -477,13 +477,13 @@ export function Albums() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-[100] flex flex-col justify-between p-3 sm:p-6 bg-black/95 backdrop-blur-2xl select-none text-white animate-in fade-in duration-200"
+          className="fixed inset-0 z-[100] flex flex-col justify-between p-3 sm:p-6 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] pt-[calc(1rem+env(safe-area-inset-top,0px))] bg-black/95 backdrop-blur-2xl select-none text-white animate-in fade-in duration-200"
           onClick={() => setIsFullscreenOpen(false)}
         >
           {/* Top Bar */}
           <div className="flex items-center justify-between z-20 shrink-0" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center gap-2 min-w-0">
-              <span className="rounded-full bg-amber-500 text-stone-950 px-3 py-1 text-xs font-black uppercase tracking-wider">
+              <span className="rounded-full bg-amber-500 text-stone-950 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-black uppercase tracking-wider shrink-0">
                 {currentSpread.category}
               </span>
               <span className="text-xs sm:text-sm font-bold text-amber-200 truncate">
@@ -493,10 +493,10 @@ export function Albums() {
 
             <button
               onClick={() => setIsFullscreenOpen(false)}
-              className="flex size-10 items-center justify-center rounded-full bg-white/15 hover:bg-amber-500 hover:text-stone-950 text-white transition-all cursor-pointer shadow-lg"
+              className="flex size-9 sm:size-10 items-center justify-center rounded-full bg-white/15 hover:bg-amber-500 hover:text-stone-950 text-white transition-all cursor-pointer shadow-lg shrink-0 ml-2"
               title="Close Fullscreen (Esc)"
             >
-              <X className="size-5" />
+              <X className="size-4 sm:size-5" />
             </button>
           </div>
 
@@ -505,33 +505,33 @@ export function Albums() {
             <button
               onClick={prevSpread}
               aria-label="Previous photo"
-              className="absolute left-2 sm:left-6 z-30 flex size-12 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer"
+              className="absolute left-1.5 sm:left-6 z-30 flex size-9 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer"
             >
-              <ChevronLeft className="size-7 sm:size-8" />
+              <ChevronLeft className="size-5 sm:size-8" />
             </button>
 
             <img
               src={getImageSrc(currentSpread.image)}
               alt={currentSpread.title}
-              className="max-h-[82vh] max-w-[95vw] w-auto h-auto object-contain rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200 select-none"
+              className="max-h-[80vh] max-w-[95vw] w-auto h-auto object-contain rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200 select-none"
             />
 
             <button
               onClick={nextSpread}
               aria-label="Next photo"
-              className="absolute right-2 sm:right-6 z-30 flex size-12 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer"
+              className="absolute right-1.5 sm:right-6 z-30 flex size-9 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer"
             >
-              <ChevronRight className="size-7 sm:size-8" />
+              <ChevronRight className="size-5 sm:size-8" />
             </button>
           </div>
 
           {/* Bottom Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 z-20 shrink-0 bg-stone-900/80 backdrop-blur-xl rounded-2xl px-4 py-3 border border-amber-400/30" onClick={(e) => e.stopPropagation()}>
-            <div className="max-w-xl">
-              <h4 className="font-display text-sm sm:text-base font-bold text-white">
+          <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 z-20 shrink-0 bg-stone-900/80 backdrop-blur-xl rounded-2xl px-3 sm:px-4 py-2 sm:py-3 border border-amber-400/30" onClick={(e) => e.stopPropagation()}>
+            <div className="max-w-xl min-w-0">
+              <h4 className="font-display text-xs sm:text-base font-bold text-white truncate">
                 {currentSpread.title}
               </h4>
-              <p className="text-xs text-stone-300 line-clamp-1">
+              <p className="text-[10px] sm:text-xs text-stone-300 line-clamp-1">
                 {currentSpread.caption}
               </p>
             </div>
@@ -540,10 +540,10 @@ export function Albums() {
               href={getAlbumWhatsAppLink(currentAlbum, currentSpread.title)}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 px-4 py-2 text-xs font-bold text-white shadow-md transition-all hover:scale-104 cursor-pointer whitespace-nowrap ml-auto"
+              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs font-bold text-white shadow-md transition-all hover:scale-104 cursor-pointer whitespace-nowrap ml-auto"
             >
-              <MessageCircle className="size-4" />
-              <span>Inquire Photo on WhatsApp</span>
+              <MessageCircle className="size-3.5 sm:size-4" />
+              <span>Inquire on WhatsApp</span>
             </a>
           </div>
         </div>

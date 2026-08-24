@@ -122,8 +122,8 @@ export function About() {
               />
 
               {/* Official Shubhamastu Events Brand Seal */}
-              <div className="absolute -top-6 -left-4 sm:-left-6 flex items-center gap-2 rounded-full bg-white/95 backdrop-blur-md p-1.5 pr-4 border-2 border-amber-400 shadow-xl ring-1 ring-amber-300">
-                <div className="size-12 sm:size-14 rounded-full overflow-hidden border border-amber-300 shrink-0">
+              <div className="absolute -top-4 sm:-top-6 -left-2 sm:-left-6 flex items-center gap-2 rounded-full bg-white/95 backdrop-blur-md p-1 sm:p-1.5 pr-3 sm:pr-4 border-2 border-amber-400 shadow-xl ring-1 ring-amber-300">
+                <div className="size-10 sm:size-14 rounded-full overflow-hidden border border-amber-300 shrink-0">
                   <img
                     src={getImageSrc(logo)}
                     alt="Shubhamastu Events Official Brand Seal"
@@ -133,35 +133,35 @@ export function About() {
                   />
                 </div>
                 <div>
-                  <span className="font-display text-xs sm:text-sm font-black text-amber-950 block leading-tight">
+                  <span className="font-display text-[11px] sm:text-sm font-black text-amber-950 block leading-tight">
                     Shubhamastu Events
                   </span>
-                  <span className="text-[9px] sm:text-[10px] font-bold text-amber-700 block">
+                  <span className="text-[8.5px] sm:text-[10px] font-bold text-amber-700 block">
                     Authentic Production House
                   </span>
                 </div>
               </div>
 
-              <div className="absolute -top-5 -right-4 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white px-5 py-3 text-center shadow-lg border-2 border-white">
-                <span className="font-display block text-3xl font-black">10+</span>
-                <span className="text-[11px] font-bold tracking-wider uppercase">Years Of Craft</span>
+              <div className="absolute -top-4 sm:-top-5 -right-2 sm:-right-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white px-3 sm:px-5 py-2 sm:py-3 text-center shadow-lg border-2 border-white">
+                <span className="font-display block text-xl sm:text-3xl font-black">10+</span>
+                <span className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase">Years Of Craft</span>
               </div>
             </div>
           </Reveal>
         </div>
 
         {/* Numbers Section */}
-        <div className="mt-16">
+        <div className="mt-14 sm:mt-16">
           <SectionHeading
             eyebrow="Our Track Record"
             title="Trusted By 950+ Families Across AP & Telangana"
           />
-          <ul className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <ul className="mt-8 sm:mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
             {stats.map((s, i) => (
               <Reveal as="li" key={s.label} delay={i * 70}>
-                <div className="card-3d rounded-2xl bg-amber-50/40 border border-amber-200/80 px-4 py-8 text-center shadow-xs hover:border-amber-400 hover:shadow-md">
+                <div className="card-3d rounded-2xl bg-amber-50/40 border border-amber-200/80 px-3 sm:px-4 py-6 sm:py-8 text-center shadow-xs hover:border-amber-400 hover:shadow-md">
                   <Counter value={s.value} suffix={s.suffix} />
-                  <p className="mt-2 text-sm font-bold text-stone-700">{s.label}</p>
+                  <p className="mt-2 text-xs sm:text-sm font-bold text-stone-700">{s.label}</p>
                 </div>
               </Reveal>
             ))}

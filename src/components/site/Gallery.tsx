@@ -354,7 +354,7 @@ export function Gallery() {
         />
 
         {/* Category Filter Tabs */}
-        <Reveal className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
+        <Reveal className="mt-6 flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 scrollbar-none touch-scroll-x sm:flex-wrap sm:justify-center">
           {categories.map((c) => {
             const count = allGalleryItems.filter((i) => c === "All Setups" || i.cat === c).length;
             return (
@@ -363,7 +363,7 @@ export function Gallery() {
                 onClick={() => handleCategoryChange(c)}
                 aria-pressed={cat === c}
                 className={cn(
-                  "rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer shadow-xs",
+                  "rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer shadow-xs whitespace-nowrap shrink-0",
                   cat === c
                     ? "bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 font-black shadow-md scale-104 ring-2 ring-amber-400"
                     : "bg-white/90 text-stone-700 hover:bg-amber-100 hover:text-amber-900 border border-amber-200/80",
@@ -377,8 +377,8 @@ export function Gallery() {
 
         {/* GRAND FEATURED HD STAGE SPOTLIGHT (Inline On-Page Luxury Viewer) */}
         {activeStage && (
-          <div id="gallery-spotlight" className="mt-8 relative rounded-3xl overflow-hidden bg-stone-950 border-2 border-amber-400/70 shadow-2xl">
-            <div className="relative aspect-16/10 sm:aspect-16/9 lg:aspect-21/9 max-h-[680px] w-full overflow-hidden bg-black flex items-center justify-center">
+          <div id="gallery-spotlight" className="mt-8 relative rounded-2xl sm:rounded-3xl overflow-hidden bg-stone-950 border-2 border-amber-400/70 shadow-2xl">
+            <div className="relative aspect-4/3 xs:aspect-16/10 sm:aspect-16/9 lg:aspect-21/9 min-h-[300px] sm:min-h-[420px] max-h-[680px] w-full overflow-hidden bg-black flex items-center justify-center">
               <img
                 key={activeStage.alt}
                 src={getImageSrc(activeStage.src)}
@@ -395,18 +395,18 @@ export function Gallery() {
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-950/20 to-stone-950/40 pointer-events-none" />
 
               {/* Top Meta Bar */}
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
-                <div className="flex items-center gap-2">
-                  <span className="flex items-center gap-1.5 rounded-full bg-amber-500 text-stone-950 px-3.5 py-1 text-xs font-black uppercase tracking-wider shadow-md">
-                    <Sparkles className="size-3.5" />
+              <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 right-2.5 sm:right-4 flex items-center justify-between z-20 gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                  <span className="flex items-center gap-1 sm:gap-1.5 rounded-full bg-amber-500 text-stone-950 px-2.5 sm:px-3.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-md shrink-0">
+                    <Sparkles className="size-3 sm:size-3.5" />
                     {activeStage.cat}
                   </span>
-                  <span className="hidden sm:inline-block rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-xs font-bold text-amber-200 border border-amber-400/30">
+                  <span className="hidden sm:inline-block rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-xs font-bold text-amber-200 border border-amber-400/30 truncate">
                     Shubhamastu Events • Vijayawada · Eluru
                   </span>
                 </div>
 
-                <div className="rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-xs font-black text-amber-300 border border-amber-400/30">
+                <div className="rounded-full bg-black/70 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-black text-amber-300 border border-amber-400/30 shrink-0">
                   {activeIndex + 1} / {shown.length} Setups
                 </div>
               </div>
@@ -415,60 +415,60 @@ export function Gallery() {
               <button
                 aria-label="Previous stage setup"
                 onClick={prevStage}
-                className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 flex size-12 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer backdrop-blur-md hover:scale-108"
+                className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 flex size-9 sm:size-12 lg:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer backdrop-blur-md hover:scale-108"
               >
-                <ChevronLeft className="size-7 sm:size-8" />
+                <ChevronLeft className="size-5 sm:size-7 lg:size-8" />
               </button>
 
               <button
                 aria-label="Next stage setup"
                 onClick={nextStage}
-                className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 flex size-12 sm:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer backdrop-blur-md hover:scale-108"
+                className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 flex size-9 sm:size-12 lg:size-14 items-center justify-center rounded-full bg-stone-900/80 hover:bg-amber-500 hover:text-stone-950 text-amber-300 border border-amber-400/60 shadow-2xl transition-all cursor-pointer backdrop-blur-md hover:scale-108"
               >
-                <ChevronRight className="size-7 sm:size-8" />
+                <ChevronRight className="size-5 sm:size-7 lg:size-8" />
               </button>
 
               {/* Bottom Caption & Live Inquire Bar */}
-              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-20 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="max-w-2xl">
-                  <h3 className="font-display text-base sm:text-xl md:text-2xl font-black text-white leading-snug drop-shadow-md">
+              <div className="absolute bottom-0 inset-x-0 p-3 sm:p-5 lg:p-6 z-20 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4">
+                <div className="max-w-2xl min-w-0">
+                  <h3 className="font-display text-xs sm:text-base md:text-xl lg:text-2xl font-black text-white leading-snug drop-shadow-md line-clamp-2 sm:line-clamp-none">
                     {activeStage.alt}
                   </h3>
-                  <p className="text-xs sm:text-sm text-amber-300 font-semibold mt-1">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-amber-300 font-semibold mt-0.5 sm:mt-1 truncate">
                     ✓ Handcrafted Mandap & Stage Architecture • In-House Fabrication
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2.5 shrink-0 w-full sm:w-auto">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 shrink-0 w-full sm:w-auto">
                   <a
                     href={getEventWhatsAppLink(activeStage.alt)}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-104 cursor-pointer"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-104 cursor-pointer"
                   >
-                    <MessageCircle className="size-4.5" />
-                    Inquire This Setup
+                    <MessageCircle className="size-3.5 sm:size-4.5" />
+                    Inquire Setup
                   </a>
 
                   <a
                     href="#book"
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 rounded-full border border-amber-300/80 bg-amber-500/20 hover:bg-amber-500 hover:text-stone-950 text-amber-200 px-4 py-2.5 text-xs sm:text-sm font-bold backdrop-blur-md transition-all cursor-pointer"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded-full border border-amber-300/80 bg-amber-500/20 hover:bg-amber-500 hover:text-stone-950 text-amber-200 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold backdrop-blur-md transition-all cursor-pointer"
                   >
-                    <Sparkles className="size-4" />
-                    Book Consultation
+                    <Sparkles className="size-3.5 sm:size-4" />
+                    Book Consult
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Filmstrip of Thumbnails */}
-            <div className="p-3 bg-stone-900 border-t border-amber-400/30 flex items-center gap-2.5 overflow-x-auto scrollbar-thin">
+            <div className="p-2.5 sm:p-3 bg-stone-900 border-t border-amber-400/30 flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none touch-scroll-x">
               {shown.map((item, idx) => (
                 <button
                   key={`${item.alt}-thumb-${idx}`}
                   onClick={() => selectStage(idx)}
                   className={cn(
-                    "relative size-16 sm:size-20 shrink-0 rounded-xl overflow-hidden border-2 transition-all cursor-pointer",
+                    "relative size-14 sm:size-18 lg:size-20 shrink-0 rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all cursor-pointer",
                     activeIndex === idx
                       ? "border-amber-400 ring-2 ring-amber-300 scale-105 shadow-md"
                       : "border-white/20 opacity-60 hover:opacity-100 hover:border-amber-200",

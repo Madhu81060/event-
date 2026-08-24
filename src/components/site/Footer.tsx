@@ -30,7 +30,7 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-amber-950 text-white pt-20 pb-10">
+    <footer className="relative bg-amber-950 text-white pt-16 sm:pt-20 pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))]">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-4">
           <div>

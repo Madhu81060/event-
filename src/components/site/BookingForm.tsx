@@ -28,7 +28,7 @@ const schema = z.object({
   requirements: z.string().trim().max(1000).optional(),
 });
 
-const fieldClass = "glass-card h-12 rounded-xl";
+const fieldClass = "glass-card h-12 rounded-xl text-base sm:text-sm";
 
 export function BookingForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -50,7 +50,7 @@ export function BookingForm() {
   };
 
   return (
-    <section id="book" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="book" className="relative overflow-hidden py-16 sm:py-28">
       <div
         aria-hidden
         className="bg-gradient-luxe animate-gradient-pan pointer-events-none absolute -bottom-40 -left-32 size-[32rem] rounded-full opacity-10 blur-3xl"
@@ -62,9 +62,9 @@ export function BookingForm() {
           description="Share your details and a planner from your nearest office will call you within 24 hours."
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.6fr_1fr]">
+        <div className="mt-10 sm:mt-14 grid gap-8 lg:grid-cols-[1.6fr_1fr]">
           <Reveal>
-            <form onSubmit={onSubmit} noValidate className="glass-card rounded-3xl p-6 sm:p-9">
+            <form onSubmit={onSubmit} noValidate className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-9">
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field id="name" label="Full Name" error={errors["name"]}>
                   <Input id="name" name="name" className={fieldClass} placeholder="Your name" />

@@ -15,7 +15,7 @@ export function FloatingButtons() {
   }, []);
 
   return (
-    <div className="fixed right-3 sm:right-6 bottom-4 sm:bottom-6 z-40 flex flex-col items-end gap-2 sm:gap-3 pointer-events-auto">
+    <div className="fixed right-2.5 sm:right-6 bottom-[calc(0.75rem+env(safe-area-inset-bottom,0px))] sm:bottom-6 z-40 flex flex-col items-end gap-2 sm:gap-3 pointer-events-auto">
       {/* Back to Top */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

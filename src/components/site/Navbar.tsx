@@ -95,17 +95,17 @@ export function Navbar() {
           : "bg-white/90 backdrop-blur-sm border-b border-amber-200/60 shadow-xs py-2"
       }`}
     >
-      <nav
+        <nav
         aria-label="Main"
-        className="mx-auto flex h-14 sm:h-16 max-w-7xl items-center justify-between gap-2 px-3 sm:px-6"
+        className="mx-auto flex h-14 sm:h-16 max-w-7xl items-center justify-between gap-1.5 sm:gap-2 px-2.5 sm:px-6"
       >
         {/* Brand Logo & Name */}
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="flex items-center gap-2 sm:gap-2.5 group shrink-0"
+          className="flex items-center gap-1.5 sm:gap-2.5 group shrink-0 min-w-0"
         >
-          <div className="relative flex size-9 sm:size-11 md:size-12 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.35)] ring-1 ring-amber-300/60 transition-transform duration-300 group-hover:scale-106 shrink-0 overflow-hidden">
+          <div className="relative flex size-8.5 xs:size-10 sm:size-11 md:size-12 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.35)] ring-1 ring-amber-300/60 transition-transform duration-300 group-hover:scale-106 shrink-0 overflow-hidden">
             <img
               src={getImageSrc(logo)}
               alt="Shubhamastu Events logo"
@@ -118,7 +118,7 @@ export function Navbar() {
             <span className="font-display block text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-black tracking-tight text-amber-950 whitespace-nowrap">
               Shubhamastu Events
             </span>
-            <span className="block text-[7.5px] xs:text-[8px] sm:text-[9.5px] font-extrabold tracking-[0.12em] sm:tracking-[0.14em] text-amber-700 uppercase whitespace-nowrap">
+            <span className="block text-[7px] xs:text-[8px] sm:text-[9.5px] font-extrabold tracking-[0.1em] sm:tracking-[0.14em] text-amber-700 uppercase whitespace-nowrap">
               Eluru · Vijayawada
             </span>
           </div>
@@ -192,39 +192,39 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[85vw] max-w-sm bg-white border-l border-amber-200 p-5 sm:p-6 overflow-y-auto flex flex-col justify-between"
+              className="w-[85vw] max-w-sm bg-white border-l border-amber-200 p-5 sm:p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] pt-[calc(1.5rem+env(safe-area-inset-top,0px))] overflow-y-auto flex flex-col justify-between"
             >
               <div>
                 {/* Mobile Drawer Header */}
-                <div className="flex items-center gap-3 mt-2 pb-4 border-b border-amber-100">
-                  <div className="size-12 rounded-full border-2 border-amber-400 p-0.5 shadow-md ring-1 ring-amber-300 shrink-0 bg-white overflow-hidden">
+                <div className="flex items-center gap-3 mt-1 pb-4 border-b border-amber-100">
+                  <div className="size-11 sm:size-12 rounded-full border-2 border-amber-400 p-0.5 shadow-md ring-1 ring-amber-300 shrink-0 bg-white overflow-hidden">
                     <img
                       src={getImageSrc(logo)}
                       alt="Shubhamastu Events"
                       className="size-full rounded-full object-cover"
                     />
                   </div>
-                  <div>
-                    <SheetTitle className="font-display text-lg font-black text-amber-950 text-left leading-tight">
+                  <div className="min-w-0">
+                    <SheetTitle className="font-display text-base sm:text-lg font-black text-amber-950 text-left leading-tight truncate">
                       Shubhamastu Events
                     </SheetTitle>
-                    <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">
+                    <span className="text-[9.5px] font-bold text-amber-700 uppercase tracking-wider block">
                       Eluru (Rajeswari Nagar) · Vijayawada
                     </span>
-                    <p className="text-[9.5px] font-semibold text-stone-500 italic mt-0.5">
+                    <p className="text-[9px] font-semibold text-stone-500 italic mt-0.5 truncate">
                       Your Dreams • Our Planning • Memories Forever
                     </p>
                   </div>
                 </div>
 
                 {/* Navigation Links List */}
-                <ul className="mt-5 grid gap-1.5">
+                <ul className="mt-4 grid gap-1">
                   {links.map((l) => (
                     <li key={l.href}>
                       <a
                         href={l.href}
                         onClick={(e) => handleNavClick(e, l.href)}
-                        className={`block rounded-xl px-4 py-2.5 text-sm font-bold transition-colors ${
+                        className={`block rounded-xl px-3.5 py-2.5 text-sm font-bold transition-colors ${
                           activeHash === l.href
                             ? "bg-amber-500 text-white shadow-xs"
                             : "text-stone-800 hover:bg-amber-50 hover:text-amber-900"
@@ -238,7 +238,7 @@ export function Navbar() {
                     <a
                       href="#book"
                       onClick={(e) => handleNavClick(e, "#book")}
-                      className="flex items-center gap-2 rounded-xl bg-amber-100/70 px-4 py-2.5 text-sm font-black text-amber-900 hover:bg-amber-200/80 transition-colors"
+                      className="flex items-center gap-2 rounded-xl bg-amber-100/70 px-3.5 py-2.5 text-sm font-black text-amber-900 hover:bg-amber-200/80 transition-colors"
                     >
                       <CalendarDays className="size-4 text-amber-700" />
                       Book Consultation
@@ -248,19 +248,19 @@ export function Navbar() {
               </div>
 
               {/* Drawer Bottom Actions */}
-              <div className="mt-8 pt-5 border-t border-amber-100 flex flex-col gap-2.5 shrink-0">
+              <div className="mt-6 pt-4 border-t border-amber-100 flex flex-col gap-2.5 shrink-0">
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 py-3 text-xs sm:text-sm font-bold text-white shadow-sm transition-all"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-sm transition-all"
                 >
                   <MessageCircle className="size-4" />
                   WhatsApp Pavanswamy
                 </a>
                 <a
                   href={`tel:${PHONE.replace(/\s/g, "")}`}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-amber-100 hover:bg-amber-200 py-3 text-xs sm:text-sm font-bold text-amber-950 transition-colors"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-amber-100 hover:bg-amber-200 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-amber-950 transition-colors"
                 >
                   <Phone className="size-4 text-amber-700" />
                   Call Pavanswamy: {PHONE}

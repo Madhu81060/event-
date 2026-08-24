@@ -225,13 +225,13 @@ export function Services() {
             </div>
 
             {/* Service Group Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-1.5">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 sm:pb-0 scrollbar-none touch-scroll-x sm:flex-wrap">
               {serviceGroups.map((grp) => (
                 <button
                   key={grp}
                   onClick={() => setActiveGroup(grp)}
                   className={cn(
-                    "rounded-full px-3 py-1 text-xs font-bold transition-all cursor-pointer",
+                    "rounded-full px-3 py-1 text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0",
                     activeGroup === grp
                       ? "bg-amber-600 text-white shadow-xs font-black"
                       : "bg-white text-stone-700 hover:bg-amber-100 hover:text-amber-900 border border-amber-200/80",
