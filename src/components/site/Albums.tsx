@@ -138,14 +138,14 @@ export function Albums() {
 
                     <span className="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full bg-amber-500 px-3 py-1 text-xs font-black text-stone-950 shadow-lg">
                       <BookOpen className="size-3.5" />
-                      3 Signature Highlights
+                      10 HD Highlights
                     </span>
 
                     {/* Hover Prompt */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover/cover:opacity-100 bg-black/40 backdrop-blur-[2px]">
                       <span className="inline-flex items-center gap-2 rounded-full bg-amber-500 text-stone-950 px-5 py-2.5 text-xs sm:text-sm font-black shadow-xl transform scale-95 group-hover/cover:scale-100 transition-transform">
                         <Eye className="size-4" />
-                        View Full HD Showcase
+                        View 10 HD Highlights
                       </span>
                     </div>
 
@@ -170,13 +170,13 @@ export function Albums() {
                         {album.description}
                       </p>
 
-                      {/* 3 Micro-Thumbnails for this Album */}
-                      <div className="mt-4 grid grid-cols-3 gap-2.5">
-                        {album.spreads.map((spread, sIdx) => (
+                      {/* 5 Preview Thumbnails for this Album */}
+                      <div className="mt-4 grid grid-cols-5 gap-2">
+                        {album.spreads.slice(0, 5).map((spread, sIdx) => (
                           <button
                             key={spread.id}
                             onClick={() => openReader(album.id, sIdx)}
-                            className="group/thumb relative aspect-16/10 rounded-xl overflow-hidden border-2 border-amber-200/80 hover:border-amber-500 transition-all cursor-pointer shadow-xs hover:scale-103"
+                            className="group/thumb relative aspect-16/10 rounded-lg overflow-hidden border border-amber-200/80 hover:border-amber-500 transition-all cursor-pointer shadow-xs hover:scale-105"
                             title={spread.title}
                           >
                             <img
@@ -184,10 +184,13 @@ export function Albums() {
                               alt={spread.title}
                               className="size-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-black/25 group-hover/thumb:bg-transparent transition-colors" />
-                            <span className="absolute bottom-1 right-1 bg-black/75 text-amber-300 text-[9px] font-black px-1.5 py-0.5 rounded">
-                              {sIdx + 1}/3
-                            </span>
+                            {sIdx === 4 ? (
+                              <div className="absolute inset-0 bg-black/75 flex items-center justify-center text-amber-300 text-[10px] font-black">
+                                +5 More
+                              </div>
+                            ) : (
+                              <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-transparent transition-colors" />
+                            )}
                           </button>
                         ))}
                       </div>
@@ -214,7 +217,7 @@ export function Albums() {
                         onClick={() => openReader(album.id, 0)}
                       >
                         <Eye className="size-4 mr-1.5" />
-                        View 3 Signature Highlights
+                        Browse Lookbook (10 Photos)
                       </Button>
 
                       <a
@@ -379,9 +382,9 @@ export function Albums() {
                   </p>
                 </div>
 
-                {/* 3 Thumbnail Switchers & WhatsApp CTA */}
-                <div className="flex items-center gap-2 shrink-0">
-                  <div className="flex items-center gap-1.5 mr-2">
+                {/* 10 Thumbnail Switchers & WhatsApp CTA */}
+                <div className="flex items-center gap-2 shrink-0 max-w-full">
+                  <div className="flex items-center gap-1.5 overflow-x-auto max-w-[180px] sm:max-w-xs md:max-w-sm scrollbar-none py-1">
                     {currentAlbum.spreads.map((s, idx) => (
                       <button
                         key={s.id}
@@ -390,7 +393,7 @@ export function Albums() {
                           setIsZoomed(false);
                         }}
                         className={cn(
-                          "relative size-9 sm:size-10 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shadow-xs",
+                          "relative size-8 sm:size-9 shrink-0 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shadow-xs",
                           idx === activeSpreadIndex
                             ? "border-amber-400 ring-2 ring-amber-400 scale-108"
                             : "border-white/30 opacity-60 hover:opacity-100",
