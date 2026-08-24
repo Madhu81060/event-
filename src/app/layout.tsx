@@ -25,10 +25,44 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.shubhamastuevents.com"),
-  title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering in Eluru & Vijayawada",
+  title: "Shubhamastu Events | Best Event Planners, Royal Weddings & Catering in Eluru & Vijayawada",
   description:
-    "Shubhamastu Events — Your Dreams • Our Planning • Memories Forever. Directed by Pavanswamy. Luxury weddings, temple mandapams, 4K cinematography and royal catering across Eluru & Vijayawada.",
+    "Shubhamastu Events — #1 Luxury Wedding Planners & Event Organizers in Eluru & Vijayawada. Grand mandapam decoration, Vedic muhurtham stages, 4K cinematography & royal catering services. Directed by Pavanswamy.",
+  keywords: [
+    "Shubhamastu Events",
+    "Subhamasthu Events",
+    "Shubhamastu Events Eluru",
+    "Shubhamastu Events Vijayawada",
+    "Event Planners in Eluru",
+    "Best Wedding Planners in Eluru",
+    "Wedding Planners in Vijayawada",
+    "Event Management Companies in Eluru",
+    "Mandap Decoration in Eluru",
+    "Stage Decoration Vijayawada",
+    "Pavanswamy Events",
+    "Catering Services in Eluru",
+    "Birthday Party Organizers Eluru",
+    "Corporate Event Planners AP",
+    "Telugu Wedding Decorators",
+    "Flower Decoration in Eluru",
+  ],
   authors: [{ name: "Pavanswamy - Shubhamastu Events" }],
+  creator: "Shubhamastu Events",
+  publisher: "Shubhamastu Events",
+  alternates: {
+    canonical: "https://www.shubhamastuevents.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   verification: {
     google: "1_X_FLTXsVMDJ_8a0i4RS99G7XED4GCrCZbheEOOT2w",
   },
@@ -46,10 +80,12 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
-    title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering",
+    title: "Shubhamastu Events | #1 Royal Weddings, Mandaps & Catering in Eluru & Vijayawada",
     description:
-      "Your Dreams • Our Planning • Memories Forever. Luxury weddings, celebrations and corporate events across Eluru and Vijayawada.",
+      "Your Dreams • Our Planning • Memories Forever. 1200+ Luxury weddings, celebrations and corporate events across Eluru and Vijayawada.",
+    url: "https://www.shubhamastuevents.com",
     siteName: "Shubhamastu Events",
+    locale: "en_IN",
     images: [
       {
         url: "/logo.png",
@@ -62,11 +98,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering",
+    title: "Shubhamastu Events | Royal Weddings, Mandaps & Catering in Eluru & Vijayawada",
     description:
       "Your Dreams • Our Planning • Memories Forever. Luxury weddings across Eluru and Vijayawada.",
     images: ["/logo.png"],
   },
+  category: "Event Management & Wedding Planning",
 };
 
 export default function RootLayout({

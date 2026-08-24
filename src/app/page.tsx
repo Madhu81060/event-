@@ -22,12 +22,30 @@ const description =
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Subhamasthu Events",
+  "@type": ["LocalBusiness", "EventVenue", "ProfessionalService"],
+  name: "Shubhamastu Events",
+  alternateName: "Subhamasthu Events",
+  url: "https://www.shubhamastuevents.com",
+  logo: "https://www.shubhamastuevents.com/logo.png",
+  image: "https://www.shubhamastuevents.com/logo.png",
   description,
   telephone: "+91 99664 49609",
   email: "info@subhamasthuevents.com",
-  areaServed: ["Vijayawada", "Eluru", "Guntur", "Amaravati", "Andhra Pradesh", "Telangana"],
+  priceRange: "₹₹₹",
+  openingHours: "Mo-Su 00:00-23:59",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 16.7107,
+    longitude: 81.0952,
+  },
+  areaServed: [
+    { "@type": "City", name: "Eluru" },
+    { "@type": "City", name: "Vijayawada" },
+    { "@type": "City", name: "Guntur" },
+    { "@type": "City", name: "Amaravati" },
+    { "@type": "AdministrativeArea", name: "Andhra Pradesh" },
+    { "@type": "AdministrativeArea", name: "Telangana" },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Rajeswari Nagar",
@@ -36,7 +54,12 @@ const jsonLd = {
     postalCode: "534006",
     addressCountry: "IN",
   },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "950" },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    bestRating: "5",
+    ratingCount: "950",
+  },
   mainEntity: faqs.map((f) => ({
     "@type": "Question",
     name: f.q,
