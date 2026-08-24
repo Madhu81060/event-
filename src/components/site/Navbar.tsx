@@ -103,23 +103,23 @@ export function Navbar() {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="flex items-center gap-2 group shrink min-w-0"
+          className="flex items-center gap-2.5 group shrink min-w-0"
         >
-          <span className="flex size-8 sm:size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-300/80 p-0.5 sm:p-1 shadow-xs transition-transform duration-300 group-hover:scale-105 shrink-0">
+          <div className="relative flex size-10 sm:size-12 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.35)] ring-1 ring-amber-300/60 transition-transform duration-300 group-hover:scale-106 shrink-0 overflow-hidden">
             <img
               src={getImageSrc(logo)}
-              alt="Subhamasthu Events logo"
-              width={36}
-              height={36}
-              className="size-full object-contain"
+              alt="Shubhamastu Events logo"
+              width={48}
+              height={48}
+              className="size-full rounded-full object-cover object-center"
             />
-          </span>
+          </div>
           <div className="leading-tight min-w-0">
             <span className="font-display block text-sm sm:text-base md:text-lg lg:text-xl font-black tracking-tight text-amber-950 truncate">
-              Subhamasthu Events
+              Shubhamastu Events
             </span>
             <span className="block text-[8px] sm:text-[9.5px] font-extrabold tracking-[0.14em] text-amber-700 uppercase truncate">
-              Vijayawada · Eluru
+              Eluru · Vijayawada
             </span>
           </div>
         </a>
@@ -196,19 +196,24 @@ export function Navbar() {
             >
               <div>
                 {/* Mobile Drawer Header */}
-                <div className="flex items-center gap-2.5 mt-2 pb-4 border-b border-amber-100">
-                  <img
-                    src={getImageSrc(logo)}
-                    alt="Subhamasthu Events"
-                    className="size-9 object-contain"
-                  />
+                <div className="flex items-center gap-3 mt-2 pb-4 border-b border-amber-100">
+                  <div className="size-12 rounded-full border-2 border-amber-400 p-0.5 shadow-md ring-1 ring-amber-300 shrink-0 bg-white overflow-hidden">
+                    <img
+                      src={getImageSrc(logo)}
+                      alt="Shubhamastu Events"
+                      className="size-full rounded-full object-cover"
+                    />
+                  </div>
                   <div>
                     <SheetTitle className="font-display text-lg font-black text-amber-950 text-left leading-tight">
-                      Subhamasthu Events
+                      Shubhamastu Events
                     </SheetTitle>
                     <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">
-                      Vijayawada · Eluru · AP
+                      Eluru (Rajeswari Nagar) · Vijayawada
                     </span>
+                    <p className="text-[9.5px] font-semibold text-stone-500 italic mt-0.5">
+                      Your Dreams • Our Planning • Memories Forever
+                    </p>
                   </div>
                 </div>
 
@@ -251,14 +256,14 @@ export function Navbar() {
                   className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 py-3 text-xs sm:text-sm font-bold text-white shadow-sm transition-all"
                 >
                   <MessageCircle className="size-4" />
-                  Chat on WhatsApp
+                  WhatsApp Pavanswamy
                 </a>
                 <a
                   href={`tel:${PHONE.replace(/\s/g, "")}`}
                   className="flex items-center justify-center gap-2 rounded-xl bg-amber-100 hover:bg-amber-200 py-3 text-xs sm:text-sm font-bold text-amber-950 transition-colors"
                 >
                   <Phone className="size-4 text-amber-700" />
-                  Call: {PHONE}
+                  Call Pavanswamy: {PHONE}
                 </a>
               </div>
             </SheetContent>

@@ -34,26 +34,31 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3">
-              <span className="flex size-11 items-center justify-center rounded-2xl bg-white/10 p-1 border border-amber-400/40">
+            <div className="flex items-center gap-3.5">
+              <div className="flex size-14 sm:size-16 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.45)] ring-2 ring-amber-300/50 shrink-0 overflow-hidden">
                 <img
                   src={getImageSrc(logo)}
-                  alt="Subhamasthu Events logo"
+                  alt="Shubhamastu Events logo"
                   loading="lazy"
-                  width={40}
-                  height={40}
-                  className="size-full object-contain"
+                  width={64}
+                  height={64}
+                  className="size-full rounded-full object-cover object-center"
                 />
-              </span>
+              </div>
               <div>
-                <span className="font-display text-xl font-extrabold text-amber-200">Subhamasthu Events</span>
-                <span className="block text-[10px] tracking-widest uppercase text-amber-400 font-bold">
-                  Vijayawada · Eluru
+                <span className="font-display text-xl sm:text-2xl font-black text-amber-200 block leading-tight">
+                  Shubhamastu Events
                 </span>
+                <span className="block text-[9px] sm:text-[10px] tracking-[0.14em] uppercase text-amber-400 font-extrabold mt-0.5">
+                  Eluru (Rajeswari Nagar) · Vijayawada
+                </span>
+                <p className="text-[10px] font-semibold text-amber-200/90 italic mt-0.5">
+                  Your Dreams • Our Planning • Memories Forever
+                </p>
               </div>
             </div>
             <p className="mt-4 text-sm text-stone-300 font-medium leading-relaxed">
-              South India&apos;s signature event management house. Traditional temple mandaps, modern luxury receptions, and milestone celebrations since 2015.
+              South India&apos;s signature event management house directed by <strong>Pavanswamy</strong>. Traditional temple mandaps, 4K cinematography, and royal catering since 2015.
             </p>
             <div className="mt-5 flex gap-2">
               {[
@@ -101,7 +106,11 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-lg font-bold text-amber-200">Direct Contact</h3>
-            <ul className="mt-4 space-y-2 text-sm text-stone-300">
+            <ul className="mt-4 space-y-2.5 text-sm text-stone-300">
+              <li className="flex items-center gap-2">
+                <span className="text-xs font-bold text-amber-400">Contact:</span>
+                <span className="text-stone-100 font-bold">Pavanswamy</span>
+              </li>
               <li className="flex items-center gap-2">
                 <Phone className="size-4 text-amber-400 shrink-0" />
                 <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="hover:text-amber-300 font-bold">
@@ -116,8 +125,9 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 mt-2">
                 <MapPin className="size-4 text-amber-400 shrink-0 mt-0.5" />
-                <span className="text-xs text-stone-300">
-                  Offices in MG Road (Vijayawada) & Powerpet (Eluru)
+                <span className="text-xs text-stone-300 leading-snug">
+                  Head Office: Rajeswari Nagar, Eluru 534006<br />
+                  Studio: MG Road, Vijayawada
                 </span>
               </li>
             </ul>

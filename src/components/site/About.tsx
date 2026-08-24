@@ -6,6 +6,7 @@ import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { heroNewGanesha, heroNewLoveGanesha } from "./data";
 import { getImageSrc } from "@/lib/utils";
+import logo from "@/assets/logo-elite-events.png";
 
 const stats = [
   { value: 1200, suffix: "+", label: "Grand Events Crafted" },
@@ -85,7 +86,7 @@ export function About() {
               10+ Years of Crafting Royal Celebrations
             </h2>
             <p className="mt-3 text-sm sm:text-base text-stone-600 font-medium leading-relaxed">
-              Subhamasthu Events is South India&apos;s premier luxury event production house across Vijayawada and Eluru — specializing in royal temple mandaps, modern celebrity stages, and vibrant festive ceremonies.
+              Founded and directed by <strong>Pavanswamy</strong>, Subhamasthu Events is South India&apos;s premier luxury event production house based in Rajeswari Nagar, Eluru and Vijayawada — specializing in royal temple mandaps, modern celebrity stages, and vibrant festive ceremonies.
             </p>
 
             <div className="mt-6 grid gap-3.5 sm:grid-cols-2">
@@ -119,7 +120,29 @@ export function About() {
                 loading="lazy"
                 className="absolute -bottom-8 -left-6 hidden aspect-square w-48 rounded-2xl border-4 border-white object-cover sm:block shadow-2xl"
               />
-              <div className="absolute -top-5 -right-4 rounded-2xl bg-amber-500 text-white px-5 py-3 text-center shadow-lg border border-white">
+
+              {/* Official Shubhamastu Events Brand Seal */}
+              <div className="absolute -top-6 -left-4 sm:-left-6 flex items-center gap-2 rounded-full bg-white/95 backdrop-blur-md p-1.5 pr-4 border-2 border-amber-400 shadow-xl ring-1 ring-amber-300">
+                <div className="size-12 sm:size-14 rounded-full overflow-hidden border border-amber-300 shrink-0">
+                  <img
+                    src={getImageSrc(logo)}
+                    alt="Shubhamastu Events Official Brand Seal"
+                    width={56}
+                    height={56}
+                    className="size-full rounded-full object-cover"
+                  />
+                </div>
+                <div>
+                  <span className="font-display text-xs sm:text-sm font-black text-amber-950 block leading-tight">
+                    Shubhamastu Events
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-amber-700 block">
+                    Authentic Production House
+                  </span>
+                </div>
+              </div>
+
+              <div className="absolute -top-5 -right-4 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white px-5 py-3 text-center shadow-lg border-2 border-white">
                 <span className="font-display block text-3xl font-black">10+</span>
                 <span className="text-[11px] font-bold tracking-wider uppercase">Years Of Craft</span>
               </div>

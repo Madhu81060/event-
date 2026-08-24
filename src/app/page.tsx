@@ -30,10 +30,10 @@ const jsonLd = {
   areaServed: ["Vijayawada", "Eluru", "Guntur", "Amaravati", "Andhra Pradesh", "Telangana"],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "2nd Floor, MG Road, Opposite Trendset Mall, Labbipet",
-    addressLocality: "Vijayawada",
+    streetAddress: "Rajeswari Nagar",
+    addressLocality: "Eluru",
     addressRegion: "Andhra Pradesh",
-    postalCode: "520010",
+    postalCode: "534006",
     addressCountry: "IN",
   },
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "950" },

@@ -33,6 +33,7 @@ import {
 import { MerupuluCanvas, AmbienceMood } from "./MerupuluCanvas";
 import { Particles } from "./Particles";
 import { cn, getImageSrc } from "@/lib/utils";
+import logo from "@/assets/logo-elite-events.png";
 
 const slides = [
   {
@@ -355,18 +356,33 @@ export function Hero() {
         </div>
 
         {/* Left-Aligned Royal Glassmorphic Hero Card */}
-        <div className="my-auto max-w-lg lg:max-w-xl self-start rounded-2xl sm:rounded-3xl bg-stone-950/50 backdrop-blur-xl border border-amber-300/50 p-4 sm:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.5)] ring-1 ring-white/20">
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2">
-            <div className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 text-white px-2.5 sm:px-3 py-0.5 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.14em] shadow-sm border border-amber-300/40">
-              <Sparkles className="size-2.5 sm:size-3 fill-amber-200" />
-              <span>{active.eyebrow}</span>
+        <div className="my-auto max-w-lg lg:max-w-xl self-start rounded-2xl sm:rounded-3xl bg-stone-950/55 backdrop-blur-xl border border-amber-300/50 p-4 sm:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.5)] ring-1 ring-white/20">
+          <div className="flex items-center gap-3 mb-2.5">
+            <div className="flex size-11 sm:size-13 items-center justify-center rounded-full bg-white p-0.5 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.5)] ring-2 ring-amber-300/60 shrink-0 overflow-hidden">
+              <img
+                src={getImageSrc(logo)}
+                alt="Shubhamastu Events Official Logo"
+                width={52}
+                height={52}
+                className="size-full rounded-full object-cover"
+              />
             </div>
-
-            {active.tag && (
-              <span className="rounded-full bg-amber-400/20 backdrop-blur-md border border-amber-300/50 px-2 sm:px-2.5 py-0.5 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-amber-200">
-                ⭐ {active.tag}
-              </span>
-            )}
+            <div>
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 text-white px-2.5 sm:px-3 py-0.5 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.14em] shadow-sm border border-amber-300/40">
+                  <Sparkles className="size-2.5 sm:size-3 fill-amber-200" />
+                  <span>{active.eyebrow}</span>
+                </span>
+                {active.tag && (
+                  <span className="rounded-full bg-amber-400/20 backdrop-blur-md border border-amber-300/50 px-2 sm:px-2.5 py-0.5 text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-amber-200">
+                    ⭐ {active.tag}
+                  </span>
+                )}
+              </div>
+              <p className="text-[10px] sm:text-[11px] font-bold text-amber-300 mt-0.5 uppercase tracking-wider">
+                Shubhamastu Events • Eluru · Vijayawada
+              </p>
+            </div>
           </div>
 
           <h1

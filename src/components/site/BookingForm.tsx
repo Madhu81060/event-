@@ -141,12 +141,12 @@ export function BookingForm() {
                     placeholder="e.g. 500"
                   />
                 </Field>
-                <Field id="budget" label="Budget (optional)" error={errors["budget"]}>
+                <Field id="budget" label="Package / Budget (optional)" error={errors["budget"]}>
                   <Input
                     id="budget"
                     name="budget"
                     className={fieldClass}
-                    placeholder="e.g. ₹5,00,000"
+                    placeholder="Silver / Gold / Premium / Custom"
                   />
                 </Field>
               </div>
@@ -162,7 +162,7 @@ export function BookingForm() {
                     name="requirements"
                     rows={4}
                     className="glass-card rounded-xl"
-                    placeholder="Rituals, themes, colour palette, artists, catering preferences…"
+                    placeholder="Rituals, themes, colour palette, mandap setup, catering preferences…"
                   />
                 </Field>
               </div>
@@ -189,26 +189,26 @@ export function BookingForm() {
                 </span>
                 <div>
                   <h3 className="font-display text-lg font-bold text-stone-900">Customized Event Planning</h3>
-                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wide">100% Tailored To Your Budget</span>
+                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wide">Silver • Gold • Premium</span>
                 </div>
               </div>
 
               <p className="mt-4 text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
-                Looking for transparent quotes on Mandap Decor, 4K Cinematic Photography & Luxury Albums, or Royal Catering? Chat directly with our senior event planners.
+                Looking for tailored quotes on Mandap Decor, 4K Photography & Lookbook Albums, or Royal Catering? Connect directly with our Event Director Pavanswamy.
               </p>
 
               <div className="mt-5 space-y-2.5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-stone-700">
                   <span className="flex size-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">✓</span>
-                  <span>Zero hidden costs & flexible milestone payments</span>
+                  <span>Direct consultation with Pavanswamy</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-stone-700">
                   <span className="flex size-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">✓</span>
-                  <span>Free 1-on-1 3D layout & theme moodboard</span>
+                  <span>Head Office at Rajeswari Nagar, Eluru</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-stone-700">
                   <span className="flex size-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">✓</span>
-                  <span>FSSAI certified catering & government approvals</span>
+                  <span>100% customized Silver, Gold & Premium packages</span>
                 </div>
               </div>
 
@@ -220,23 +220,23 @@ export function BookingForm() {
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 text-xs sm:text-sm shadow-md transition-all hover:scale-102 cursor-pointer"
                 >
                   <MessageCircle className="size-4.5" />
-                  Chat on WhatsApp for Quote
-                </a>
-
-                <a
-                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("Event Booking Inquiry — Subhamasthu Events")}`}
-                  className="flex w-full items-center justify-center gap-2 rounded-full border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-950 font-bold py-2.5 text-xs transition-all cursor-pointer"
-                >
-                  <Mail className="size-4 text-amber-700" />
-                  Email: {EMAIL}
+                  WhatsApp Pavanswamy for Quote
                 </a>
 
                 <a
                   href={`tel:${PHONE.replace(/\s/g, "")}`}
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-950 font-bold py-2.5 text-xs transition-all cursor-pointer"
+                >
+                  <Phone className="size-3.5 text-amber-700" />
+                  Direct Call: {PHONE} (Pavanswamy)
+                </a>
+
+                <a
+                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("Event Booking Inquiry — Subhamasthu Events")}`}
                   className="flex w-full items-center justify-center gap-2 rounded-full border border-stone-200 bg-white hover:bg-stone-50 text-stone-800 font-bold py-2 text-xs transition-all cursor-pointer"
                 >
-                  <Phone className="size-3.5 text-stone-600" />
-                  Direct Call: {PHONE}
+                  <Mail className="size-3.5 text-stone-600" />
+                  Email: {EMAIL}
                 </a>
               </div>
             </div>

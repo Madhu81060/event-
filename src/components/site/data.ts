@@ -125,15 +125,17 @@ export {
   heroNewBananaCanopy,
 };
 
+export const CONTACT_PERSON = "Pavanswamy";
 export const WHATSAPP_NUMBER = "919966449609";
 export const WHATSAPP_MESSAGE =
-  "Hello Subhamasthu Events,\nI would like to book an event in Vijayawada / AP / Telangana.\nPlease contact me.";
+  "Hello Pavanswamy garu (Subhamasthu Events),\nI would like to book an event in Eluru / Vijayawada / AP.\nPlease contact me.";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const PHONE = "+91 99664 49609";
 export const EMAIL = "info@subhamasthuevents.com";
+export const PRIMARY_ADDRESS = "Rajeswari Nagar, Eluru, Andhra Pradesh";
 
 export const getEventWhatsAppLink = (eventTitle: string) => {
-  const msg = `Hello Subhamasthu Events,\nI am interested in this decor setup:\n"${eventTitle}"\n\nPlease share pricing, customization details and date availability for my event in Vijayawada / AP / Telangana.`;
+  const msg = `Hello Pavanswamy garu (Subhamasthu Events),\nI am interested in this setup:\n"${eventTitle}"\n\nPlease share customization details and date availability for my event in Eluru / Vijayawada / AP.`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 };
 
@@ -393,76 +395,40 @@ export const serviceGroups = [
 
 export const packages = [
   {
-    name: "Silver Essential",
-    tagline: "Intimate gatherings done beautifully with elegant decor & coverage",
-    badge: "Budget Friendly",
+    name: "Silver Package",
+    tagline: "Intimate family celebrations done beautifully with elegant decor & ceremony coverage",
+    badge: "Silver Essential",
     features: [
-      "Designer stage & backdrop decoration",
-      "Traditional floral styling & entrance arch",
-      "Pro sound system + dedicated technician",
-      "HD photography & ceremony coverage",
+      "Designer mandap / stage backdrop decoration",
+      "Traditional floral styling & entrance welcome arch",
+      "Professional sound system & ambient lighting setup",
+      "HD photography & sacred ceremony coverage",
       "Dedicated on-site event coordinator",
     ],
   },
   {
-    name: "Gold Celebration",
-    tagline: "The most-loved choice for grand family weddings & receptions",
+    name: "Gold Package",
+    tagline: "The most-loved choice for grand family weddings, receptions & milestone events",
     badge: "Most Popular Choice",
     features: [
-      "Premium designer stage & grand entrance arch",
-      "Exotic fresh flower decor & stage lighting",
-      "DJ setup + ambient mood lighting package",
-      "Candid photography & traditional videography",
-      "Guest welcome & hospitality management team",
+      "Royal designer temple mandapam & grand 3D entrance arch",
+      "Fresh flower canopies, floral walkway & stage lighting",
+      "DJ & concert sound setup + moving beam light package",
+      "Candid wedding photography & traditional 4K videography",
+      "Guest welcome, hospitality & catering coordination team",
     ],
     featured: true,
   },
   {
-    name: "Platinum Luxury",
-    tagline: "Full-scale royal production & 360° venue transformation",
-    badge: "Luxury Production",
+    name: "Premium Royal Package",
+    tagline: "Full-scale royal palace production, 4K cinematography & luxury multi-day wedding curation",
+    badge: "Luxury Royal Production",
     features: [
-      "Themed 360° venue transformation & ceiling canopy",
-      "Imported exotic flowers & royal chandeliers",
-      "High-res LED wall + concert lighting trusses",
-      "Cinematic 4K teaser film + DJI drone shoot",
-      "Grand bridal & groom entry special concepts",
-    ],
-  },
-  {
-    name: "Diamond Grandeur",
-    tagline: "Multi-day weddings & ceremonies, flawlessly managed",
-    badge: "Multi-Day Wedding",
-    features: [
-      "End-to-end: Haldi, Mehendi, Sangeet, Muhurtham & Reception",
-      "Dedicated senior creative design director",
-      "Celebrity artist & live entertainment management",
-      "Vintage luxury car entry & cold-pyro fireworks finale",
-      "Full FSSAI catering curation & royal dining hospitality",
-    ],
-  },
-  {
-    name: "Royal Heritage",
-    tagline: "Palace-scale destination & bespoke Vedic temple mandapams",
-    badge: "Bespoke Royal Setups",
-    features: [
-      "Handcrafted palace & Vedic temple set fabrication",
-      "Complete destination venue scouting & logistics",
-      "Guest travel, luxury stay & VIP protocol management",
-      "Full multi-camera cinematography crew + live 4K streaming",
-      "24/7 dedicated event management concierge",
-    ],
-  },
-  {
-    name: "Custom Bespoke",
-    tagline: "Built entirely around your specific vision and budget",
-    badge: "100% Customized",
-    features: [
-      "Choose any services à la carte (Decor, Photo, Catering, Lights)",
-      "Tailored budget planning with zero hidden charges",
-      "Free 1-on-1 3D design consultation & moodboards",
-      "Transparent vendor management across Vijayawada & Eluru",
-      "Flexible payment milestones and schedule",
+      "Handcrafted 40-foot palace mandapam & complete venue transformation",
+      "Sony FX3 4K cinematography + DJI drone shoots + same-day teaser",
+      "Luxury Italian flush-mount velvet photo lookbooks",
+      "FSSAI certified royal multi-cuisine catering curation",
+      "Direct end-to-end supervision by Pavanswamy & senior directors",
     ],
   },
 ];
@@ -478,7 +444,7 @@ export const compliance = [
     icon: "ShieldCheck",
     title: "Food Safety & Hygiene Audits",
     text: "Pre-event kitchen inspection, water quality checks, and gloved food handling.",
-    badge: "Hygiene audited",
+    badge: "100% Hygienic",
   },
   {
     icon: "FileCheck2",
@@ -509,14 +475,14 @@ export const compliance = [
 export const testimonials = [
   {
     name: "Sravani & Karthik",
-    city: "Vijayawada",
+    city: "Eluru",
     text: "Our mandap looked like something out of a film. Subhamasthu Events handled 900 guests without a single hiccup — every ritual ran exactly on time.",
     initials: "SK",
   },
   {
     name: "Joseph Fernandes",
     city: "Vijayawada",
-    text: "The church decoration and reception styling were breathtaking. Their team was calm, professional and genuinely kind to our families.",
+    text: "The church decoration and reception styling were breathtaking. Pavanswamy garu and team were calm, professional and genuinely kind to our families.",
     initials: "JF",
   },
   {
@@ -533,7 +499,7 @@ export const testimonials = [
   },
   {
     name: "Priya Sharma",
-    city: "Vijayawada",
+    city: "Eluru",
     text: "My daughter's first birthday was pure magic. The balloon design and dessert table were beyond what we imagined.",
     initials: "PS",
   },
@@ -548,23 +514,23 @@ export const testimonials = [
 export const faqs = [
   {
     q: "Which cities does Subhamasthu Events serve?",
-    a: "We operate full-service offices in Vijayawada and Eluru, and travel across Andhra Pradesh for destination events.",
+    a: "We operate our primary office in Rajeswari Nagar, Eluru and serve Vijayawada, Guntur, and destinations across Andhra Pradesh & Telangana.",
   },
   {
-    q: "How far in advance should we book?",
-    a: "For weddings we recommend 3–6 months ahead. Birthdays and corporate events can be arranged in 2–3 weeks.",
+    q: "Who is the primary contact person for bookings?",
+    a: "You can directly connect with Pavanswamy garu on +91 99664 49609 via phone call or WhatsApp for consultations.",
   },
   {
-    q: "Can you work within our budget?",
-    a: "Yes. Our packages and à la carte options are completely customizable to match your exact budget with transparent quotes.",
+    q: "Can you customize packages within our budget?",
+    a: "Yes! Our Silver, Gold, and Premium Royal packages are 100% customizable without fixed pricing constraints to give you the best value.",
   },
   {
-    q: "Do you handle multi-religion and multi-day weddings?",
-    a: "Absolutely. Hindu, Christian, and Muslim ceremonies are all core specializations.",
+    q: "Do you handle multi-day weddings?",
+    a: "Absolutely. Haldi, Mehendi, Sangeet, Vedic Muhurtham, and Reception are seamlessly managed under one roof.",
   },
   {
     q: "What is included in photography and videography?",
-    a: "Candid photography, traditional coverage, cinematic films, and drone shoots.",
+    a: "Candid photography, traditional coverage, 4K cinematic films, DJI drone shoots, and flush-mount velvet albums.",
   },
   {
     q: "How do payments work?",
@@ -574,15 +540,16 @@ export const faqs = [
 
 export const offices = [
   {
-    city: "Vijayawada",
-    role: "Main Design Studio & Regional Hub",
-    address: "2nd Floor, MG Road, Opposite Trendset Mall, Labbipet, Vijayawada 520010",
+    city: "Eluru",
+    role: "Head Office & Production Studio",
+    address: "Rajeswari Nagar, Eluru, Andhra Pradesh 534006",
+    contactPerson: "Pavanswamy",
     phone: "+91 99664 49609",
   },
   {
-    city: "Eluru",
-    role: "Production Studio & Warehouse",
-    address: "Powerpet Main Road, Near Clock Tower, Eluru 534002",
+    city: "Vijayawada",
+    role: "Regional Design Studio & Hub",
+    address: "2nd Floor, MG Road, Opposite Trendset Mall, Labbipet, Vijayawada 520010",
     phone: "+91 99664 49609",
   },
 ];
