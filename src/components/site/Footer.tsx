@@ -62,13 +62,15 @@ export function Footer() {
             </p>
             <div className="mt-5 flex gap-2">
               {[
-                { Icon: Instagram, label: "Instagram" },
-                { Icon: Facebook, label: "Facebook" },
-                { Icon: Youtube, label: "YouTube" },
-              ].map(({ Icon, label }) => (
+                { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/shubhamasthu__events/" },
+                { Icon: Facebook, label: "Facebook", href: "#contact" },
+                { Icon: Youtube, label: "YouTube", href: "#contact" },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#contact"
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={`Subhamasthu Events on ${label}`}
                   className="flex size-10 items-center justify-center rounded-full bg-white/10 text-amber-300 transition hover:bg-amber-500 hover:text-white"
                 >
