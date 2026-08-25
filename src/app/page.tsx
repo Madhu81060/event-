@@ -48,10 +48,10 @@ const jsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Rajeswari Nagar",
+    streetAddress: "Rajeswari Nagar, Near RTO Eluru Rd",
     addressLocality: "Eluru",
     addressRegion: "Andhra Pradesh",
-    postalCode: "534006",
+    postalCode: "534005",
     addressCountry: "IN",
   },
   aggregateRating: {

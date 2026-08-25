@@ -128,7 +128,7 @@ export function Footer() {
               <li className="flex items-start gap-2 mt-2">
                 <MapPin className="size-4 text-amber-400 shrink-0 mt-0.5" />
                 <span className="text-xs text-stone-300 leading-snug">
-                  Head Office: Rajeswari Nagar, Eluru 534006<br />
+                  Head Office: Rajeswari Nagar, Near RTO Eluru Rd, Eluru 534005<br />
                   Studio: MG Road, Vijayawada
                 </span>
               </li>

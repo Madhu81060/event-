@@ -132,7 +132,7 @@ export const WHATSAPP_MESSAGE =
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const PHONE = "+91 99664 49609";
 export const EMAIL = "info@subhamasthuevents.com";
-export const PRIMARY_ADDRESS = "Rajeswari Nagar, Eluru, Andhra Pradesh";
+export const PRIMARY_ADDRESS = "Rajeswari Nagar, Near RTO Eluru Rd, Eluru, Andhra Pradesh 534005";
 
 export const getEventWhatsAppLink = (eventTitle: string) => {
   const msg = `Hello Pavanswamy garu (Subhamasthu Events),\nI am interested in this setup:\n"${eventTitle}"\n\nPlease share customization details and date availability for my event in Eluru / Vijayawada / AP.`;
@@ -542,7 +542,7 @@ export const offices = [
   {
     city: "Eluru",
     role: "Head Office & Production Studio",
-    address: "Rajeswari Nagar, Eluru, Andhra Pradesh 534006",
+    address: "Rajeswari Nagar, Near RTO Eluru Rd, Eluru, Andhra Pradesh 534005",
     contactPerson: "Pavanswamy",
     phone: "+91 99664 49609",
   },
